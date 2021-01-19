@@ -1,0 +1,127 @@
+//網站顏色 ui kit
+$primary: #414F99;
+$white: #ffffff;
+$dark: #2D2D2D;
+$shadow:0px 3px 6px rgba(#000000, 0.3);
+$allRadius:20px;
+$allWeight:900;
+$leveldark:#999;
+$blue:rgb(0, 30, 66);
+$boxShadow: 0px 0px 3px 0px #a5a5a5;
+$hoverColor:#A2C3CE;
+$inputColor: #EFF7FF;
+$scrollBarColor:#A2C3CE;
+$border-color:#1F99CC;
+$button-bg:#58B1DB;
+$border-color-yellow:#FEC513;
+$tab-bg:#F5F4F4;
+$tab-active-bg:#E3E3E3;
+$card-items-bg:#262626;
+$fixed-input-bg:#263240;
+
+
+//側面欄寬
+$slideBar: 250px;
+
+//字級，行距，字間距
+$fontLevel-p:18px;
+$baseLine: 10px;
+$lineLevel: 1.2;
+$fontLevel: 1.5px;
+
+@mixin font-h2 {
+  font-size: 28px;
+  letter-spacing: 0.6px;
+  font-weight: 900;
+  color: $dark;
+}
+
+@mixin font-h3 {
+  font-size: 38px;
+  letter-spacing: 0.6px;
+  font-weight: 900;
+  color: $dark;
+}
+
+@mixin font-tab-title-active {
+  font-size: 36px;
+  letter-spacing: 0.6px;
+  font-weight: 900;
+  color: $dark;
+}
+
+@mixin font-allShop-btn {
+  font-size: 37px;
+  letter-spacing: 0.6px;
+  font-weight: 900;
+  color: $dark;
+}
+
+@mixin font-tab-title {
+  font-size: 32px;
+  letter-spacing: 0.6px;
+  font-weight: 900;
+  color: $dark;
+}
+
+@mixin font-input {
+  font-size: 12px;
+  letter-spacing: 0.6px;
+  font-weight: 900;
+  color: $dark;
+}
+
+@mixin font-p {
+  font-size: 18px;
+  letter-spacing: 0.6px;
+  font-weight: 900;
+  color: $dark;
+}
+
+@mixin font-item-name {
+  font-size: 20px;
+  letter-spacing: 0.6px;
+  font-weight: 900;
+  color: $dark;
+}
+
+@mixin button-font-size {
+  font-size: 21px;
+  letter-spacing: 0.6px;
+  font-weight: 900;
+  color: $dark;
+}
+
+@mixin scroll-input-font {
+  font-size: 23px;
+  letter-spacing: 0.6px;
+  font-weight: 900;
+  color: $dark;
+}
+
+@mixin font-p-level2 {
+  font-size: 16px;
+  letter-spacing: 0.6px;
+  font-weight: 900;
+  color: $dark;
+}
+
+@mixin font-p-level3 {
+  font-size: 12px;
+  letter-spacing: 0.6px;
+  font-weight: 900;
+  color: $dark;
+}
+
+// headerBar background-color
+@mixin headerBar-background {
+  background-color: #263240;
+}
+
+// header background
+@mixin header-background {
+  background-color: #5F98B4;
+  background-image: url("../img/headerBoxBg.png");
+  background-position: center;
+  background-repeat: repeat;
+}
