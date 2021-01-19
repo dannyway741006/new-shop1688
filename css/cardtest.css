@@ -1,0 +1,15 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+#all_product {
+  width: 100%;
+  max-width: 1920px;
+  margin: 0 auto;
+  border: 2px solid green;
+  padding: 0 15px;
+}
+/*# sourceMappingURL=cardtest.css.map */
