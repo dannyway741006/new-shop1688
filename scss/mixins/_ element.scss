@@ -1,0 +1,566 @@
+// 共用 button 
+
+@mixin shop-input {
+  .web-search-bar {
+    border: 2px solid #000000;
+    width: 100%;
+    max-width: 755px;
+    height: 65px;
+    margin: 0 auto;
+    border-radius: 200px;
+    overflow: hidden;
+    background-color: #EFF7FF;
+    cursor: pointer;
+    display: flex;
+    box-shadow: $shadow;
+
+
+    &::after {
+      position: absolute;
+      right: 50%;
+      top: 406px;
+      content: '';
+      height: 37px;
+      width: 1px;
+      background-color: #707070;
+      transition: all 0.4s;
+    }
+
+    &:hover {
+      &::after {
+        opacity: 0;
+      }
+    }
+
+    .web-input {
+      width: 50%;
+      height: 100%;
+      // border: 2px solid red;
+      border-radius: 200px;
+      transition: all 0.3s;
+
+      &:hover {
+        background-color: #ffffff;
+        box-shadow: $shadow;
+      }
+    }
+
+    .typeGroup {
+      position: relative;
+      display: flex;
+      align-items: center;
+      padding: 0 0 0 21px;
+
+      img {
+        width: 43px;
+        height: 37px;
+      }
+    }
+
+    .active-type-color {
+      background-color: $inputColor;
+
+      &:hover {
+        background-color: $inputColor;
+      }
+    }
+
+    .typeSearch {
+      // border: 1px solid red;
+      width: 100%;
+      height: 100vh;
+      // max-height: 246px;
+      max-height: 0;
+      max-width: 377.5px;
+      position: absolute;
+      z-index: 9999;
+      top: 462px;
+      border-radius: 0 0 20px 20px;
+      overflow: hidden;
+      background-color: #EFF7FF;
+      cursor: pointer !important;
+      opacity: 0;
+
+
+      ul {
+        height: 100%;
+        width: 100%;
+        // border: 2px solid green;
+        overflow-y: scroll;
+        // padding: 20px 0;
+
+        li {
+          padding: 12px 5px 12px 20px;
+          // border: 1px solid rosybrown;
+          display: flex;
+          align-items: center;
+          transition: all 0.8s;
+          @include font-p-level2;
+
+          img {
+            width: 35px;
+            height: 35px;
+            margin-right: 25px;
+          }
+
+          &:hover {
+            background-color: #ffffff;
+          }
+
+          p {
+            display: inline-block;
+            width: 100%;
+          }
+        }
+      }
+
+      ul#baseType::-webkit-scrollbar {
+        width: 5px;
+        background-color: #ffffff;
+        border-radius: 100px;
+      }
+
+      ul#baseType::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+        border-radius: 10px;
+        background-color: #ffffff;
+      }
+
+      ul#baseType::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+        background-color: $scrollBarColor;
+      }
+
+      ul#baseType::-webkit-scrollbar-button {
+        background-color: #ffffff;
+        height: 0px;
+      }
+    }
+
+    .active-typeBtn {
+      animation-duration: 0.5s;
+      opacity: 0;
+      animation-name: typeSearch;
+      animation-fill-mode: forwards;
+      animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    @keyframes typeSearch {
+      form {
+        max-height: 0;
+        opacity: 0;
+      }
+
+      to {
+        max-height: 246px;
+        padding: 14px 0;
+        box-shadow: $shadow;
+        opacity: 1;
+      }
+    }
+
+    .active-close-typeBtn {
+      opacity: 1;
+      max-height: 246px;
+      animation-duration: 0.5s;
+      animation-name: close-typeSearch;
+      animation-fill-mode: forwards;
+      animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    @keyframes close-typeSearch {
+      form {
+        max-height: 246px;
+        opacity: 1;
+      }
+
+      to {
+        max-height: 0;
+        opacity: 0;
+      }
+    }
+
+    .cityGroup {
+      align-items: center;
+      display: flex;
+      padding-left: 16px;
+      position: relative;
+
+      img {
+        width: 37px;
+        height: 40px;
+      }
+
+
+
+      .cityTitle {
+        @include font-p-level2;
+        color: #4D4D4D;
+        font-weight: 900;
+        // border: 2px solid gold;
+        position: absolute;
+        top: calc(50% - 13px);
+        left: 68px;
+        transition: all 0.2s ease-in-out;
+      }
+
+      .inputBtn {
+        @include btnReset;
+        width: 48px;
+        height: 48px;
+        // border: 3px solid red;
+        background-color: $primary;
+        padding: 14px;
+        border-radius: 100%;
+        position: absolute;
+        right: 13px;
+        z-index: 999999;
+
+        img {
+          @include full;
+          width: 24.5px;
+          height: 24.5px;
+        }
+      }
+    }
+
+    .active-city-color {
+      background-color: $inputColor;
+
+      &:hover {
+        background-color: $inputColor;
+      }
+    }
+
+    .citySearch {
+      position: absolute;
+      width: 100%;
+      max-width: 370px;
+      height: 100vh;
+      max-height: 0px;
+      left: 50.2%;
+
+      ul {
+        li {
+          padding: 19px 5px 19px 24px;
+        }
+      }
+    }
+
+    .active-cityBtn {
+      opacity: 0;
+      animation-duration: 0.5s;
+      animation-name: citySearch;
+      animation-fill-mode: forwards;
+      animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    @keyframes citySearch {
+      form {
+        opacity: 0;
+        max-height: 0;
+      }
+
+      to {
+        opacity: 1;
+        max-height: 246px;
+        padding: 14px 0;
+        box-shadow: $shadow;
+      }
+    }
+
+    .active-close-cityBtn {
+      opacity: 1;
+      max-height: 246px;
+      animation-duration: 0.5s;
+      animation-name: close-citySearch;
+      animation-fill-mode: forwards;
+      animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    @keyframes close-citySearch {
+      form {
+        opacity: 1;
+        max-height: 246px;
+      }
+
+      to {
+        opacity: 0;
+        max-height: 0;
+      }
+    }
+
+
+    .inputTitle {
+      @include font-p-level2;
+      color: #4D4D4D;
+      font-weight: 900;
+      // border: 2px solid gold;
+      position: absolute;
+      top: calc(50% - 13px);
+      left: 68px;
+      transition: all 0.2s ease-in-out;
+      pointer-events: none;
+    }
+
+    input {
+      @include btnReset;
+      width: 80%;
+      top: 28px;
+      left: 68px;
+      font-size: font(4);
+      position: absolute;
+    }
+
+    input:focus~label {
+      top: 1px;
+      left: 70px;
+      font-size: font(1);
+      color: $blue;
+      font-weight: 900;
+    }
+
+    input:valid~label {
+      top: 1px;
+      left: 70px;
+      font-size: font(1);
+      color: $blue;
+      font-weight: 900;
+    }
+
+
+  }
+
+  .active-bgColor-change {
+    background-color: #DEDEDE;
+
+    &::after {
+      opacity: 0;
+    }
+  }
+}
+
+@mixin shopButton {
+  display: flex;
+  @include btnReset;
+
+  width: 100%;
+  max-width: 229px;
+  height: 46px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100px;
+  position: relative;
+  transition: all 0.2s;
+  background-color: $button-bg;
+
+  &:after {
+    width: 100%;
+    max-width: 228px;
+    height: 45px;
+    content: '';
+    border: 1px solid #000000;
+    position: absolute;
+    border-radius: 100px;
+    top: -5px;
+    left: -7px;
+    z-index: 1;
+    transition: all 0.2s;
+
+  }
+
+  img {
+    margin-right: 10px;
+  }
+
+  p {
+    @include button-font-size;
+  }
+
+  &:hover {
+
+    transform: scale(1);
+    animation: button-ani 0.4s cubic-bezier(.8, -1, .2, 2) forwards;
+
+
+    &:after {
+      transition: all 0.5s;
+      top: 0px;
+      left: 0px;
+      box-shadow: $boxShadow;
+      // background-color: $scrollBarColor;
+    }
+  }
+
+  @keyframes button-ani {
+    from {
+      transform: scale(1);
+    }
+
+    to {
+      transform: scale(1.1);
+    }
+  }
+
+}
+
+// section-title
+
+@mixin section-title {
+  .shop-title {
+    // border: 2px solid red;
+    padding-left: 200px;
+
+    .shop-icon {
+      background-image: url("../../img/bg.png");
+      background-position: center;
+      background-size: cover;
+      display: inline-block;
+      position: relative;
+      box-shadow: $shadow;
+      border-radius: 18px;
+
+      &::before {
+        border-color: #222222 transparent transparent;
+        border-style: solid solid solid;
+        border-width: 20px 20px 20px 20px;
+        bottom: -40px;
+        content: "";
+        height: 0px;
+        /* left: 81px; */
+        right: 40px;
+        position: absolute;
+        width: 0px;
+
+      }
+
+      &::after {
+        border-color: rgb(255, 255, 255) transparent transparent;
+        border-style: solid solid solid solid;
+        border-width: 20px;
+        content: "";
+        bottom: -38px;
+        height: 0px;
+        /* left: 81px; */
+        right: 40px;
+        position: absolute;
+        width: 0px;
+      }
+
+      h2 {
+
+        @include font-h2;
+        background-position: center;
+        background-size: contain;
+        display: inline-block;
+        padding: 29px 63px;
+        border: 1px solid black;
+
+        border-radius: 18px;
+
+
+      }
+
+      .shop-title-icon {
+        width: 100%;
+        height: 100vh;
+        max-width: 133px;
+        max-height: 133px;
+        position: absolute;
+        left: -94px;
+        top: -17px;
+      }
+    }
+  }
+}
+
+
+// 前往地圖
+
+@mixin move-map {
+
+
+  .shop-move-map {
+    display: flex;
+    width: 115px;
+    border-radius: 5px;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba($color: #ffffff, $alpha: 0.5);
+    text-decoration: none;
+    cursor: pointer;
+
+    img {
+      width: 21px;
+      height: 21px;
+    }
+
+    p {
+      padding: 6px 0;
+      @include font-p-level2;
+    }
+  }
+
+  .shop-hot-pic {
+    height: 100vh;
+    width: 100%;
+    max-width: 445px;
+    max-height: 445px;
+    position: absolute;
+    box-shadow: $boxShadow;
+    border-radius: 10px;
+    overflow: hidden;
+    top: 135px;
+
+
+    img {
+      transition: all 0.3s;
+      transform: scale(1.2);
+      object-position: center;
+      object-fit: contain;
+    }
+  }
+
+}
+
+
+// card title
+
+@mixin card-title {
+  .card-title {
+    width: 100%;
+    height: 28px;
+    display: flex;
+    border: 2px solid black;
+
+    .card-txt {
+      width: 100%;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      padding-left: 16px;
+      background-color: #ffffff;
+
+      p {
+        @include font-p;
+      }
+    }
+
+    .card-button {
+      border: 1px solid black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 34px;
+      background-color: #A2C3CE;
+      cursor: pointer;
+
+      img {
+        width: 12px;
+        height: 12px;
+      }
+    }
+  }
+}

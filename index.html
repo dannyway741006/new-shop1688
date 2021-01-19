@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/main.css">
+
+  <title>base shop1688</title>
+</head>
+
+<body>
+
+  <header class="header" id="app" @click.stop="removeStyle">
+    <div class="mask" :class="{'active-mask':maskMove}" @click.stop="removeMask"></div>
+    <section id="allNav" class="allNav"
+      :class="{'active-allNav-h80':allNavHeight,'active-allNav-h145':allNavClose,'active-bg':onlyBg}">
+      <div class="navItems" :class="{'actvie-logo-change':logo}">
+        <article class="logoBox">
+          <a href="javascript:;">
+            <img class="logochange" src="./img/logoShop1688.svg">
+            <img class="logochange-no" src="https://storage.googleapis.com/alleynail.co/2020/09/logo-1.svg" alt="logo">
+            <h5>在地商家一站全搜</h5>
+          </a>
+        </article>
+        <article class="merchantItems">
+          <ul :class="{'link-block':linkActive,'link-no':linkActive_no}">
+            <li>
+              <a href="javascript:;">川老爺麻辣鍋</a>
+            </li>
+            <li>
+              <a href="javascript:;">食閣Skr餐廳</a>
+            </li>
+            <li>
+              <a href="javascript:;">三米三小館</a>
+            </li>
+          </ul>
+        </article>
+        <article class="linkMerchant">
+          <a href="javascript:;">
+            <img class="join-blue" src="./img/blue_icon_join.svg">
+            <img class="join-white" src="https://storage.googleapis.com/alleynail.co/2020/09/icon_join.svg" alt="連結圖示">
+            <p>成為商家</p>
+          </a>
+        </article>
+      </div>
+      <nav class="navBar" :class="{'active-navbar-move':navBarY,'active-navbar':navBar0}">
+        <div class="navOutLine" :class="{'allInput-w-50':inputSmall,'allInput-w-100':inputBig}">
+          <div class="inputExterior inputType"
+            :class="{'active-big-70':typeActive,'active-typeShadow':typeShadowActive,'active-typebackground':typebackground}">
+            <div class="group">
+              <input id="storeType" type="text" v-model="input.type" @click.stop="TypeBox" placeholder=""
+                required="required">
+              <span class="highLight"></span>
+              <span class="bar"></span>
+              <label class="inputTitle">分類/商家</label>
+            </div>
+            <div class="baseSearch" v-show="titleMenu.length"
+              :class="{'active-baseSearch-none':searchActive,'active-baseSearch-block':searchActive_block}"
+              id="baseSearch">
+
+              <ul id="baseType">
+
+                <li v-for="(item, index) in titleMenu">
+                  <img src="https://storage.googleapis.com/alleynail.co/2020/11/mapIcon.svg">
+                  <p @click="input.type = item">
+                    {{item}}
+                  </p>
+                </li>
+              </ul>
+            </div>
+            <div class="citySearch"
+              :class="{'active-citySearch-none':cityActive,'active-citySearch-block':cityActive_block}" id="citySearch">
+              <ul id="baseType">
+                <li v-for="(item, index) in cityData">
+                  <img src="https://storage.googleapis.com/alleynail.co/2020/11/mapIcon.svg">
+                  <p @click="input.city = item">
+                    {{item}}
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="inputExterior"
+            :class="{'active-big-70':typeActive,'active-cityShadow':cityShadowActive,'active-citybackground':citybackground}">
+            <input id="storeAdd" type="text" v-model="input.shop" @click.stop="reduction" required="required"
+              class="fake-input" :class="{'active-fake':scrollActive}">
+            <div class="group group-city" :class="{'active-city-none':cityActive}">
+              <input id="storeAdd" type="text" v-model="input.city" @click.stop="cityBox" required="required">
+              <span class="highLight"></span>
+              <span class="bar"></span>
+              <label class="inputTitle">地區</label>
+            </div>
+            <button class="inputBtn" id="search" @click="search">
+              <img src="https://storage.googleapis.com/alleynail.co/2020/09/seach_icon.svg" alt="searchPic">
+            </button>
+          </div>
+        </div>
+      </nav>
+
+    </section>
+    <section class="dataSection1" :class="{'active-control-vw':controlType}">
+    </section>
+    <article class="classification" :class="{'active-control-vw':controlType}">
+      <ul>
+        <li>
+          <a @click="food">
+            <img src="https://storage.googleapis.com/alleynail.co/new_shop1688_1231/img/classification/food.svg"
+              alt="旅遊美食">
+          </a>
+          <span>
+            <p>{{this.typeData[0]}}</p>
+          </span>
+        </li>
+        <li>
+          <a @click="car">
+            <img src="https://storage.googleapis.com/alleynail.co/new_shop1688_1231/img/classification/car.svg"
+              alt="旅遊美食">
+          </a>
+          <span>
+            <p>{{this.typeData[1]}}</p>
+          </span>
+        </li>
+        <li>
+          <a @click="home">
+            <img src="https://storage.googleapis.com/alleynail.co/new_shop1688_1231/img/classification/Furniture.svg"
+              alt="旅遊美食">
+          </a>
+          <span>
+            <p>{{this.typeData[2]}}</p>
+          </span>
+        </li>
+        <li>
+          <a @click="serivce">
+            <img src="https://storage.googleapis.com/alleynail.co/new_shop1688_1231/img/classification/life.svg"
+              alt="旅遊美食">
+          </a>
+          <span>
+            <p>{{this.typeData[3]}}</p>
+          </span>
+        </li>
+        <li>
+          <a @click="medical">
+            <img src="https://storage.googleapis.com/alleynail.co/new_shop1688_1231/img/classification/medical.svg"
+              alt="旅遊美食">
+          </a>
+          <span>
+            <p>{{this.typeData[4]}}</p>
+          </span>
+        </li>
+        <li>
+          <a @click="business">
+            <img src="https://storage.googleapis.com/alleynail.co/new_shop1688_1231/img/classification/ser.svg"
+              alt="旅遊美食">
+          </a>
+          <span>
+            <p>{{this.typeData[5]}}</p>
+          </span>
+        </li>
+        <li>
+          <a @click="academic">
+            <img
+              src="https://storage.googleapis.com/alleynail.co/new_shop1688_1231/img/classification/user-graduate-solid.svg"
+              alt="旅遊美食">
+          </a>
+          <span>
+            <p>{{this.typeData[6]}}</p>
+          </span>
+        </li>
+      </ul>
+    </article>
+    <section class="resultPage" :class="{'active-control-vw':controlType}">
+      <main class="mainBox">
+        <article class="resultTitle">
+          <div class="title-results">
+            <h2>搜尋結果：{{typeTitle}}{{cityTitle}}</h2>
+          </div>
+          <!-- <div class="results-type-city">
+            <span>
+              <h2 id="testAni" :key="input.type">名稱/分類：</h2>
+            </span>
+            <span>
+              <h2 id="testAni" :key="input.city">地區: </h2>
+            </span>
+          </div> -->
+
+
+
+
+        </article>
+        <article id="all_product">
+          <div class="bidBox" v-for="(item,index) in filterItem" :key="index">
+
+            <div class="img-w-100">
+              <img v-on:error.once="dosomething($event)" :src="`https://www.shop1688.com.tw/${item.bid}/item.jpg`">
+              <div class="go-map">
+                <a href="#">
+                  <img src="https://storage.googleapis.com/alleynail.co/new_shop1688_1231/img/googleMap.png">
+                </a>
+
+              </div>
+
+
+
+              <div class="item-pos-w100">
+                <div class="items item-01">
+                  <img
+                    :src="`https://storage.googleapis.com/alleynail.co/new_shop1688_1231/img/classification/${iconMap[item['分類'][0]]}`">
+                  <p>
+                    {{ item['分類'][0] }}
+                  </p>
+                </div>
+                <div class="items item-02">
+                  <img src="./img/icon_add_yellow.svg">
+                  <p> {{item.地址[0]}}</p>
+                </div>
+              </div>
+
+
+
+              <!-- <div class="item-pos-w100">
+                <div class="items item-01">
+                  <img src="https://storage.googleapis.com/alleynail.co/new_shop1688_1231/img/icon_add_yellow.svg">
+                  <p> {{item.分類[0]}}</p>
+                </div>
+                <div class="items item-02">
+                  <img src="./img/icon_add_yellow.svg">
+                  <p> {{item.地址[0]}}</p>
+                </div>
+              </div> -->
+
+            </div>
+
+            <div class="text">
+              <div class="text-w-60">
+                <img
+                  :src="`https://storage.googleapis.com/alleynail.co/new_shop1688_1231/img/classification/${iconMap[item['分類'][0]]}`">
+                <h3>{{item.名稱}}</h3>
+              </div>
+              <div class="text-w-40">
+                <button class="cardBtn">
+                  <a href="#">
+                    <img src="https://storage.googleapis.com/alleynail.co/2020/09/seach_icon.svg">
+                    <p>查看商家</p>
+                  </a>
+                </button>
+              </div>
+            </div>
+          </div>
+        </article>
+        <!-- <article id="all_product">
+          <div class="bidBox" v-for="(item,index) in filterItem" :key="index">
+          </div>
+          
+            </article> -->
+      </main>
+    </section>
+
+    <section class="mapInput" :class="{'active-map-switch':mapSwitch}">
+      <article class="results-map">
+        <article class="map-titles">
+          <h4>地圖範圍內的商家</h4>
+          <p>顯示「台灣{{cityTitle}}{{typeTitle}}」的搜尋結果</p>
+        </article>
+        <ul class="results-map-w100">
+          <li class="li-w100-flex" v-for="(item,index) in filterItem" :key="index">
+            <div class="img-w-100">
+              <img v-on:error.once="dosomething($event)" :src="`https://www.shop1688.com.tw/${item.bid}/item.jpg`">
+            </div>
+            <div class="map-content-w100">
+              <div class="content-header">
+                <div class="content-title">
+
+                  <h3>{{item.名稱}}</h3>
+                </div>
+                <div class="name-w60">
+                  <span class="name-display">
+                    <div class="name-type">
+                      <img
+                        :src="`https://storage.googleapis.com/alleynail.co/new_shop1688_1231/img/classification/${iconMap[item['分類'][0]]}`">
+                      <p>
+                        {{ item['分類'][0] }}
+                      </p>
+                    </div>
+                    <div class="name-city">
+                      <img src="./img/icon_add_yellow.svg">
+                      <p> {{item.地址[0]}}</p>
+                    </div>
+                  </span>
+                </div>
+                <div clss="map-button">
+                  <button class="google-btn">
+                    <a href="#">
+                      <img src="https://storage.googleapis.com/alleynail.co/2020/09/seach_icon.svg">
+                      <p>查看商家</p>
+                    </a>
+                  </button>
+                </div>
+              </div>
+              <div class="content-bottom">
+                <div class="content-map-icon">
+                  <a href="#" class="google-src">
+                    <img class="map-markers"
+                      src="https://storage.googleapis.com/alleynail.co/new_shop1688_1231/img/googleMap.png">
+                    <img class="map-map" src="./img/map.svg">
+                  </a>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+
+      </article>
+      <article id="map" class="mapBox"></article>
+    </section>
+  </header>
+
+  <script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDfWqe3ED8MkbbRa1lZeFla3trqY3UPOH0&libraries=places&v=weekly"
+    defer></script>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.9/vue.js'></script>
+  <script src="https://www.gstatic.com/firebasejs/7.5.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.5.2/firebase-firestore.js"></script>
+  <!-- <script src="./js/googleMap.js"></script> -->
+  <script src="./js/index.js"></script>
+
+</body>
+
+</html>

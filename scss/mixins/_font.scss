@@ -1,0 +1,45 @@
+$baseSize:12px;
+$sizeLevel:2px;
+$baseLineSize:10px;
+$paddingLevel:1.2;
+
+@function font($level: 0) {
+  @if $level < 0 {
+    $level: 0
+  }
+
+  @return $baseSize+$sizeLevel * round($level);
+}
+
+@function rhythm($size) {
+  @return ceil($size * $paddingLevel / $baseLineSize) * $baseLineSize;
+}
+
+@mixin font($level: 1, $line-height: auto) {
+  $size: font($level);
+  $line: rhythm($size);
+
+  font-size: $size;
+
+  @if $line-height==auto or $line-height < $line {
+    line-height: $line;
+  }
+
+  @else {
+    line-height: $line-height;
+  }
+}
+
+// img 100%
+
+@mixin full {
+  width: 100%;
+  height: 100%;
+}
+
+// section max-width
+
+@mixin sectionMw {
+  max-width: 1920px;
+  margin: 0 auto;
+}

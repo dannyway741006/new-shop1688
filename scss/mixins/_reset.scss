@@ -1,0 +1,25 @@
+// allReset
+
+@mixin domReset {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+// btnReset
+
+@mixin btnReset {
+  background-color: transparent;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+// a連結 reset
+
+@mixin aReset {
+  text-decoration: none;
+  color: $dark;
+
+
+}
