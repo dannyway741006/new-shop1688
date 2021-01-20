@@ -57,6 +57,13 @@
           align-items: center;
 }
 
+.shop-input-fixed .navItems .merchantItems ul .input-scroll-btn {
+  width: 400px;
+  height: 65px;
+  background-color: red;
+  z-index: 99999999999999;
+}
+
 .shop-input-fixed .navItems .merchantItems ul li {
   list-style: none;
 }
