@@ -68,13 +68,15 @@ new Vue({
     typeData,
     cityData,
     fireItems: [],
+    filterItem: [],
     iconmap: [],
     allTitle: [],
     input: {
       type: '',
       city: '',
-      // shop: '搜尋商家',
     },
+    typeTitle: '請重新搜尋',
+    cityTitle: '',
     allShop: [],
     icon: {
       "旅遊美食": 'food.png',
@@ -133,7 +135,9 @@ new Vue({
   },
 
   methods: {
-
+    dosomething(event) {
+      event.currentTarget.src = "./img/shop_item.svg"
+    },
 
 
     onScroll() {
@@ -190,7 +194,6 @@ new Vue({
       this.maskAll = false;
     },
     headerRemove() {
-
       this.cityBgChange = false;
       this.typeBgChange = false;
       if (this.openTypeSearch === true && this.openCitySearch === false) {
@@ -263,7 +266,7 @@ new Vue({
 
     fireData() {
       db.collection('shop1688web')
-        // .limit(1847) 
+        .limit(547)
         .get()
         .then(querySnapshot => {
           // let i = 1;
@@ -306,12 +309,58 @@ new Vue({
         self.timeFormate(new Date());
       }, 1000);
     },
-    btn() {
-      alert("asdfasdf");
-
+    //需加強！//
+    food() {
+      console.log(this.typeData[0].title);
+      this.typeTitle = this.typeData[0].title;
+      this.filterItem = this.fireItems.filter(item => {
+        return item.分類[0].includes(this.typeData[0].title);
+      })
     },
+    car() {
+      this.typeTitle = this.typeData[0].title;
+      this.filterItem = this.fireItems.filter(item => {
+        return item.分類[0].includes(this.typeData[1].title);
+      })
+    },
+    academic() {
+      this.typeTitle = this.typeData[0].title;
+      this.filterItem = this.fireItems.filter(item => {
+        return item.分類[0].includes(this.typeData[2].title);
+      })
+    },
+    serivce() {
+      this.typeTitle = this.typeData[0].title;
+      this.filterItem = this.fireItems.filter(item => {
+        return item.分類[0].includes(this.typeData[3].title);
+      })
+    },
+    home() {
+      this.typeTitle = this.typeData[0].title;
+      this.filterItem = this.fireItems.filter(item => {
+        return item.分類[0].includes(this.typeData[4].title);
+      })
+    },
+    medical() {
+      this.typeTitle = this.typeData[0].title;
+      this.filterItem = this.fireItems.filter(item => {
+        return item.分類[0].includes(this.typeData[5].title);
+      })
+    },
+    business() {
+      this.typeTitle = this.typeData[0].title;
+      this.filterItem = this.fireItems.filter(item => {
+        return item.分類[0].includes(this.typeData[6].title);
+      })
+    },
+    //需加強！ end//
     async search() {
-      alert("asdfasdfasd");
+      this.maskAll = true,
+        this.typeTitle = this.input.type;
+      this.cityTitle = this.input.city;
+
+      this.input.city = "";
+      this.input.type = "";
     }
   },
 

@@ -261,11 +261,7 @@
                 </a>
               </div>
             </section>
-
           </div>
-
-
-
         </div>
         <section class="dock-box">
           <ul class="shop-web">
@@ -276,16 +272,13 @@
             </li>
           </ul>
           <ul class="dock">
-            <li><a href="#">
-
-              </a></li>
-            <li><a href="#"></a></li>
-            <li><a href="#"></a></li>
-            <li><a href="#"></a></li>
-            <li><a href="#"></a></li>
-            <li><a href="#"></a></li>
-            <li><a href="#"></a></li>
-
+            <li><a @click="food"></a></li>
+            <li><a @click="car"></a></li>
+            <li><a @click="academic"></a></li>
+            <li><a @click="serivce"></a></li>
+            <li><a @click="home"></a></li>
+            <li><a @click="medical"></a></li>
+            <li><a @click="business"></a></li>
             <li class="last">
               <img src="./img/sevenIcon/food.png" alt="food">
               <img src="./img/sevenIcon/car.png" alt="car">
@@ -308,15 +301,50 @@
         </section>
       </section>
     </header>
+    <main class="resultPage">
+      <article class="shop-title">
+        <div class="shop-icon">
+          <h2>{{typeTitle}}{{cityTitle}}</h2>
+          <img class="shop-title-icon" src="./img/section-one.png" alt="hot-shop">
+        </div>
+      </article>
+      <section class="all-product">
+        <article class="card-items" v-for="(item,index) in filterItem" :key="index">
+          <div class="card-title">
+            <div class="card-txt">
+              <p>{{item.名稱}}</p>
+            </div>
+            <div class="card-button">
+              <img src="./img/Group 92.png" alt="card-button">
+            </div>
+          </div>
+          <div class="card-items-img">
+            <div class="card-items-map">
+              <a href="#" class="shop-move-map">
+                <img src="./img/map-24px.png" alt="look-map">
+                <p>{{item.地址[0]}}</p>
+              </a>
+            </div>
+            <img v-on:error.once="dosomething($event)" :src="`https://www.shop1688.com.tw/${item.bid}/item.jpg`"
+              alt="item-jpg">
+          </div>
+          <div class="card-item-name">
+            <h2>{{item.名稱}}</h2>
+          </div>
+          <div class="card-items-btn">
+            <div class="card-items-icon">
+              <img :src="`./img/sevenIcon/${icon[item['分類'][0]]}`" alt="icon">
+            </div>
+            <a :href="`https://www.shop1688.com.tw/${item.bid}`" class="card-btn">
+              <img src="./img/search-icon.png" alt="search-data">
+              <p>查看商家</p>
+            </a>
+          </div>
+        </article>
+      </section>
+    </main>
     <main class="main">
       <section id="section-one" class="all-section" ref="anchor1">
-
-
-
-
-
-
-
         <article class="shop-title">
           <div class="shop-icon">
             <h2>熱門商家</h2>

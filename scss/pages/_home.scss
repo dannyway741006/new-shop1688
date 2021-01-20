@@ -2790,14 +2790,18 @@
             height: 32px;
 
             img {
+
               margin-right: 10px;
             }
           }
         }
 
         img {
+          background-color: #ffffff;
           width: 100%;
           height: 100%;
+          object-fit: cover;
+          object-position: center;
           transition: all 0.3s;
           transform: scale(1.3);
 
@@ -2834,6 +2838,9 @@
           justify-content: flex-end;
           width: 100%;
           @include font-item-name;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
           // border: 1px solid rebeccapurple;
           // color: #ffffff;
           z-index: 1;
