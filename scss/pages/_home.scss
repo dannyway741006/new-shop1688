@@ -4,6 +4,19 @@
   @include domReset;
 }
 
+.mask-all {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, .3);
+  z-index: 999;
+  display: none;
+}
+
+.active-mask-all {
+  display: block;
+}
+
 .shop-input-fixed {
   background-color: $fixed-input-bg;
   position: fixed;
@@ -14,9 +27,11 @@
   opacity: 0;
   transition: all 0.5s;
 
+
+
   .navItems {
     width: 100%;
-    border: 1px solid goldenrod;
+    // border: 1px solid goldenrod;
     display: flex;
     padding-top: 20px;
     padding-left: 30px;
@@ -25,7 +40,7 @@
     .logoBox {
       // padding-top: 31px;
       // padding-left: 50px;
-      border: 4px solid green;
+      // border: 4px solid green;
       max-width: 220px;
 
       img {
@@ -37,6 +52,8 @@
     .merchantItems {
       width: calc(100% - 440px);
       // border: 5px solid #ffffff;
+      transform: translateY(-80px);
+      transition: all 0.3s;
 
       ul {
         width: 100%;
@@ -45,12 +62,7 @@
         justify-content: center;
         align-items: center;
 
-        .input-scroll-btn {
-          width: 400px;
-          height: 65px;
-          background-color: red;
-          z-index: 99999999999999;
-        }
+
 
         li {
           list-style: none;
@@ -89,17 +101,17 @@
     }
 
     .linkMerchant {
-      border: 1px solid #ffffff;
+      // border: 1px solid #ffffff;
       width: 100%;
       max-width: 220px;
       display: flex;
-      justify-content: center;
+      justify-content: flex-end;
       align-items: center;
 
       a {
         display: flex;
         position: relative;
-        background-color: green;
+        // background-color: green;
         justify-content: center;
         align-items: center;
         text-decoration: none;
@@ -145,17 +157,26 @@
     @include shop-input;
     padding-top: 10px;
     padding-bottom: 20px;
+    max-height: 0px;
+    transition: all 0.3s;
 
 
     .web-search-bar {
       max-width: 400px;
+      transform: translateY(-62px);
+      transition: all 0.3s;
+
       // max-width: 800px;
       // height: 70px;
 
+
       .inputTitle {
-        @include font-item-name;
-        left: 85px;
-        top: calc(50% - 15px);
+        @include font-p-level2;
+        left: 65px;
+        top: calc(50% - 12px);
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
       }
 
       .typeSearch {
@@ -166,28 +187,34 @@
       }
 
       &:after {
-        top: 100px;
-        height: 45px;
+        top: 94px;
+        height: 50px;
       }
 
       .typeGroup {
 
         img {
-          width: 55px;
-          height: 45px;
+          // width: 55px;
+          // height: 45px;
+          width: 40px;
+          height: 30px;
         }
       }
 
       .cityGroup {
 
         img {
-          width: 43px;
-          height: 48px;
+          // width: 43px;
+          // height: 48px;
+          width: 33px;
+          height: 38px;
         }
 
         .inputBtn {
           width: 55px;
           height: 55px;
+          right: 5px;
+          transition: all 0.3s;
 
           img {
             width: 27px;
@@ -197,28 +224,92 @@
       }
 
       input {
-        top: 30px;
-        left: 85px;
-        @include font-item-name;
+        top: 25px;
+        left: 65px;
+        @include font-p-level2;
 
       }
 
       input:focus~label {
         top: 5px;
         left: 100px;
-        font-size: font(2);
+        font-size: font(1);
 
       }
 
       input:valid~label {
         top: 5px;
-        left: 85px;
-        font-size: font(2);
+        left: 65px;
+        @include font-p-level3;
 
       }
     }
 
   }
+
+}
+
+.active-creat-input {
+  .navItems {
+    .merchantItems {
+      transform: none;
+    }
+  }
+
+  .scroll-input {
+    max-height: 200px;
+
+    .web-search-bar {
+      transform: none;
+      max-width: 800px;
+      height: 80px;
+
+      .web-input {
+        input {
+          top: 30px;
+          left: 65px;
+          @include font-item-name;
+          // border: 1px solid red;
+
+        }
+
+        .inputTitle {
+          @include font-item-name;
+          top: calc(50% - 14px);
+
+        }
+
+        .inputBtn {
+          width: 65px;
+          height: 65px;
+          right: 9px;
+          transition: all 0.3s;
+
+          img {
+            width: 27px;
+            height: 28px;
+          }
+        }
+
+        input:focus~label {
+          top: 5px;
+          left: 90px;
+          font-size: font(2);
+
+        }
+
+        input:valid~label {
+          top: 5px;
+          left: 65px;
+          font-size: font(2);
+
+        }
+      }
+    }
+
+  }
+
+
 
 }
 

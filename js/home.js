@@ -101,6 +101,11 @@ new Vue({
 
     // scroll input
     scrollInput: false,
+    // scroll input end
+    // scroll input animation
+    creatScrollBar: false,
+    maskAll: false,
+    // scroll input animation end
   },
 
   computed: {
@@ -128,6 +133,9 @@ new Vue({
   },
 
   methods: {
+
+
+
     onScroll() {
       const scrollTop =
         document.documentElement.scrollTop + document.body.scrollTop;
@@ -142,6 +150,8 @@ new Vue({
         this.scrollInput = false;
       }
     },
+
+
     dropMove() {
       let slider = document.querySelector('.hot-shop-more');
       let isDown = false;
@@ -175,7 +185,12 @@ new Vue({
       });
     },
     // search bar 動畫控制
+    removeMask() {
+      this.creatScrollBar = false;
+      this.maskAll = false;
+    },
     headerRemove() {
+
       this.cityBgChange = false;
       this.typeBgChange = false;
       if (this.openTypeSearch === true && this.openCitySearch === false) {
@@ -191,6 +206,9 @@ new Vue({
       }
     },
     openSearchItems() {
+      this.maskAll = true,
+        this.creatScrollBar = true;
+      this.creatScrollBar = true;
       this.cityBgChange = false;
       this.typeBgChange = true;
       this.baColorChange = true;
@@ -211,6 +229,9 @@ new Vue({
       }
     },
     opencitySearchItems() {
+      this.maskAll = true,
+        this.creatScrollBar = true;
+      this.creatScrollBar = true;
       this.cityBgChange = true;
       this.typeBgChange = false;
       this.baColorChange = true;
