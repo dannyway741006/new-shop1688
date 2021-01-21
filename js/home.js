@@ -359,6 +359,11 @@ new Vue({
         this.typeTitle = this.input.type;
       this.cityTitle = this.input.city;
 
+      this.filterItem = this.fireItems.filter(item => {
+        console.log("asdfasdfdsafdddddddddd")
+        return item.名稱.toLowerCase() === this.input.type.toLowerCase()
+      })
+
       this.input.city = "";
       this.input.type = "";
     }
