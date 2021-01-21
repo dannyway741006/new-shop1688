@@ -100,7 +100,10 @@ new Vue({
     baColorChange: false,
     typeBgChange: false,
     cityBgChange: false,
-
+    resultPageSwitch: true,
+    mainSwitch: false,
+    mapInputSwitch: true,
+    headerSwitch: false,
     // class 切換 end
     // tab 切換
     cur: 0, //默认选中第一个tab
@@ -163,10 +166,21 @@ new Vue({
       let header = document.querySelector('.header');
       let fixed = document.querySelector('.shop-input-fixed');
       let allSection = document.querySelector('.all-section');
-      if (allSection.getBoundingClientRect().top < 0) {
-        this.scrollInput = true;
+      let resultPage = document.querySelector('.resultPage');
+      if (this.resultPageSwitch === true) {
+        if (allSection.getBoundingClientRect().top <= 0) {
+          this.creatScrollBar = false;
+          this.scrollInput = true;
+        } else {
+          this.scrollInput = false;
+        }
       } else {
-        this.scrollInput = false;
+        if (resultPage.getBoundingClientRect().top <= 0) {
+          this.creatScrollBar = false;
+          this.scrollInput = true;
+        } else {
+          this.scrollInput = false;
+        }
       }
     },
 
@@ -224,7 +238,10 @@ new Vue({
       }
     },
     openSearchItems() {
-      // this.maskAll = true,
+      if (this.mainSwitch === true) {
+        this.maskAll = true;
+      }
+
       this.creatScrollBar = true;
       this.creatScrollBar = true;
       this.cityBgChange = false;
@@ -247,6 +264,9 @@ new Vue({
       }
     },
     opencitySearchItems() {
+      if (this.mainSwitch === true) {
+        this.maskAll = true;
+      }
       // this.maskAll = true,
       this.creatScrollBar = true;
       this.creatScrollBar = true;
@@ -370,23 +390,37 @@ new Vue({
     },
     //需加強！ end//
     async search() {
-      // this.maskAll = true,
+      // let header = document.querySelector('.header');
+      // let fixed = document.querySelector('.shop-input-fixed');
+      // let allSection = document.querySelector('.all-section');
+      // let resultPage = document.querySelector('.resultPage');
+      // if (this.resultPageSwitch === true) {
+      //   if (allSection.getBoundingClientRect().top <= 0) {
+      //     this.creatScrollBar = false;
+      //     this.scrollInput = true;
+      //   } else {
+      //     this.scrollInput = false;
+      //   }
+      // } else {
+      //   if (resultPage.getBoundingClientRect().top <= 0) {
+      //     this.creatScrollBar = false;
+      //     this.scrollInput = true;
+      //   } else {
+      //     this.scrollInput = false;
+      //   }
+      // }
+      this.maskAll = false,
+        this.creatScrollBar = false;
+      // this.closeOpenCitySearch = true;
       this.deleteMarkers();
       this.typeTitle = this.input.type;
       this.cityTitle = this.input.city;
-
-
-
       this.filterItem = this.fireItems.filter(item => {
-
         return item.名稱.toLowerCase().trim() === this.input.type.toLowerCase().trim();
       })
 
-
-
       if (this.filterItem.length) {
-        // this.controlType = true;
-        // this.mapSwitch = false;
+
         for (let i = 0; i < this.filterItem.length; i++) {
           try {
             await this.geocodeResults(
@@ -413,8 +447,12 @@ new Vue({
         //   // this.onlyBg = false;
         // }
         if (this.input.city) {
-          // this.controlType = false;
-          // this.mapSwitch = true;
+
+          this.scrollInput = true;
+          this.resultPageSwitch = false;
+          this.mainSwitch = true;
+          this.headerSwitch = false;
+          this.mapInputSwitch = true;
 
 
           this.filterItem = this.fireItems.filter(item => {
@@ -422,30 +460,25 @@ new Vue({
           })
         }
         if (this.newTypeData.includes(this.input.type)) {
-          // this.controlType = false;
-          // this.mapSwitch = true;
+
+          this.scrollInput = true;
+          this.resultPageSwitch = false;
+          this.mainSwitch = true;
+          this.headerSwitch = false;
+          this.mapInputSwitch = true;
+          this.scrollInput = false;
           const shopload = this.input.city ? this.filterItem : this.fireItems
           this.filterItem = shopload.filter(item => {
             return item.分類[0].includes(this.input.type);
           })
           if (this.input.type && this.input.city) {
-            // this.controlType = true;
-            // this.mapSwitch = false;
-            // searchbar
-            // this.typeActive = false;
-            // this.scrollActive = false;
-            // this.inputSmall = false;
-            // this.inputBig = true;
-            // this.linkActive = false;
-            // this.linkActive_no = true;
-            // this.cityActive = true;
+            console.log("close");
+            this.scrollInput = true;
+            this.resultPageSwitch = true;
+            this.mainSwitch = true;
+            this.headerSwitch = true;
+            this.mapInputSwitch = false;
 
-            // this.allNavClose = false;
-            // this.allNavHeight = true;
-
-            // searchbar end
-            // this.navBar0 = false;
-            // this.navBarY = true;
             if (this.input.city === "臺中市") {
               this.centerTaichung();
             } else if (this.input.city === "臺北市") {
@@ -547,30 +580,17 @@ new Vue({
           } else if (this.input.city === "連江縣") {
             this.centerLianjiang();
           }
-          // this.controlType = false;
-          // this.mapSwitch = true;
+
           const payload = this.input.city ? this.filterItem : this.fireItems
           this.filterItem = payload.filter(item => {
             return item.名稱.toLowerCase().includes(this.input.type.toLowerCase())
           })
           if (this.input.type && this.input.city) {
-
-            // this.controlType = true;
-            // this.mapSwitch = false;
-            // searchbar
-            // this.typeActive = false;
-            // this.scrollActive = false;
-            // this.inputSmall = false;
-            // this.inputBig = true;
-            // this.linkActive = false;
-            // this.linkActive_no = true;
-            // this.cityActive = true;
-
-            // this.allNavClose = false;
-            // this.allNavHeight = true;
-            // searchbar end
-            // this.navBar0 = false;
-            // this.navBarY = true;
+            this.scrollInput = true;
+            this.resultPageSwitch = true;
+            this.mainSwitch = true;
+            this.headerSwitch = true;
+            this.mapInputSwitch = false;
 
             const payload = this.input.city ? this.filterItem : this.fireItems
             this.filterItem = payload.filter(item => {
@@ -592,7 +612,6 @@ new Vue({
           }
         }
       }
-      console.log("asdfasdfasdfas")
       this.input.city = "";
       this.input.type = "";
     },

@@ -279,17 +279,7 @@
 
         }
 
-        .inputBtn {
-          width: 65px;
-          height: 65px;
-          right: 9px;
-          transition: all 0.3s;
 
-          img {
-            width: 27px;
-            height: 28px;
-          }
-        }
 
         input:focus~label {
           top: 5px;
@@ -303,6 +293,21 @@
           left: 65px;
           font-size: font(2);
 
+        }
+      }
+
+      .only-position {
+        .inputBtn {
+          width: 65px;
+          height: 65px;
+          top: 6px;
+          right: 10px;
+          transition: all 0.3s;
+
+          img {
+            width: 27px;
+            height: 28px;
+          }
         }
       }
     }
@@ -349,6 +354,8 @@
 
       .logo {
         margin-right: 50px;
+        cursor: pointer;
+        // border: 1px solid red;
 
         img {
           width: 100%;
@@ -1088,8 +1095,6 @@
               height: 40px;
             }
 
-
-
             .cityTitle {
               @include font-p-level2;
               color: #4D4D4D;
@@ -1101,24 +1106,6 @@
               transition: all 0.2s ease-in-out;
             }
 
-            .inputBtn {
-              @include btnReset;
-              width: 48px;
-              height: 48px;
-              // border: 3px solid red;
-              background-color: $primary;
-              padding: 14px;
-              border-radius: 100%;
-              position: absolute;
-              right: 13px;
-              z-index: 999999;
-
-              img {
-                @include full;
-                width: 24.5px;
-                height: 24.5px;
-              }
-            }
           }
 
           .active-city-color {
@@ -1226,6 +1213,7 @@
           }
 
 
+
         }
 
         .active-bgColor-change {
@@ -1233,6 +1221,31 @@
 
           &::after {
             opacity: 0;
+          }
+        }
+
+        .only-position {
+          position: relative;
+        }
+
+        .inputBtn {
+          @include btnReset;
+          width: 48px;
+          height: 48px;
+          // border: 3px solid red;
+          background-color: $primary;
+          padding: 14px;
+          border-radius: 100%;
+          position: absolute;
+          top: 6px;
+
+          z-index: 999999;
+          right: 11px;
+
+          img {
+            @include full;
+            width: 24.5px;
+            height: 24.5px;
           }
         }
 
@@ -1804,6 +1817,10 @@
 
 
   }
+}
+
+.active-header-display {
+  display: none;
 }
 
 .main {
@@ -2928,4 +2945,8 @@
       }
     }
   }
+}
+
+.active-main-display {
+  display: none;
 }

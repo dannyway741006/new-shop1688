@@ -4,8 +4,9 @@
   width: 100%;
   display: flex;
   height: 100vh;
+  // height: calc(100vh - 97px);
   min-height: 800px;
-  padding-top: 100px;
+  padding-top: 97px;
   max-width: 1920px;
   margin: 0 auto;
 
@@ -46,7 +47,7 @@
       border-radius: 10px;
       height: 50px;
       box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
-      background-color: $primary;
+      background-color: $scrollBarColor;
     }
 
     .li-w100-flex {
@@ -289,6 +290,6 @@
   height: 100%;
 }
 
-.active-map-switch {
+.active-mapInput-display {
   display: none;
 }

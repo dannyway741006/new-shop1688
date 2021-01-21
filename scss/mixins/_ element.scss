@@ -205,6 +205,12 @@
         transition: all 0.2s ease-in-out;
       }
 
+
+    }
+
+    .only-position {
+      position: relative;
+
       .inputBtn {
         @include btnReset;
         width: 48px;
@@ -214,7 +220,8 @@
         padding: 14px;
         border-radius: 100%;
         position: absolute;
-        right: 13px;
+        right: 6px;
+        top: 7px;
         z-index: 999999;
 
         img {

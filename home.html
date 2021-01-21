@@ -17,8 +17,7 @@
     <section :class="{'active-input-fixed':scrollInput,'active-creat-input':creatScrollBar}" class="shop-input-fixed">
       <div class="navItems">
         <article class="logoBox">
-          <a href="javascript:;">
-
+          <a href="javascript:;" onclick="javascript:window.location.reload()">
             <img class="logochange-no" src="./img/logo-input.png" alt="logo">
           </a>
         </article>
@@ -71,9 +70,7 @@
             <img src="./img/city-icon.png" alt="city-icon">
             <input id="storeAdd" type="text" required="required" autocomplete="off" v-model="input.city">
             <label class="inputTitle">地區</label>
-            <button class="inputBtn" id="search" @click="search">
-              <img src="./img/search-icon.png">
-            </button>
+
           </article>
           <div class="typeSearch citySearch" id="citySearch"
             :class="{'active-cityBtn':openCitySearch,'active-close-cityBtn':closeOpenCitySearch}">
@@ -85,14 +82,19 @@
               </li>
             </ul>
           </div>
+          <div class="only-position">
+            <button class="inputBtn" id="search" @click="search">
+              <img src="./img/search-icon.png">
+            </button>
+          </div>
         </section>
       </article>
     </section>
 
-    <header class="header">
+    <header class="header" :class="{'active-header-display':headerSwitch}">
       <section class="headerBar">
         <article class="headerBar-w50">
-          <figure class="logo">
+          <figure class="logo" onclick="javascript:window.location.reload()">
             <img src="./img/logo.png" alt="logo">
           </figure>
           <span class="typeBtn">
@@ -230,10 +232,9 @@
                 <img src="./img/city-icon.png" alt="city-icon">
                 <input id="storeAdd" type="text" required="required" autocomplete="off" v-model="input.city">
                 <label class="inputTitle">地區</label>
-                <button class="inputBtn" id="search" @click="search">
-                  <img src="./img/search-icon.png">
-                </button>
+
               </article>
+
               <div class="typeSearch citySearch" id="citySearch"
                 :class="{'active-cityBtn':openCitySearch,'active-close-cityBtn':closeOpenCitySearch}">
                 <ul id="baseType">
@@ -244,6 +245,12 @@
                   </li>
                 </ul>
               </div>
+              <div class="only-position">
+                <button class="inputBtn" id="search" @click="search">
+                  <img src="./img/search-icon.png">
+                </button>
+              </div>
+
             </section>
             <section class="hot-shop">
               <div class="link-shop">
@@ -308,7 +315,7 @@
 
     <!-- 結果頁面 -->
 
-    <main class="resultPage">
+    <main class="resultPage" :class="{'active-resultpage-display':resultPageSwitch}">
       <article class="shop-title">
         <div class="shop-icon">
           <h2>{{cityTitle}}&ensp;{{typeTitle}}</h2>
@@ -353,7 +360,7 @@
     <!-- 結果頁面 end-->
 
     <!-- 地圖頁面 -->
-    <main class="mapInput">
+    <main class="mapInput" :class="{'active-mapInput-display':mapInputSwitch}">
       <article class="results-map">
         <article class="map-titles">
           <h4>地圖範圍內的商家</h4>
@@ -428,7 +435,7 @@
 
 
     <!-- 地圖頁面 end-->
-    <main class="main">
+    <main class="main" :class="{'active-main-display':mainSwitch}">
       <section id="section-one" class="all-section" ref="anchor1">
         <article class="shop-title">
           <div class="shop-icon">
