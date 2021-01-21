@@ -535,13 +535,14 @@
     display: flex;
     border: 2px solid black;
 
+
     .card-txt {
       width: 100%;
       display: flex;
       justify-content: flex-start;
       align-items: center;
       padding-left: 16px;
-      background-color: #ffffff;
+      background-color: $tab-active-bg;
       overflow: hidden;
       white-space: nowrap;
       text-overflow: ellipsis;

@@ -113,6 +113,16 @@ new Vue({
     creatScrollBar: false,
     maskAll: false,
     // scroll input animation end
+    // google map
+    map: null,
+    lat: 25.0325917,
+    lng: 121.5624999,
+
+
+    zoom: 7,
+    markers: [],
+    infowindow: null,
+    // google map end
   },
 
   computed: {
@@ -361,6 +371,7 @@ new Vue({
     //需加強！ end//
     async search() {
       // this.maskAll = true,
+      this.deleteMarkers();
       this.typeTitle = this.input.type;
       this.cityTitle = this.input.city;
 
@@ -376,21 +387,21 @@ new Vue({
       if (this.filterItem.length) {
         // this.controlType = true;
         // this.mapSwitch = false;
-        // for (let i = 0; i < this.filterItem.length; i++) {
-        //   try {
-        //     await this.geocodeResults(
-        //       new google.maps.Geocoder(),
-        //       this.map,
-        //       this.filterItem[i]['名稱'],
-        //       this.cardBid = this.filterItem[i].bid,
-        //       this.cardName = this.filterItem[i].分類[0],
-        //       this.apndWant(),
-        //     );
-        //     console.log(this.apndWant());
-        //   } catch (e) {
-        //     console.log(e)
-        //   }
-        // }
+        for (let i = 0; i < this.filterItem.length; i++) {
+          try {
+            await this.geocodeResults(
+              new google.maps.Geocoder(),
+              this.map,
+              this.filterItem[i]['名稱'],
+              this.cardBid = this.filterItem[i].bid,
+              this.cardName = this.filterItem[i].分類[0],
+              this.apndWant(),
+            );
+            console.log(this.apndWant());
+          } catch (e) {
+            console.log(e)
+          }
+        }
       } else {
         // if (!this.controlType) {
         //   // this.onlyBg = true;
@@ -435,109 +446,109 @@ new Vue({
             // searchbar end
             // this.navBar0 = false;
             // this.navBarY = true;
-            // if (this.input.city === "臺中市") {
-            //   this.centerTaichung();
-            // } else if (this.input.city === "臺北市") {
-            //   this.centerTaipei();
-            // } else if (this.input.city === "新北市") {
-            //   this.centerNewTaipei();
-            // } else if (this.input.city === "基隆市") {
-            //   this.centerKeelung();
-            // } else if (this.input.city === "新竹市") {
-            //   this.centerHsinchu();
-            // } else if (this.input.city === "桃園市") {
-            //   this.centerTaoyuan();
-            // } else if (this.input.city === "苗栗縣") {
-            //   this.centerMiaoli();
-            // } else if (this.input.city === "彰化縣") {
-            //   this.centerChanghua();
-            // } else if (this.input.city === "南投縣") {
-            //   this.centerNantou();
-            // } else if (this.input.city === "雲林縣") {
-            //   this.centerYunlin();
-            // } else if (this.input.city === "嘉義市") {
-            //   this.centerChiayi();
-            // } else if (this.input.city === "臺南市") {
-            //   this.centerTainan();
-            // } else if (this.input.city === "高雄市") {
-            //   this.centerKaohsiung();
-            // } else if (this.input.city === "宜蘭縣") {
-            //   this.centerYilan();
-            // } else if (this.input.city === "屏東縣") {
-            //   this.centerPingtung();
-            // } else if (this.input.city === "臺東縣") {
-            //   this.centerTaitung();
-            // } else if (this.input.city === "花蓮縣") {
-            //   this.centerHualian();
-            // } else if (this.input.city === "澎湖縣") {
-            //   this.centerPenghu();
-            // } else if (this.input.city === "金門縣") {
-            //   this.centerKinmen();
-            // } else if (this.input.city === "連江縣") {
-            //   this.centerLianjiang();
-            // }
+            if (this.input.city === "臺中市") {
+              this.centerTaichung();
+            } else if (this.input.city === "臺北市") {
+              this.centerTaipei();
+            } else if (this.input.city === "新北市") {
+              this.centerNewTaipei();
+            } else if (this.input.city === "基隆市") {
+              this.centerKeelung();
+            } else if (this.input.city === "新竹市") {
+              this.centerHsinchu();
+            } else if (this.input.city === "桃園市") {
+              this.centerTaoyuan();
+            } else if (this.input.city === "苗栗縣") {
+              this.centerMiaoli();
+            } else if (this.input.city === "彰化縣") {
+              this.centerChanghua();
+            } else if (this.input.city === "南投縣") {
+              this.centerNantou();
+            } else if (this.input.city === "雲林縣") {
+              this.centerYunlin();
+            } else if (this.input.city === "嘉義市") {
+              this.centerChiayi();
+            } else if (this.input.city === "臺南市") {
+              this.centerTainan();
+            } else if (this.input.city === "高雄市") {
+              this.centerKaohsiung();
+            } else if (this.input.city === "宜蘭縣") {
+              this.centerYilan();
+            } else if (this.input.city === "屏東縣") {
+              this.centerPingtung();
+            } else if (this.input.city === "臺東縣") {
+              this.centerTaitung();
+            } else if (this.input.city === "花蓮縣") {
+              this.centerHualian();
+            } else if (this.input.city === "澎湖縣") {
+              this.centerPenghu();
+            } else if (this.input.city === "金門縣") {
+              this.centerKinmen();
+            } else if (this.input.city === "連江縣") {
+              this.centerLianjiang();
+            }
             const shopload = this.input.city ? this.filterItem : this.fireItems
             this.filterItem = shopload.filter(item => {
               return item.分類[0].includes(this.input.type);
             })
-            // for (let i = 0; i < this.filterItem.length; i++) {
-            //   try {
-            //     await this.geocodeResults(
-            //       new google.maps.Geocoder(),
-            //       this.map,
-            //       this.filterItem[i]['名稱'],
-            //       this.cardBid = this.filterItem[i].bid,
-            //       this.cardName = this.filterItem[i].分類[0],
-            //     );
-            //   } catch (e) {
-            //     console.log(e)
-            //   }
-            // }
+            for (let i = 0; i < this.filterItem.length; i++) {
+              try {
+                await this.geocodeResults(
+                  new google.maps.Geocoder(),
+                  this.map,
+                  this.filterItem[i]['名稱'],
+                  this.cardBid = this.filterItem[i].bid,
+                  this.cardName = this.filterItem[i].分類[0],
+                );
+              } catch (e) {
+                console.log(e)
+              }
+            }
           }
         } else {
-          // if (this.input.city === "臺中市") {
-          //   this.centerTaichung();
-          // } else if (this.input.city === "臺北市") {
-          //   this.centerTaipei();
-          // } else if (this.input.city === "新北市") {
-          //   this.centerNewTaipei();
-          // } else if (this.input.city === "基隆市") {
-          //   this.centerKeelung();
-          // } else if (this.input.city === "新竹市") {
-          //   this.centerHsinchu();
-          // } else if (this.input.city === "桃園市") {
-          //   this.centerTaoyuan();
-          // } else if (this.input.city === "苗栗縣") {
-          //   this.centerMiaoli();
-          // } else if (this.input.city === "彰化縣") {
-          //   this.centerChanghua();
-          // } else if (this.input.city === "南投縣") {
-          //   this.centerNantou();
-          // } else if (this.input.city === "雲林縣") {
-          //   this.centerYunlin();
-          // } else if (this.input.city === "嘉義市") {
-          //   this.centerChiayi();
-          // } else if (this.input.city === "臺南市") {
-          //   this.centerTainan();
-          // } else if (this.input.city === "高雄市") {
-          //   this.centerKaohsiung();
-          // } else if (this.input.city === "宜蘭縣") {
-          //   this.centerYilan();
-          // } else if (this.input.city === "屏東縣") {
-          //   this.centerPingtung();
-          // } else if (this.input.city === "臺東縣") {
-          //   this.centerTaitung();
-          // } else if (this.input.city === "花蓮縣") {
-          //   this.centerHualian();
-          // } else if (this.input.city === "澎湖縣") {
-          //   this.centerPenghu();
-          // } else if (this.input.city === "金門縣") {
-          //   this.centerKinmen();
-          // } else if (this.input.city === "連江縣") {
-          //   this.centerLianjiang();
-          // }
-          this.controlType = false;
-          this.mapSwitch = true;
+          if (this.input.city === "臺中市") {
+            this.centerTaichung();
+          } else if (this.input.city === "臺北市") {
+            this.centerTaipei();
+          } else if (this.input.city === "新北市") {
+            this.centerNewTaipei();
+          } else if (this.input.city === "基隆市") {
+            this.centerKeelung();
+          } else if (this.input.city === "新竹市") {
+            this.centerHsinchu();
+          } else if (this.input.city === "桃園市") {
+            this.centerTaoyuan();
+          } else if (this.input.city === "苗栗縣") {
+            this.centerMiaoli();
+          } else if (this.input.city === "彰化縣") {
+            this.centerChanghua();
+          } else if (this.input.city === "南投縣") {
+            this.centerNantou();
+          } else if (this.input.city === "雲林縣") {
+            this.centerYunlin();
+          } else if (this.input.city === "嘉義市") {
+            this.centerChiayi();
+          } else if (this.input.city === "臺南市") {
+            this.centerTainan();
+          } else if (this.input.city === "高雄市") {
+            this.centerKaohsiung();
+          } else if (this.input.city === "宜蘭縣") {
+            this.centerYilan();
+          } else if (this.input.city === "屏東縣") {
+            this.centerPingtung();
+          } else if (this.input.city === "臺東縣") {
+            this.centerTaitung();
+          } else if (this.input.city === "花蓮縣") {
+            this.centerHualian();
+          } else if (this.input.city === "澎湖縣") {
+            this.centerPenghu();
+          } else if (this.input.city === "金門縣") {
+            this.centerKinmen();
+          } else if (this.input.city === "連江縣") {
+            this.centerLianjiang();
+          }
+          // this.controlType = false;
+          // this.mapSwitch = true;
           const payload = this.input.city ? this.filterItem : this.fireItems
           this.filterItem = payload.filter(item => {
             return item.名稱.toLowerCase().includes(this.input.type.toLowerCase())
@@ -565,25 +576,297 @@ new Vue({
             this.filterItem = payload.filter(item => {
               return item.名稱.toLowerCase().includes(this.input.type.toLowerCase())
             })
-            // for (let i = 0; i < this.filterItem.length; i++) {
-            //   try {
-            //     await this.geocodeResults(
-            //       new google.maps.Geocoder(),
-            //       this.map,
-            //       this.filterItem[i]['名稱'],
-            //       this.cardBid = this.filterItem[i].bid,
-            //       this.cardName = this.filterItem[i].分類[0],
-            //     );
-            //   } catch (e) {
-            //     console.log(e)
-            //   }
-            // }
+            for (let i = 0; i < this.filterItem.length; i++) {
+              try {
+                await this.geocodeResults(
+                  new google.maps.Geocoder(),
+                  this.map,
+                  this.filterItem[i]['名稱'],
+                  this.cardBid = this.filterItem[i].bid,
+                  this.cardName = this.filterItem[i].分類[0],
+                );
+              } catch (e) {
+                console.log(e)
+              }
+            }
           }
         }
       }
       console.log("asdfasdfasdfas")
       this.input.city = "";
       this.input.type = "";
+    },
+    initMap() {
+      // 建立地圖
+      const geocoder = new google.maps.Geocoder();
+      this.map = new google.maps.Map(document.getElementById("map"), {
+        center: {
+          lat: this.lat,
+          lng: this.lng
+        },
+        zoom: this.zoom,
+        mapTypeId: "terrain",
+        scrollwheel: true,
+        draggable: true,
+      });
+      // let markers = new google.maps.Marker({
+      //   position: this.location,
+      //   map: this.map
+      // });
+
+    },
+    apndWant() {
+      this.map.setZoom(18);
+      // set center
+      this.map.panTo({
+        lat: this.lat,
+        lng: this.lng,
+      });
+    },
+    centerTaichung() {
+      this.map.setZoom(10);
+      // set center
+      this.map.panTo({
+        lat: 24.203563,
+        lng: 120.815762,
+      });
+    },
+    centerTaipei() {
+      this.map.setZoom(11);
+      // set center
+      this.map.panTo({
+        lat: 25.01342704443717,
+        lng: 121.5077421480818,
+      });
+    },
+    centerKeelung() {
+      this.map.setZoom(13);
+      // set center
+      this.map.panTo({
+        lat: 25.13024737978166,
+        lng: 121.71453178033613,
+      });
+    },
+
+    centerNewTaipei() {
+      this.map.setZoom(13);
+      // set center
+      this.map.panTo({
+        lat: 25.019263476884085,
+        lng: 121.45798515399174,
+      });
+    },
+
+    centerHsinchu() {
+      this.map.setZoom(13);
+      // set center
+      this.map.panTo({
+        lat: 24.783163254430377,
+        lng: 120.96891467983303,
+      });
+    },
+
+    centerTaoyuan() {
+      this.map.setZoom(13);
+      // set center
+      this.map.panTo({
+        lat: 24.97881590255709,
+        lng: 121.30183394268214,
+      });
+    },
+
+    centerMiaoli() {
+      this.map.setZoom(11);
+      // set center
+      this.map.panTo({
+        lat: 24.524720212724862,
+        lng: 120.92957833278717,
+      });
+    },
+
+    centerChanghua() {
+      this.map.setZoom(10);
+      // set center
+      this.map.panTo({
+        lat: 24.072259702436142,
+        lng: 120.56214638336897,
+      });
+    },
+
+    centerNantou() {
+      this.map.setZoom(10);
+      // set center
+      this.map.panTo({
+        lat: 23.9598681696431,
+        lng: 120.96737509005148,
+      });
+    },
+
+    centerYunlin() {
+      this.map.setZoom(10);
+      // set center
+      this.map.panTo({
+        lat: 23.709471251149726,
+        lng: 120.43114942622738,
+      });
+    },
+
+    centerChiayi() {
+      this.map.setZoom(10);
+      // set center
+      this.map.panTo({
+        lat: 23.480213155381385,
+        lng: 120.44981086026924,
+      });
+    },
+
+    centerTainan() {
+      this.map.setZoom(11);
+      // set center
+      this.map.panTo({
+        lat: 23.020971253671032,
+        lng: 120.23910262568711,
+      });
+    },
+
+    centerKaohsiung() {
+      this.map.setZoom(11);
+      // set center
+      this.map.panTo({
+        lat: 22.70781767054878,
+        lng: 120.42636251811521,
+      });
+    },
+
+    centerYilan() {
+      this.map.setZoom(13);
+      // set center
+      this.map.panTo({
+        lat: 24.75898769892964,
+        lng: 121.75417290644114,
+      });
+    },
+
+    centerPingtung() {
+      this.map.setZoom(10);
+      // set center
+      this.map.panTo({
+        lat: 22.39835510975535,
+        lng: 120.59336270561138,
+      });
+    },
+
+    centerTaitung() {
+      this.map.setZoom(12);
+      // set center
+      this.map.panTo({
+        lat: 22.755099550644907,
+        lng: 121.11463582753126,
+      });
+    },
+
+    centerHualian() {
+      this.map.setZoom(11);
+      // set center
+      this.map.panTo({
+        lat: 23.933224343882262,
+        lng: 121.53432448965427,
+      });
+    },
+
+    centerPenghu() {
+      this.map.setZoom(14);
+      // set center
+      this.map.panTo({
+        lat: 23.567330262320535,
+        lng: 119.61893011644446,
+      });
+    },
+
+    centerKinmen() {
+      this.map.setZoom(13);
+      // set center
+      this.map.panTo({
+        lat: 24.45189152006177,
+        lng: 118.37799372839537,
+      });
+    },
+
+    centerLianjiang() {
+      this.map.setZoom(13);
+      // set center
+      this.map.panTo({
+        lat: 26.153284931882,
+        lng: 119.93086207497007,
+      });
+    },
+    // 顯示地圖時各縣市定位 end
+
+    deleteMarkers() {
+      this.markers.forEach(marker => marker.setMap(null));
+      this.markers = [];
+    },
+    geocodeResults(geocoder, resultsMap, address) {
+      return new Promise((resolve, reject) => {
+        geocoder.geocode({
+            address: address,
+
+            componentRestrictions: {
+              country: "TW",
+            },
+          },
+
+          (results, status) => {
+            if (status === "OK") {
+              results.forEach((res) => {
+                const marker = new google.maps.Marker({
+                  map: resultsMap,
+                  position: res.geometry.location,
+                  animation: google.maps.Animation.DROP,
+
+                });
+                this.lat = res.geometry.location.lat();
+                this.lng = res.geometry.location.lng();
+                console.log(res.geometry.location.lng());
+                console.log(res.geometry.location.lat());
+                console.log(this.lat);
+                this.markers.push(marker);
+                const infowindow = new google.maps.InfoWindow({
+                  // 設定想要顯示的內容
+                  content: `
+                       <div id="testmapcard">
+                          <p>${address}</p>
+                          <h1>${this.cardName}</h1>
+                          <a href="https://www.google.com.tw/maps/place/${address}" target="_blank"> 導航至此 </a>
+                          <a href="https://www.google.com/maps/place/${this.lat},${this.lng}" target="_blank"> 導航至此 </a>
+                          <p></p>
+                          <img  src="https://www.shop1688.com.tw/${this.cardBid}/item.jpg">
+                    </div>
+                     `,
+                  // 設定訊息視窗最大寬度
+                  maxWidth: 200,
+                });
+                // 在地標上監聽點擊事件
+                marker.addListener("click", () => {
+                  // this.centerHualian();
+                  // 指定在哪個地圖和地標上開啟訊息視窗
+                  if (this.infowindow) this.infowindow.close();
+                  infowindow.open(this.map, marker);
+                  this.infowindow = infowindow;
+                });
+              });
+              setTimeout(() => {
+                resolve(results);
+              }, 700);
+            } else {
+              // alert(
+              //   "Geocode was not successful for the following reason: " + status
+              // );
+              reject(status);
+            }
+          }
+        );
+      });
     }
   },
 
@@ -635,6 +918,7 @@ new Vue({
   // 創建完成時
   created() {
     window.addEventListener("load", () => {
+      this.initMap();
       this.fireData();
       this.nowTimes();
       this.onScroll();
