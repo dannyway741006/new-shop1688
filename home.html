@@ -99,9 +99,13 @@
             <p>File</p>
             <div class="typeItems">
               <ul>
-                <li v-for="(item, index) in typeData" :key="index">
-                  <a href="">{{item.title}}</a>
-                </li>
+                <li><a @click="food">旅遊美食</a></li>
+                <li><a @click="car">交通運輸</a></li>
+                <li><a @click="academic">商業學術</a></li>
+                <li><a @click="serivce">生活服務</a></li>
+                <li><a @click="home">居家裝潢</a></li>
+                <li><a @click="medical">醫療保健</a></li>
+                <li><a @click="business">工商服務</a></li>
               </ul>
             </div>
           </span>
@@ -304,7 +308,7 @@
     <main class="resultPage">
       <article class="shop-title">
         <div class="shop-icon">
-          <h2>{{typeTitle}}{{cityTitle}}</h2>
+          <h2>{{cityTitle}}&ensp;{{typeTitle}}</h2>
           <img class="shop-title-icon" src="./img/section-one.png" alt="hot-shop">
         </div>
       </article>

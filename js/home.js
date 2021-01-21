@@ -7,7 +7,10 @@ let firebaseConfig = {
   messagingSenderId: "359212500160",
   appId: "1:359212500160:web:0eee6dfb29983add"
 };
-
+let newTypeData = [
+  '旅遊美食', '交通運輸', '商業學術', '生活服務', '居家裝潢', '醫療保健',
+  '工商服務'
+];
 let typeData = [{
     title: '旅遊美食',
     cat: '旅遊美食'
@@ -66,9 +69,11 @@ new Vue({
     nowDay: '',
     nowTime: '',
     typeData,
+    newTypeData,
     cityData,
-    fireItems: [],
     filterItem: [],
+    fireItems: [],
+
     iconmap: [],
     allTitle: [],
     input: {
@@ -209,8 +214,8 @@ new Vue({
       }
     },
     openSearchItems() {
-      this.maskAll = true,
-        this.creatScrollBar = true;
+      // this.maskAll = true,
+      this.creatScrollBar = true;
       this.creatScrollBar = true;
       this.cityBgChange = false;
       this.typeBgChange = true;
@@ -232,8 +237,8 @@ new Vue({
       }
     },
     opencitySearchItems() {
-      this.maskAll = true,
-        this.creatScrollBar = true;
+      // this.maskAll = true,
+      this.creatScrollBar = true;
       this.creatScrollBar = true;
       this.cityBgChange = true;
       this.typeBgChange = false;
@@ -318,52 +323,265 @@ new Vue({
       })
     },
     car() {
-      this.typeTitle = this.typeData[0].title;
+      this.typeTitle = this.typeData[1].title;
       this.filterItem = this.fireItems.filter(item => {
         return item.分類[0].includes(this.typeData[1].title);
       })
     },
     academic() {
-      this.typeTitle = this.typeData[0].title;
+      this.typeTitle = this.typeData[2].title;
       this.filterItem = this.fireItems.filter(item => {
         return item.分類[0].includes(this.typeData[2].title);
       })
     },
     serivce() {
-      this.typeTitle = this.typeData[0].title;
+      this.typeTitle = this.typeData[3].title;
       this.filterItem = this.fireItems.filter(item => {
         return item.分類[0].includes(this.typeData[3].title);
       })
     },
     home() {
-      this.typeTitle = this.typeData[0].title;
+      this.typeTitle = this.typeData[4].title;
       this.filterItem = this.fireItems.filter(item => {
         return item.分類[0].includes(this.typeData[4].title);
       })
     },
     medical() {
-      this.typeTitle = this.typeData[0].title;
+      this.typeTitle = this.typeData[5].title;
       this.filterItem = this.fireItems.filter(item => {
         return item.分類[0].includes(this.typeData[5].title);
       })
     },
     business() {
-      this.typeTitle = this.typeData[0].title;
+      this.typeTitle = this.typeData[6].title;
       this.filterItem = this.fireItems.filter(item => {
         return item.分類[0].includes(this.typeData[6].title);
       })
     },
     //需加強！ end//
     async search() {
-      this.maskAll = true,
-        this.typeTitle = this.input.type;
+      // this.maskAll = true,
+      this.typeTitle = this.input.type;
       this.cityTitle = this.input.city;
 
+
+
       this.filterItem = this.fireItems.filter(item => {
-        console.log("asdfasdfdsafdddddddddd")
-        return item.名稱.toLowerCase() === this.input.type.toLowerCase()
+
+        return item.名稱.toLowerCase().trim() === this.input.type.toLowerCase().trim();
       })
 
+
+
+      if (this.filterItem.length) {
+        // this.controlType = true;
+        // this.mapSwitch = false;
+        // for (let i = 0; i < this.filterItem.length; i++) {
+        //   try {
+        //     await this.geocodeResults(
+        //       new google.maps.Geocoder(),
+        //       this.map,
+        //       this.filterItem[i]['名稱'],
+        //       this.cardBid = this.filterItem[i].bid,
+        //       this.cardName = this.filterItem[i].分類[0],
+        //       this.apndWant(),
+        //     );
+        //     console.log(this.apndWant());
+        //   } catch (e) {
+        //     console.log(e)
+        //   }
+        // }
+      } else {
+        // if (!this.controlType) {
+        //   // this.onlyBg = true;
+        //   // this.logo = true;
+        //   console.log("aaaaadddd");
+        // } else {
+        //   console.log("asdfasdf");
+        //   // this.logo = true;
+        //   // this.onlyBg = false;
+        // }
+        if (this.input.city) {
+          // this.controlType = false;
+          // this.mapSwitch = true;
+
+
+          this.filterItem = this.fireItems.filter(item => {
+            return item['地址'].includes(this.input.city);
+          })
+        }
+        if (this.newTypeData.includes(this.input.type)) {
+          // this.controlType = false;
+          // this.mapSwitch = true;
+          const shopload = this.input.city ? this.filterItem : this.fireItems
+          this.filterItem = shopload.filter(item => {
+            return item.分類[0].includes(this.input.type);
+          })
+          if (this.input.type && this.input.city) {
+            // this.controlType = true;
+            // this.mapSwitch = false;
+            // searchbar
+            // this.typeActive = false;
+            // this.scrollActive = false;
+            // this.inputSmall = false;
+            // this.inputBig = true;
+            // this.linkActive = false;
+            // this.linkActive_no = true;
+            // this.cityActive = true;
+
+            // this.allNavClose = false;
+            // this.allNavHeight = true;
+
+            // searchbar end
+            // this.navBar0 = false;
+            // this.navBarY = true;
+            // if (this.input.city === "臺中市") {
+            //   this.centerTaichung();
+            // } else if (this.input.city === "臺北市") {
+            //   this.centerTaipei();
+            // } else if (this.input.city === "新北市") {
+            //   this.centerNewTaipei();
+            // } else if (this.input.city === "基隆市") {
+            //   this.centerKeelung();
+            // } else if (this.input.city === "新竹市") {
+            //   this.centerHsinchu();
+            // } else if (this.input.city === "桃園市") {
+            //   this.centerTaoyuan();
+            // } else if (this.input.city === "苗栗縣") {
+            //   this.centerMiaoli();
+            // } else if (this.input.city === "彰化縣") {
+            //   this.centerChanghua();
+            // } else if (this.input.city === "南投縣") {
+            //   this.centerNantou();
+            // } else if (this.input.city === "雲林縣") {
+            //   this.centerYunlin();
+            // } else if (this.input.city === "嘉義市") {
+            //   this.centerChiayi();
+            // } else if (this.input.city === "臺南市") {
+            //   this.centerTainan();
+            // } else if (this.input.city === "高雄市") {
+            //   this.centerKaohsiung();
+            // } else if (this.input.city === "宜蘭縣") {
+            //   this.centerYilan();
+            // } else if (this.input.city === "屏東縣") {
+            //   this.centerPingtung();
+            // } else if (this.input.city === "臺東縣") {
+            //   this.centerTaitung();
+            // } else if (this.input.city === "花蓮縣") {
+            //   this.centerHualian();
+            // } else if (this.input.city === "澎湖縣") {
+            //   this.centerPenghu();
+            // } else if (this.input.city === "金門縣") {
+            //   this.centerKinmen();
+            // } else if (this.input.city === "連江縣") {
+            //   this.centerLianjiang();
+            // }
+            const shopload = this.input.city ? this.filterItem : this.fireItems
+            this.filterItem = shopload.filter(item => {
+              return item.分類[0].includes(this.input.type);
+            })
+            // for (let i = 0; i < this.filterItem.length; i++) {
+            //   try {
+            //     await this.geocodeResults(
+            //       new google.maps.Geocoder(),
+            //       this.map,
+            //       this.filterItem[i]['名稱'],
+            //       this.cardBid = this.filterItem[i].bid,
+            //       this.cardName = this.filterItem[i].分類[0],
+            //     );
+            //   } catch (e) {
+            //     console.log(e)
+            //   }
+            // }
+          }
+        } else {
+          // if (this.input.city === "臺中市") {
+          //   this.centerTaichung();
+          // } else if (this.input.city === "臺北市") {
+          //   this.centerTaipei();
+          // } else if (this.input.city === "新北市") {
+          //   this.centerNewTaipei();
+          // } else if (this.input.city === "基隆市") {
+          //   this.centerKeelung();
+          // } else if (this.input.city === "新竹市") {
+          //   this.centerHsinchu();
+          // } else if (this.input.city === "桃園市") {
+          //   this.centerTaoyuan();
+          // } else if (this.input.city === "苗栗縣") {
+          //   this.centerMiaoli();
+          // } else if (this.input.city === "彰化縣") {
+          //   this.centerChanghua();
+          // } else if (this.input.city === "南投縣") {
+          //   this.centerNantou();
+          // } else if (this.input.city === "雲林縣") {
+          //   this.centerYunlin();
+          // } else if (this.input.city === "嘉義市") {
+          //   this.centerChiayi();
+          // } else if (this.input.city === "臺南市") {
+          //   this.centerTainan();
+          // } else if (this.input.city === "高雄市") {
+          //   this.centerKaohsiung();
+          // } else if (this.input.city === "宜蘭縣") {
+          //   this.centerYilan();
+          // } else if (this.input.city === "屏東縣") {
+          //   this.centerPingtung();
+          // } else if (this.input.city === "臺東縣") {
+          //   this.centerTaitung();
+          // } else if (this.input.city === "花蓮縣") {
+          //   this.centerHualian();
+          // } else if (this.input.city === "澎湖縣") {
+          //   this.centerPenghu();
+          // } else if (this.input.city === "金門縣") {
+          //   this.centerKinmen();
+          // } else if (this.input.city === "連江縣") {
+          //   this.centerLianjiang();
+          // }
+          this.controlType = false;
+          this.mapSwitch = true;
+          const payload = this.input.city ? this.filterItem : this.fireItems
+          this.filterItem = payload.filter(item => {
+            return item.名稱.toLowerCase().includes(this.input.type.toLowerCase())
+          })
+          if (this.input.type && this.input.city) {
+
+            // this.controlType = true;
+            // this.mapSwitch = false;
+            // searchbar
+            // this.typeActive = false;
+            // this.scrollActive = false;
+            // this.inputSmall = false;
+            // this.inputBig = true;
+            // this.linkActive = false;
+            // this.linkActive_no = true;
+            // this.cityActive = true;
+
+            // this.allNavClose = false;
+            // this.allNavHeight = true;
+            // searchbar end
+            // this.navBar0 = false;
+            // this.navBarY = true;
+
+            const payload = this.input.city ? this.filterItem : this.fireItems
+            this.filterItem = payload.filter(item => {
+              return item.名稱.toLowerCase().includes(this.input.type.toLowerCase())
+            })
+            // for (let i = 0; i < this.filterItem.length; i++) {
+            //   try {
+            //     await this.geocodeResults(
+            //       new google.maps.Geocoder(),
+            //       this.map,
+            //       this.filterItem[i]['名稱'],
+            //       this.cardBid = this.filterItem[i].bid,
+            //       this.cardName = this.filterItem[i].分類[0],
+            //     );
+            //   } catch (e) {
+            //     console.log(e)
+            //   }
+            // }
+          }
+        }
+      }
+      console.log("asdfasdfasdfas")
       this.input.city = "";
       this.input.type = "";
     }
