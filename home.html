@@ -695,6 +695,40 @@
       </section>
       <section class="choice-shop">
         <article class="choice-section">
+          <section class="choice-tab-1280px">
+            <button class="tab-btn-1280px" @click="cur=0">
+              <p>北</p>
+              <div class="btn-1280px-bg" :class="{active1280px:cur==0}">
+                <p>北</p>
+              </div>
+            </button>
+            <button class="tab-btn-1280px" @click="cur=1" :class="{active1280px:cur==1}">
+              <p>中</p>
+              <div class="btn-1280px-bg" :class="{active1280px:cur==1}">
+                <p>中</p>
+              </div>
+            </button>
+            <button class="tab-btn-1280px" @click="cur=2" :class="{active1280px:cur==2}">
+              <p>南</p>
+              <div class="btn-1280px-bg" :class="{active1280px:cur==2}">
+                <p>南</p>
+              </div>
+            </button>
+            <button class="tab-btn-1280px" @click="cur=3" :class="{active1280px:cur==3}">
+              <p>東</p>
+              <div class="btn-1280px-bg" :class="{active1280px:cur==3}">
+                <p>東</p>
+              </div>
+            </button>
+            <button class="tab-btn-1280px" @click="cur=4">
+
+              <p>外島</p>
+              <div class="btn-1280px-bg" :class="{active1280px:cur==4}">
+                <p>外島</p>
+              </div>
+
+            </button>
+          </section>
           <section class="choice-tab">
             <button class="tab-btn" @click="cur=0" :class="{active:cur==0}">
 

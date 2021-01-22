@@ -2361,6 +2361,77 @@
       width: 100%;
       height: 100%;
 
+      .choice-tab-1280px {
+        border: 1px solid rgb(0, 0, 0);
+        display: flex;
+        width: 100%;
+        border-radius: 18px;
+        // overflow: hidden;
+        box-shadow: $shadow;
+        display: none;
+
+        .tab-btn-1280px {
+          width: 20%;
+          height: 54px;
+          @include btnReset;
+          position: relative;
+
+          &:nth-of-type(5) {
+            &::after {
+              width: 0;
+            }
+          }
+
+          p {
+            @include font-p-level2;
+          }
+
+          .btn-1280px-bg {
+            position: absolute;
+            width: 0%;
+            height: 0%;
+            // border: 2px solid green;
+            overflow: hidden;
+            top: 50%;
+            left: 50%;
+            transform-origin: center;
+            transition-duration: 0.3s;
+
+            p {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              width: 100%;
+              height: 100%;
+              @include font-p-level2;
+            }
+          }
+
+          // &:before {
+          //   position: absolute;
+          //   content: '';
+          //   height: 0%;
+          //   width: 0%;
+          //   bottom: 50%;
+          //   left: 50%;
+          //   // border: 2px solid blue;
+          //   transform-origin: center;
+          //   transition-duration: 0.3s;
+          // }
+
+          &:after {
+            position: absolute;
+            content: '';
+            height: 80%;
+            width: 1px;
+            background-color: black;
+            top: 10%;
+            right: 0;
+          }
+        }
+
+      }
+
       .choice-tab {
         // border: 3px solid gold;
         display: flex;
@@ -2555,6 +2626,7 @@
         border-radius: 0 0 5px 5px;
         border: 1px solid rgb(0, 0, 0);
         border-top: none;
+        padding: 72px 50px 50px;
         padding-top: 72px;
         padding-bottom: 50px;
 

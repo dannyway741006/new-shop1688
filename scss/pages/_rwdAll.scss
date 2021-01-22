@@ -3,16 +3,149 @@
 @media (max-width:1920px) {
   .shop-input-fixed {
     left: 0;
+  }
+}
 
+@media (max-width:1700px) {
+  .main {
+    .all-section {
+      .section-hot-shop {
+        padding: 0 50px;
 
+        .hot-shop-w50 {
+          width: 60%;
+
+          .shop-content {
+            .shop-color-border h3 {
+              @include font-tab-title;
+            }
+          }
+
+        }
+      }
+    }
+
+    .all-card-shop {
+      padding: 0 20px;
+
+      .card-items {
+        .card-items-btn {
+          .card-items-icon {
+            min-width: 40px;
+            min-height: 40px;
+            margin-right: 15px;
+
+            img {
+              width: 100%;
+              height: 100%;
+              object-position: center;
+              object-fit: contain;
+            }
+          }
+        }
+      }
+    }
   }
 
 
+
+
+
+  .main .all-section .section-hot-shop .hot-shop-more {
+    width: 40%;
+  }
+
+}
+
+@media (max-width:1400px) {
+  .main {
+    .all-section {
+      .section-hot-shop {
+        .hot-shop-w50 {
+          .shop-content {
+            flex-wrap: wrap;
+
+            .shop-color-blue {
+              width: 100%;
+              height: 45%;
+              // border: 1px solid red;
+              padding: 0;
+
+              .shop-move-map {
+                position: absolute;
+                left: 12%;
+                top: 42px;
+                z-index: 99;
+              }
+
+              .shop-hot-pic {
+                top: 30px;
+                left: calc(50% - 40%);
+                // border: 1px solid blue;
+                max-width: 80%;
+                height: 110%;
+
+                img {
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                }
+              }
+            }
+
+            .shop-color-border {
+              width: 100%;
+              height: 55%;
+
+              &::after {
+                width: 100%;
+                top: -2px;
+                width: 88%;
+                height: 90%;
+                left: 6%;
+              }
+
+              .shop-icon-box {
+                margin-bottom: 35px;
+              }
+
+              h3 {
+                margin-top: 20px;
+                margin-bottom: 30px;
+              }
+            }
+          }
+
+        }
+      }
+    }
+
+    .choice-shop {
+      padding: 70px 50px 0;
+
+      .choice-section {
+        .choice-content {
+          .choice-card-box {
+            .all-choice-card {
+              .choice-card:nth-of-type(2) {
+                margin: 0 60px;
+              }
+            }
+
+          }
+        }
+      }
+    }
+
+    .all-card-shop {
+      .card-items {
+        width: calc(33.33333333% - 46px);
+      }
+    }
+  }
 }
 
 @media (max-width:1280px) {
-
-
   .header .draggableArea {
     .dock-box {
       width: 100%;
@@ -246,6 +379,155 @@
     }
   }
 
+  .main {
+    .choice-shop {
+      .choice-section {
+        .choice-tab {
+          display: none;
+        }
+
+        .choice-input {
+          display: none;
+        }
+
+        .choice-content {
+          border: none;
+
+          .choice-card-box {
+            display: flex;
+            overflow: scroll;
+            overflow: auto;
+
+            .all-choice-card {
+              min-width: 1100px;
+
+              .choice-card {
+                &:nth-of-type(3) {
+                  margin-right: 50px;
+                }
+              }
+            }
+          }
+
+          .choice-card-box::-webkit-scrollbar {
+            height: 25px;
+
+            background-color: #ffffff;
+            // border-radius: 100px;
+          }
+
+
+
+          .choice-card-box::-webkit-scrollbar-track {
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+            // border-radius: 10px;
+            border-radius: 5px;
+            background-color: #ffffff;
+          }
+
+
+          .choice-card-box::-webkit-scrollbar-thumb {
+            // border-radius: 10px;
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, .3);
+            background-color: $scrollBarColor;
+            border-radius: 5px;
+
+
+          }
+        }
+
+        .choice-logo-input {
+          // border: 1px solid red;
+          flex-wrap: wrap;
+          padding: 70px 0 0 0;
+          border: none;
+
+          .choice-logo {
+            width: 100%;
+            // border: 1px solid green;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+
+            img {
+              width: 100%;
+              height: 100%;
+              max-width: 300px;
+              max-height: 220px;
+              object-position: center;
+              object-fit: contain;
+            }
+          }
+        }
+
+        .choice-tab-1280px {
+          display: flex;
+
+          .tab-btn-1280px {
+            z-index: 99;
+
+            .active1280px {
+              height: 130%;
+              width: 110%;
+              left: calc(50% - 55%);
+              top: calc(50% - 65%);
+              background-color: $scrollBarColor;
+              z-index: 99;
+              border-radius: 17px;
+
+
+
+            }
+          }
+        }
+      }
+    }
+
+    .all-card-shop {
+      .card-items {
+        width: calc(33.33333333% - 30px);
+        margin: 27.5px 15px;
+      }
+    }
+  }
+
+
+
+}
+
+@media (max-width:996px) {
+  .main {
+    .all-section {
+      .section-hot-shop {
+        flex-wrap: wrap;
+
+        .hot-shop-w50 {
+          width: 100%;
+          margin: 0 80px;
+        }
+
+        .hot-shop-more {
+          // border: 1px solid red;
+          width: 100%;
+          margin-top: 50px;
+          margin-left: 50px;
+          margin-right: 50px;
+        }
+      }
+    }
+
+    .all-card-shop {
+      padding: 0 5px;
+
+      .card-items {
+        width: calc(50% - 10px);
+        margin: 27.5px 5px;
+      }
+    }
+  }
+
 }
 
 @media (max-width:840px) {
@@ -353,4 +635,128 @@
     }
   }
 
+}
+
+@media (max-width:650px) {
+  .main {
+    .all-card-shop {
+      .card-items {
+        padding-bottom: 0;
+        max-height: 465px;
+
+        .card-items-img {
+          width: calc(100% - 28px);
+        }
+
+        .card-item-name {
+          h2 {
+            color: black;
+            padding: 0 0 0 15px;
+            justify-content: flex-start;
+          }
+
+          &::after {
+            width: 0;
+            height: 0;
+
+            z-index: -99;
+          }
+        }
+
+        .card-items-btn {
+          width: calc(100% - 25px);
+          margin-top: 30px;
+        }
+      }
+
+    }
+
+  }
+
+}
+
+@media (max-width:512px) {
+  .main {
+    .all-section {
+      .section-hot-shop {
+        padding: 0 30px;
+
+        .hot-shop-w50 {
+          margin: 0;
+
+          .shop-content {
+            .shop-color-blue {
+              .shop-hot-pic {
+                max-width: 90%;
+                height: 260px;
+                left: calc(50% - 45%);
+
+                img {}
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .all-card-shop {
+      .card-items {
+        max-height: 320px;
+
+        &::after {
+          max-height: 165px;
+        }
+
+        .card-items-img {
+          max-height: 180px;
+          margin-top: 8px;
+        }
+
+        .card-item-name {
+          h2 {
+            @include font-p;
+            margin-top: 10px;
+          }
+
+          &::after {}
+        }
+
+        .card-items-btn {
+          padding: 0;
+          border: none;
+          width: calc(100% - 30px);
+          margin-top: 15px;
+          justify-content: center;
+          align-items: center;
+
+          img {
+            width: 25px;
+            height: 25px;
+          }
+
+          .card-btn {
+            width: 120px;
+            height: 25px;
+
+
+            &::after {
+              width: 120px;
+              height: 24px;
+            }
+
+            img {
+              width: 15px;
+              height: 15px;
+            }
+
+            p {
+              @include rwd-font-btn;
+            }
+          }
+        }
+      }
+
+    }
+
+  }
 }

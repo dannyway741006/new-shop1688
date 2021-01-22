@@ -71,6 +71,13 @@ $fontLevel: 1.5px;
   color: $dark;
 }
 
+@mixin rwd-font-btn {
+  font-size: 14px;
+  letter-spacing: 0.6px;
+  font-weight: 900;
+  color: $dark;
+}
+
 @mixin font-p {
   font-size: 18px;
   letter-spacing: 0.6px;
