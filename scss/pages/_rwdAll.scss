@@ -685,13 +685,26 @@
           margin: 0;
 
           .shop-content {
+            .shop-color-border {
+              h3 {
+                @include font-item-name;
+              }
+
+              .shop-icon-box {
+                .shop-icon-type {}
+
+                .shop-icon-city {}
+
+              }
+            }
+
             .shop-color-blue {
               .shop-hot-pic {
                 max-width: 90%;
                 height: 260px;
                 left: calc(50% - 45%);
 
-                img {}
+
               }
             }
           }

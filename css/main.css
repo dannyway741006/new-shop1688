@@ -5810,6 +5810,12 @@
   .main .all-section .section-hot-shop .hot-shop-w50 {
     margin: 0;
   }
+  .main .all-section .section-hot-shop .hot-shop-w50 .shop-content .shop-color-border h3 {
+    font-size: 20px;
+    letter-spacing: 0.6px;
+    font-weight: 900;
+    color: #2D2D2D;
+  }
   .main .all-section .section-hot-shop .hot-shop-w50 .shop-content .shop-color-blue .shop-hot-pic {
     max-width: 90%;
     height: 260px;
