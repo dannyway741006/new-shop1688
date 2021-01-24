@@ -5809,17 +5809,110 @@
   }
   .main .all-section .section-hot-shop .hot-shop-w50 {
     margin: 0;
+    max-height: 100%;
+    height: auto;
+  }
+  .main .all-section .section-hot-shop .hot-shop-w50 .shop-content-cover {
+    max-height: 475px;
+  }
+  .main .all-section .section-hot-shop .hot-shop-w50 .shop-title-cover {
+    height: 25px;
+  }
+  .main .all-section .section-hot-shop .hot-shop-w50 .shop-title-cover .shop-close-box {
+    width: 25px;
+  }
+  .main .all-section .section-hot-shop .hot-shop-w50 .shop-title-box {
+    height: 25px;
+  }
+  .main .all-section .section-hot-shop .hot-shop-w50 .shop-title-box .shop-title h3 {
+    font-size: 14px;
+    letter-spacing: 0.6px;
+    font-weight: 900;
+    color: #2D2D2D;
+  }
+  .main .all-section .section-hot-shop .hot-shop-w50 .shop-title-box .shop-close-box {
+    width: 25px;
+  }
+  .main .all-section .section-hot-shop .hot-shop-w50 .shop-title-box .shop-close-box img {
+    width: 11px;
+    height: 11px;
+  }
+  .main .all-section .section-hot-shop .hot-shop-w50 .shop-content {
+    height: auto;
+  }
+  .main .all-section .section-hot-shop .hot-shop-w50 .shop-content .shop-color-border {
+    padding-bottom: 40px;
   }
   .main .all-section .section-hot-shop .hot-shop-w50 .shop-content .shop-color-border h3 {
     font-size: 20px;
     letter-spacing: 0.6px;
     font-weight: 900;
     color: #2D2D2D;
+    margin-top: 60px;
+    margin-bottom: 15px;
+  }
+  .main .all-section .section-hot-shop .hot-shop-w50 .shop-content .shop-color-border .shop-hot-button {
+    width: 155px;
+    height: 30px;
+  }
+  .main .all-section .section-hot-shop .hot-shop-w50 .shop-content .shop-color-border .shop-hot-button p {
+    font-size: 14px;
+    letter-spacing: 0.6px;
+    font-weight: 900;
+    color: #2D2D2D;
+  }
+  .main .all-section .section-hot-shop .hot-shop-w50 .shop-content .shop-color-border .shop-hot-button img {
+    width: 20px;
+    height: 20px;
+  }
+  .main .all-section .section-hot-shop .hot-shop-w50 .shop-content .shop-color-border .shop-hot-button::after {
+    width: 154px;
+    height: 29px;
+  }
+  .main .all-section .section-hot-shop .hot-shop-w50 .shop-content .shop-color-border .shop-icon-box {
+    margin-bottom: 20px;
+  }
+  .main .all-section .section-hot-shop .hot-shop-w50 .shop-content .shop-color-border .shop-icon-box .shop-icon-type {
+    width: 55px;
+    height: 55px;
+    margin-right: 20px;
+  }
+  .main .all-section .section-hot-shop .hot-shop-w50 .shop-content .shop-color-border .shop-icon-box .shop-icon-type p {
+    font-size: 12px;
+    letter-spacing: 0.6px;
+    font-weight: 900;
+    color: #2D2D2D;
+  }
+  .main .all-section .section-hot-shop .hot-shop-w50 .shop-content .shop-color-border .shop-icon-box .shop-icon-type img {
+    width: 28px;
+    height: 28px;
+    margin-bottom: 3px;
+  }
+  .main .all-section .section-hot-shop .hot-shop-w50 .shop-content .shop-color-border .shop-icon-box .shop-icon-city {
+    width: 55px;
+    height: 55px;
+  }
+  .main .all-section .section-hot-shop .hot-shop-w50 .shop-content .shop-color-border .shop-icon-box .shop-icon-city p {
+    font-size: 12px;
+    letter-spacing: 0.6px;
+    font-weight: 900;
+    color: #2D2D2D;
+  }
+  .main .all-section .section-hot-shop .hot-shop-w50 .shop-content .shop-color-border .shop-icon-box .shop-icon-city img {
+    width: 25px;
+    height: 25px;
+  }
+  .main .all-section .section-hot-shop .hot-shop-w50 .shop-content .shop-color-blue {
+    height: 235px;
   }
   .main .all-section .section-hot-shop .hot-shop-w50 .shop-content .shop-color-blue .shop-hot-pic {
-    max-width: 90%;
+    max-width: 78%;
     height: 260px;
-    left: calc(50% - 45%);
+    left: calc(50% - 39%);
+  }
+  .main .all-section .section-hot-shop .hot-shop-more {
+    height: 100vh;
+    margin: 50px 0 0 0px;
   }
   .main .all-card-shop .card-items {
     max-height: 320px;
@@ -5871,6 +5964,27 @@
     letter-spacing: 0.6px;
     font-weight: 900;
     color: #2D2D2D;
+  }
+  .main .choice-shop {
+    padding: 70px 25px 0;
+  }
+  .main .choice-shop .choice-section .choice-logo-input .choice-logo img {
+    width: 100%;
+    max-width: 200px;
+  }
+  .main .choice-shop .choice-section .choice-logo-input .choice-city-input {
+    padding: 0 50px;
+    width: 85%;
+    margin: 0 auto;
+  }
+  .main .choice-shop .choice-section .choice-logo-input .choice-city-input p {
+    font-size: 23px;
+    letter-spacing: 0.6px;
+    font-weight: 900;
+    color: #2D2D2D;
+  }
+  .main .choice-shop .choice-section .choice-content {
+    padding: 50px 0 0;
   }
 }
 /*# sourceMappingURL=main.css.map */
