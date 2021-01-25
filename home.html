@@ -141,34 +141,51 @@
         </article>
       </section>
       <section class="draggableArea">
-        <a id="square1" class="square" @click="scroll('anchor1')">
-          <!-- <a href="#"> -->
-          <img class="square-img" src="./img/Group 62.png" alt="熱門商家">
-          <img class="change-square1" src="./img/hot.png" alt="hot-shop">
-          <p>熱門商家</p>
-          <!-- </a> -->
+        <a id="square0" class="rwd-square">
+          <img class="rwd-square-img" src="./img/shop-web-open.png" alt="icon">
         </a>
-        <a id="square2" class="square" @click="scroll('anchor2')">
-          <!-- <a href="#"> -->
-          <img class="square-img" src="./img/Group 61.png" alt="精選商家">
-          <img class="change-square1" src="./img/home-up.png" alt="hot-shop">
-          <p>精選商家</p>
-          <!-- </a> -->
-        </a>
-        <a id="square3" class="square" @click="scroll('anchor3')">
+        <article class="rwd-draggable-box">
 
-          <img class="square-img" src="./img/Group 65.png" alt="全部商家">
-          <img class="change-square1" src="./img/all-shop.png" alt="all-shop">
-          <p>全部商家</p>
+          <a id="square1" class="square" @click="scroll('anchor1')">
+            <!-- <a href="#"> -->
+            <img class="square-img" src="./img/Group 62.png" alt="熱門商家">
+            <div class="change-square1">
+              <img src="./img/hot.png" alt="hot-shop">
+            </div>
 
-        </a>
-        <a id="square4" class="square">
+            <p>熱門商家</p>
+            <!-- </a> -->
+          </a>
+          <a id="square2" class="square" @click="scroll('anchor2')">
+            <!-- <a href="#"> -->
+            <img class="square-img" src="./img/Group 61.png" alt="精選商家">
+            <div class="change-square1">
+              <img src="./img/home-up.png" alt="hot-shop">
+            </div>
+            <p>精選商家</p>
+            <!-- </a> -->
+          </a>
+          <a id="square3" class="square" @click="scroll('anchor3')">
 
-          <img class="square-img" src="./img/Group 196.png" alt="成為商家">
-          <img class="change-square1" src="./img/join.png" alt="join">
-          <p>成為商家</p>
+            <img class="square-img" src="./img/Group 65.png" alt="全部商家">
+            <div class="change-square1">
+              <img src="./img/all-shop.png" alt="all-shop">
+            </div>
 
-        </a>
+
+            <p>全部商家</p>
+
+          </a>
+          <a id="square4" class="square">
+
+            <img class="square-img" src="./img/Group 196.png" alt="成為商家">
+            <div class="change-square1">
+              <img src="./img/join.png" alt="join">
+            </div>
+            <p>成為商家</p>
+
+          </a>
+        </article>
         <div id="square5" class="shop1688-web">
           <div class="web-header">
             <div class="web-title">
@@ -276,6 +293,9 @@
         </div>
 
         <section class="dock-box">
+          <div class="rwd-header-mask">
+
+          </div>
           <ul class="shop-web">
             <li>
               <a href="#">

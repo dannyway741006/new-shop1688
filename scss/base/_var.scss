@@ -18,6 +18,9 @@ $tab-bg:#F5F4F4;
 $tab-active-bg:#E3E3E3;
 $card-items-bg:#262626;
 $fixed-input-bg:#263240;
+$rwd-tag-items:#2E4A6C;
+$rwd-header-bg:#5F98B4;
+
 
 
 //側面欄寬
@@ -28,6 +31,7 @@ $fontLevel-p:18px;
 $baseLine: 10px;
 $lineLevel: 1.2;
 $fontLevel: 1.5px;
+$rwd-header-title:19px;
 
 @mixin font-h2 {
   font-size: 28px;

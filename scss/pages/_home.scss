@@ -577,6 +577,10 @@
     padding: 42px 0 0 35px;
     position: relative;
 
+    .rwd-square {
+      display: none;
+    }
+
     .square {
       text-decoration: none;
       // border: 1px solid red;
@@ -593,7 +597,28 @@
       cursor: pointer !important;
       position: relative;
 
+      .square-img {
+        transition: all 0.5s;
+      }
 
+      &:nth-of-type(1) {
+        img {
+          width: 102px;
+        }
+
+        .change-square1 {
+          position: absolute;
+          top: -13px;
+          left: 0px;
+          // border: 1px solid gold;
+          width: 100%;
+          height: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: flex-end;
+          opacity: 0;
+        }
+      }
 
 
       &:nth-of-type(2) {
@@ -603,9 +628,15 @@
 
         .change-square1 {
           position: absolute;
-          top: -23px;
-          left: calc(50% - 51px);
-          // opacity: 0;
+          top: -24px;
+          left: 0;
+          // border: 1px solid gold;
+          width: 100%;
+          height: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: flex-end;
+          opacity: 0;
         }
       }
 
@@ -617,7 +648,13 @@
         .change-square1 {
           position: absolute;
           top: -19px;
-          left: calc(50% - 40px);
+          left: 2px;
+          // border: 1px solid gold;
+          width: 100%;
+          height: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: flex-end;
           opacity: 0;
         }
       }
@@ -630,8 +667,14 @@
         .change-square1 {
           position: absolute;
           top: -23px;
-          left: calc(50% - 51px);
-          // opacity: 0;
+          left: 0px;
+          // border: 1px solid gold;
+          width: 100%;
+          height: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: flex-end;
+          opacity: 0;
         }
       }
 
@@ -640,6 +683,7 @@
         top: -12px;
         left: 0;
         opacity: 0;
+        transition: all 0.5s;
       }
 
       p {
@@ -656,6 +700,7 @@
       }
 
       &:hover {
+
         .square-img {
           opacity: 0;
         }
@@ -669,7 +714,7 @@
     .shop1688-web {
       width: 100%;
       max-width: 1255px;
-      height: 100vw;
+      height: 100vh;
       max-height: 697px;
       min-height: 600px;
       position: absolute;
@@ -2140,7 +2185,7 @@
         // border: 2px solid black;
 
         width: 50%;
-        height: 100vw;
+        height: 100vh;
         max-height: 744px;
         overflow-x: auto;
 
