@@ -5748,6 +5748,7 @@
   }
   .main .all-section .section-hot-shop .hot-shop-more {
     width: 100%;
+    height: 100%;
     margin-top: 50px;
     margin-left: 50px;
     margin-right: 50px;
@@ -5872,6 +5873,17 @@
 }
 
 @media (max-width: 770px) {
+  .resultPage .all-product {
+    padding: 80px 20px 0 20px;
+  }
+  .resultPage .all-product .card-items {
+    margin: 27.5px 10px;
+    width: calc(50% - 20px);
+    height: auto;
+  }
+  .resultPage .all-product .card-items .card-items-img {
+    height: auto;
+  }
   .shop-input-fixed .scroll-input {
     height: 100vh;
     max-height: 95px;
@@ -5879,7 +5891,7 @@
   .shop-input-fixed .scroll-input .web-search-bar {
     -webkit-transform: translateY(0px);
             transform: translateY(0px);
-    height: 55px;
+    max-height: 55px;
   }
   .shop-input-fixed .scroll-input .web-search-bar .only-position .inputBtn {
     width: 45px;
