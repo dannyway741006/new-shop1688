@@ -125,7 +125,7 @@
 
         </article>
         <article class="itemBar-w50">
-          <figure class="hearder-search">
+          <figure class="hearder-search" @click.stop="activeOpenWeb = true">
             <img src="./img/search.png" alt="hearder-search">
           </figure>
           <figure class="voice">
@@ -141,7 +141,7 @@
         </article>
       </section>
       <section class="draggableArea">
-        <a id="square0" class="rwd-square">
+        <a id="square0" class="rwd-square" @click.stop="activeOpenWeb = true">
           <img class="rwd-square-img" src="./img/shop-web-open.png" alt="icon">
         </a>
         <article class="rwd-draggable-box">
@@ -186,7 +186,8 @@
 
           </a>
         </article>
-        <div id="square5" class="shop1688-web">
+        <div id="square5" class="shop1688-web"
+          :class="{'active-close-web':activeCloseWeb,'active-open-web':activeOpenWeb}">
           <div class="web-header">
             <div class="web-title">
               <span class="web-line"></span>
@@ -195,7 +196,7 @@
             </div>
             <div class="header-btn touch-small"></div>
             <div class="header-btn touch-big"></div>
-            <div class="header-btn touch-close"></div>
+            <div class="header-btn touch-close" @click="closeWeb"></div>
           </div>
           <div class="header-bottom">
             <div class="web-btn">
@@ -293,11 +294,9 @@
         </div>
 
         <section class="dock-box">
-          <div class="rwd-header-mask">
-
-          </div>
+          <div class="rwd-header-mask"></div>
           <ul class="shop-web">
-            <li>
+            <li @click.stop="activeOpenWeb = true">
               <a href="#">
                 <img src="./img/shop-web-open.png" alt="shop-web-open">
               </a>

@@ -104,6 +104,8 @@ new Vue({
     mainSwitch: false,
     mapInputSwitch: true,
     headerSwitch: false,
+    activeCloseWeb: false,
+    activeOpenWeb: false,
     // class 切換 end
     // tab 切換
     cur: 0, //默认选中第一个tab
@@ -156,17 +158,22 @@ new Vue({
     dosomething(event) {
       event.currentTarget.src = "./img/shop_item.svg"
     },
-
+    closeWeb() {
+      this.activeCloseWeb = true;
+      this.activeOpenWeb = false;
+    },
 
     onScroll() {
       const scrollTop =
         document.documentElement.scrollTop + document.body.scrollTop;
       let Y;
       Y = Math.floor(window.pageYOffset);
+      console.log(Y)
       let header = document.querySelector('.header');
       let fixed = document.querySelector('.shop-input-fixed');
       let allSection = document.querySelector('.all-section');
       let resultPage = document.querySelector('.resultPage');
+      let headerSection = document.querySelector('.header');
       if (this.resultPageSwitch === true) {
         if (allSection.getBoundingClientRect().top <= 0) {
           this.creatScrollBar = false;
@@ -182,6 +189,15 @@ new Vue({
           this.scrollInput = false;
         }
       }
+
+      if (headerSection.getBoundingClientRect().bottom <= headerSection.getBoundingClientRect().height / 1.2) {
+
+        // this.activeCloseWeb = true;
+
+      }
+
+
+
     },
 
 

@@ -1,6 +1,6 @@
 //rwd @include media(max-width)
-@mixin media($screenSize) {
-  @media screen and (max-width: $screenSize) {
+@mixin media($size) {
+  @media(max-width:$size) {
     @content;
   }
 }

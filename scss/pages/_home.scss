@@ -724,6 +724,7 @@
       border-radius: 5px;
 
 
+
       .web-header {
         width: 100%;
         height: 37px;
@@ -816,6 +817,8 @@
             left: calc(50% - 10px);
           }
         }
+
+
       }
 
       .header-bottom {
@@ -1340,6 +1343,29 @@
 
         }
       }
+    }
+
+    .active-close-web {
+      top: 100%;
+      left: 20%;
+      width: 0px;
+      height: 0px;
+      max-height: 0;
+      min-height: 0;
+      overflow: hidden;
+      transition: all 0.2s;
+    }
+
+    .active-open-web {
+      width: 100%;
+      max-width: 1255px;
+      height: 100vh;
+      max-height: 697px;
+      min-height: 600px;
+      overflow: unset;
+      transition: all 0.2s;
+      top: 95px;
+      left: calc(50% - 627.5px);
     }
 
     .dock-box {
@@ -1876,74 +1902,76 @@
     height: 100%;
     padding-top: 95px;
     padding-bottom: 180px;
-
+    @include section-title;
 
 
     .shop-title {
+      width: 100%;
       // border: 2px solid red;
       padding-left: 200px;
-
-      .shop-icon {
-        background-image: url("../../img/bg.png");
-        background-position: center;
-        background-size: cover;
-        display: inline-block;
-        position: relative;
-        box-shadow: $shadow;
-        border-radius: 18px;
-
-        &::before {
-          border-color: #222222 transparent transparent;
-          border-style: solid solid solid;
-          border-width: 20px 20px 20px 20px;
-          bottom: -40px;
-          content: "";
-          height: 0px;
-          /* left: 81px; */
-          right: 40px;
-          position: absolute;
-          width: 0px;
-
-        }
-
-        &::after {
-          border-color: rgb(255, 255, 255) transparent transparent;
-          border-style: solid solid solid solid;
-          border-width: 20px;
-          content: "";
-          bottom: -38px;
-          height: 0px;
-          /* left: 81px; */
-          right: 40px;
-          position: absolute;
-          width: 0px;
-        }
-
-        h2 {
-
-          @include font-h2;
-          background-position: center;
-          background-size: contain;
-          display: inline-block;
-          padding: 29px 63px;
-          border: 1px solid black;
-
-          border-radius: 18px;
-
-
-        }
-
-        .shop-title-icon {
-          width: 100%;
-          height: 100vh;
-          max-width: 133px;
-          max-height: 133px;
-          position: absolute;
-          left: -94px;
-          top: -17px;
-        }
-      }
     }
+
+    //   .shop-icon {
+    //     background-image: url("../../img/bg.png");
+    //     background-position: center;
+    //     background-size: cover;
+    //     display: inline-block;
+    //     position: relative;
+    //     box-shadow: $shadow;
+    //     border-radius: 18px;
+
+    //     &::before {
+    //       border-color: #222222 transparent transparent;
+    //       border-style: solid solid solid;
+    //       border-width: 20px 20px 20px 20px;
+    //       bottom: -40px;
+    //       content: "";
+    //       height: 0px;
+    //       /* left: 81px; */
+    //       right: 40px;
+    //       position: absolute;
+    //       width: 0px;
+
+    //     }
+
+    //     &::after {
+    //       border-color: rgb(255, 255, 255) transparent transparent;
+    //       border-style: solid solid solid solid;
+    //       border-width: 20px;
+    //       content: "";
+    //       bottom: -38px;
+    //       height: 0px;
+    //       /* left: 81px; */
+    //       right: 40px;
+    //       position: absolute;
+    //       width: 0px;
+    //     }
+
+    //     h2 {
+
+    //       @include font-h2;
+    //       background-position: center;
+    //       background-size: contain;
+    //       display: inline-block;
+    //       padding: 29px 63px;
+    //       border: 1px solid black;
+
+    //       border-radius: 18px;
+
+
+    //     }
+
+    //     .shop-title-icon {
+    //       width: 100%;
+    //       height: 100vh;
+    //       max-width: 133px;
+    //       max-height: 133px;
+    //       position: absolute;
+    //       left: -94px;
+    //       top: -17px;
+    //     }
+    //   }
+    // }
 
     .section-hot-shop {
       width: 100%;
@@ -1983,23 +2011,23 @@
           z-index: -1;
           top: -10px;
           left: -10px;
+          @include section-title;
+
+          // .shop-title {
+          //   width: 100%;
+          //   display: flex;
+          //   justify-content: flex-start;
+          //   align-items: center;
+          //   padding-left: 16px;
 
 
-          .shop-title {
-            width: 100%;
-            display: flex;
-            justify-content: flex-start;
-            align-items: center;
-            padding-left: 16px;
 
+          //   h3 {
+          //     @include font-p;
+          //     // border: 7px solid red;
 
-
-            h3 {
-              @include font-p;
-              // border: 7px solid red;
-
-            }
-          }
+          //   }
+          // }
 
           .shop-close-box {
             border: 1px solid black;
@@ -2841,11 +2869,6 @@
     justify-content: center;
     padding-top: 116px;
     padding-bottom: 92.5px;
-
-    .shop-title {
-      padding: 0;
-    }
-
   }
 
   .all-card-shop {
@@ -2857,10 +2880,17 @@
     flex-wrap: wrap;
     margin: 0 auto;
 
+
+
+
     .card-items {
       width: calc(25% - 46px);
       height: 100vh;
       max-height: 499px;
+
+
+
+
 
       @include card-title;
 
@@ -2979,6 +3009,11 @@
           // color: #ffffff;
           z-index: 1;
           color: #ffffff;
+
+          @include media(413px) {
+            justify-content: center !important;
+            padding: 0px !important;
+          }
         }
       }
 
@@ -3012,9 +3047,21 @@
           height: 41px;
           @include font-p-level2;
 
+          // @include media(413px) {
+          //   max-width: 150px !important;
+          //   height: 30px !important;
+          // }
+
           &:after {
             max-width: 194px;
             height: 40px;
+
+            // @include media(413px) {
+            //   max-width: 150px !important;
+            //   height: 30px !important;
+            //   top: -5px;
+            //   left: -5px;
+            // }
           }
         }
 
