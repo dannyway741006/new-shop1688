@@ -2,7 +2,10 @@
 
 * {
   @include domReset;
+  scroll-snap-type: y mandatory;
 }
+
+
 
 .mask-all {
   position: fixed;
@@ -330,6 +333,8 @@
   min-height: 700px;
   margin: 0 auto;
   @include header-background;
+
+  scroll-snap-align: start;
 
   // border: 1px solid red;
 
@@ -722,7 +727,12 @@
       left: calc(50% - 627.5px);
       // border: 1px solid red;
       border-radius: 5px;
+      transition: all 0.2s;
 
+      .panel {
+
+        scroll-snap-align: start;
+      }
 
 
       .web-header {
@@ -1345,28 +1355,7 @@
       }
     }
 
-    .active-close-web {
-      top: 100%;
-      left: 20%;
-      width: 0px;
-      height: 0px;
-      max-height: 0;
-      min-height: 0;
-      overflow: hidden;
-      transition: all 0.2s;
-    }
 
-    .active-open-web {
-      width: 100%;
-      max-width: 1255px;
-      height: 100vh;
-      max-height: 697px;
-      min-height: 600px;
-      overflow: unset;
-      transition: all 0.2s;
-      top: 95px;
-      left: calc(50% - 627.5px);
-    }
 
     .dock-box {
       width: 100%;
@@ -1903,7 +1892,7 @@
     padding-top: 95px;
     padding-bottom: 180px;
     @include section-title;
-
+    scroll-snap-align: start;
 
     .shop-title {
       width: 100%;
@@ -2053,7 +2042,7 @@
           height: 37px;
           display: flex;
           border: 2px solid black;
-
+          scroll-snap-align: start;
 
           .shop-title {
             width: 100%;
@@ -2150,7 +2139,7 @@
                 width: 84px;
                 height: 84px;
                 border-radius: 5px;
-
+                scroll-snap-align: start;
 
                 p {
                   display: flex;
@@ -2396,12 +2385,13 @@
   }
 
   .section-two {
-
+    scroll-snap-align: start;
     @include section-title;
     max-width: 1920px;
     display: flex;
     justify-content: flex-end;
     padding-right: 200px;
+
 
     .shop-icon {
       &::after {
@@ -2429,6 +2419,8 @@
     padding: 70px 142px 0 142px;
     // height: 100vh;
     // min-height: 1431px;
+    scroll-snap-align: start;
+
 
     .choice-section {
       width: 100%;
@@ -2442,6 +2434,7 @@
         // overflow: hidden;
         box-shadow: $shadow;
         display: none;
+
 
         .tab-btn-1280px {
           width: 20%;
@@ -2685,6 +2678,7 @@
           width: 100%;
           border: 1px solid black;
           border-radius: 200px;
+          scroll-snap-align: start;
 
 
           p {
@@ -2869,6 +2863,9 @@
     justify-content: center;
     padding-top: 116px;
     padding-bottom: 92.5px;
+    scroll-snap-align: start;
+
+
   }
 
   .all-card-shop {
@@ -2887,7 +2884,7 @@
       width: calc(25% - 46px);
       height: 100vh;
       max-height: 499px;
-
+      scroll-snap-align: start;
 
 
 
