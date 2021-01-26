@@ -193,7 +193,6 @@ new Vue({
       if (headerSection.getBoundingClientRect().bottom <= headerSection.getBoundingClientRect().height / 1.2) {
 
         // this.activeCloseWeb = true;
-
       }
     },
 
