@@ -195,9 +195,6 @@ new Vue({
         // this.activeCloseWeb = true;
 
       }
-
-
-
     },
 
 
