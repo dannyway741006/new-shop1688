@@ -12,33 +12,33 @@ let newTypeData = [
   '工商服務'
 ];
 let typeData = [{
-    title: '旅遊美食',
-    cat: '旅遊美食'
-  },
-  {
-    title: '交通運輸',
-    cat: '交通運輸'
-  },
-  {
-    title: '商業學術',
-    cat: '商業學術'
-  },
-  {
-    title: '生活服務',
-    cat: '生活服務'
-  },
-  {
-    title: '居家裝潢',
-    cat: '居家裝潢'
-  },
-  {
-    title: '醫療保健',
-    cat: '醫療保健'
-  },
-  {
-    title: '工商服務',
-    cat: '工商服務'
-  },
+  title: '旅遊美食',
+  cat: '旅遊美食'
+},
+{
+  title: '交通運輸',
+  cat: '交通運輸'
+},
+{
+  title: '商業學術',
+  cat: '商業學術'
+},
+{
+  title: '生活服務',
+  cat: '生活服務'
+},
+{
+  title: '居家裝潢',
+  cat: '居家裝潢'
+},
+{
+  title: '醫療保健',
+  cat: '醫療保健'
+},
+{
+  title: '工商服務',
+  cat: '工商服務'
+},
 ];
 
 
@@ -156,6 +156,7 @@ new Vue({
 
   methods: {
     closeWeb() {
+      const icon = document.querySelector('.shop-web')
       this.activeCloseWeb = true;
       this.activeOpenWeb = false;
     },
@@ -193,7 +194,7 @@ new Vue({
       if (headerSection.getBoundingClientRect().bottom <= headerSection.getBoundingClientRect().height / 1.2) {
         console.log(allSection.scrollTo);
 
-        // this.activeCloseWeb = true;
+        this.activeCloseWeb = true;
       }
     },
 
@@ -841,12 +842,12 @@ new Vue({
     geocodeResults(geocoder, resultsMap, address) {
       return new Promise((resolve, reject) => {
         geocoder.geocode({
-            address: address,
+          address: address,
 
-            componentRestrictions: {
-              country: "TW",
-            },
+          componentRestrictions: {
+            country: "TW",
           },
+        },
 
           (results, status) => {
             if (status === "OK") {
