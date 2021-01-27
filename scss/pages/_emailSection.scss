@@ -1,0 +1,224 @@
+.email-shop1688{
+    margin-bottom: 96px;
+}
+.container{
+    max-width: 1600px;
+    padding:0 30px;
+    margin: 0 auto;
+
+}
+.view{
+    position: relative;
+    margin-bottom:48px;
+}
+.viewBig{
+    width: 100%;
+    max-width: 1320px;
+    margin: 0 auto;
+    border: 2px solid #000000;
+    border-radius: 5px ;
+}
+.viewSmall{
+    width: 100%;
+    max-width: 560px;
+    border: 2px solid #000000;
+    border-radius: 5px ;
+    position: absolute;
+    bottom: -80px;
+   .view-line{
+       margin: 0 36px;
+   }
+   .view-content{
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       background-color:#E9E9E9;
+       padding-bottom: 0;
+       min-height: 250px;
+   }
+}
+.view-header{
+    width: 100%;
+    height: 37px;
+    border-bottom: 2px solid #000000;
+    background-color: #E3E3E3;
+    display: flex;
+   
+}
+.view-title{
+    width: 100%;
+   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    letter-spacing: 0.6px;
+    font-weight: 900;
+    color: #2D2D2D;
+    position: relative;
+    border-radius: 5px 0 0 0;
+    p{
+        margin: 0 13px;
+    }
+}
+.view-line{
+    height: 2px;
+    background-color: #000000;
+    width: calc(50% - 150px);
+    max-width: 395px;
+}
+.view-btn{
+    width: 43px;
+    height: 100%;
+    border-left: 2px solid #000000;
+    background-color: #A2C3CE;
+}
+.view-content{
+    background-color: #ffffff;
+    width: 100%;
+    position: relative;
+    border-radius: 0 0 5px 5px;
+  
+    padding-left: 8.3%;
+    padding-right: 8.3%;
+    padding-bottom: 250px;
+    p{
+        font-size: 24px;
+        font-weight: bold;
+        line-height: 2;
+    }
+}
+.view-slogan{
+   
+    p{
+        font-size: 84px;
+        color:$button-bg;
+        -webkit-text-stroke: 2px black;
+        font-weight:900;
+        text-align: center;
+        position: relative;
+        z-index: 10;
+        padding: 96px 0 ;
+        line-height: 1.5;
+        &::after{
+            content: '';
+            background:url(../../img/titlebg.png) no-repeat center;
+            display: block;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 48px;
+            background-size: contain;
+            z-index: -1;
+        }
+    }
+}
+.view-person{
+    position: absolute;
+    right: 4%;
+    bottom: 0;
+}
+.startBtn{
+    @include shopButton;
+    text-decoration: none;
+    color:#fff;
+    font-weight: bold;
+    font-size: 20px;
+    background-color: $border-color;
+    border-radius: 10px;
+    &::after{
+        border-radius: 10px;
+    }
+    &::before{
+        content:'';
+        background:url(../../img/arrow_email.png) no-repeat center;
+        display: block;
+        position: absolute;
+       width: 46px;
+        height: 46px;
+        top: 20px;
+        right: -10px;
+        z-index: 10;
+        background-size: contain;
+    }
+}
+.company_tab{
+    max-width: 920px;
+    width: 100%;
+  
+    margin-left: auto;
+
+  
+}
+.tab__menu{
+  
+    list-style: none;
+    display: flex;
+    align-items: flex-end;
+}
+.tab__item{
+    border:2px solid #000;
+    margin: 0 -2px -2px 0 ;
+   
+    width:100%;
+    text-align: center;
+    background-color: #fff;
+    transition: all 0.5s;
+    text-decoration: none;
+    color:#121212;
+    font-size: 20px;
+    line-height: 2;
+    cursor: pointer;
+    &:first-child{
+        border-radius: 5px 0 0 0 ;
+    }
+    &:last-child{
+        border-radius: 0 5px 0 0;
+    }
+    &::after{
+        content: '';
+        display: block;
+        width: 100%;
+        height: 16px;
+        background-color: #e3e3e3;
+        border-top:2px solid #000;
+    }
+    &:hover{
+        &::after{
+           
+            height: 12px;
+           
+        }
+    }
+}
+.tab__item.active{
+    background-color: #E3E3E3;
+    &::after{
+        height: 0px;
+        border-top:0px;
+    }
+}
+.tab__content{
+    background-color: #FFFAEC;
+    border:2px solid #000;
+    margin: 0 -2px -2px 0 ;
+    border-radius:0  0 5px 5px ;
+}
+
+.tab__pane{
+    padding: 80px 0;
+    display: none ;
+  
+}
+.tab__btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    p{
+       
+        color:#121212;
+        margin-left: 48px;
+        font-size: 36px;
+    }
+}
