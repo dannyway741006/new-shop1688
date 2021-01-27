@@ -8,8 +8,9 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/plugins/CSSPlugin.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenLite.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/utils/Draggable.min.js"></script>
-  <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/gsap-latest-beta.min.js?r=5426"></script>
-  <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.1/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.1/ScrollToPlugin.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.1/ScrollTrigger.min.js"></script>
 
   <title>shop1688 | 在地商家一站全搜</title>
 </head>
@@ -363,8 +364,9 @@
                 <p>{{item.地址[0]}}</p>
               </a>
             </div>
-            <img v-on:error.once="dosomething($event)" :src="`https://www.shop1688.com.tw/${item.bid}/item.jpg`"
-              alt="item-jpg">
+
+            <img onerror="this.onerror=null;this.src='./img/shop_item.svg';"
+              :src="`https://www.shop1688.com.tw/${item.bid}/item.jpg`" alt="item-jpg">
           </div>
           <div class="card-item-name">
             <h2>{{item.名稱}}</h2>
@@ -403,7 +405,8 @@
               </div>
               <section class="map-content">
                 <div class="img-w-100">
-                  <img v-on:error.once="dosomething($event)" :src="`https://www.shop1688.com.tw/${item.bid}/item.jpg`">
+                  <img onerror="this.onerror=null;this.src='./img/shop_item.svg';"
+                    :src="`https://www.shop1688.com.tw/${item.bid}/item.jpg`">
                 </div>
                 <div class="map-content-w100">
                   <div class="content-header">
@@ -1870,7 +1873,18 @@
           </button>
         </article>
       </section>
+      <!-- ====================email shop1688============================ -->
 
+
+      <section class="email-shop1688">
+
+
+
+
+
+      </section>
+
+      <!-- ====================email shop1688 end============================ -->
     </main>
     <footer>
     </footer>

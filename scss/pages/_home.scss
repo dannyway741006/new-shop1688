@@ -2,7 +2,7 @@
 
 * {
   @include domReset;
-  scroll-snap-type: y mandatory;
+
 }
 
 
@@ -335,6 +335,10 @@
   @include header-background;
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 81e27d49ea725a7a56df2333152f7afad0e44990
 
   // border: 1px solid red;
 
@@ -1881,15 +1885,22 @@
 }
 
 .main {
+
+
+
   .all-section {
     width: 100%;
     max-width: 1920px;
     margin: 0 auto;
     height: 100%;
-    padding-top: 95px;
+    padding-top: 295px;
     padding-bottom: 180px;
     @include section-title;
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 81e27d49ea725a7a56df2333152f7afad0e44990
 
     .shop-title {
       width: 100%;

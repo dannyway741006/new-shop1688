@@ -12,33 +12,33 @@ let newTypeData = [
   '工商服務'
 ];
 let typeData = [{
-  title: '旅遊美食',
-  cat: '旅遊美食'
-},
-{
-  title: '交通運輸',
-  cat: '交通運輸'
-},
-{
-  title: '商業學術',
-  cat: '商業學術'
-},
-{
-  title: '生活服務',
-  cat: '生活服務'
-},
-{
-  title: '居家裝潢',
-  cat: '居家裝潢'
-},
-{
-  title: '醫療保健',
-  cat: '醫療保健'
-},
-{
-  title: '工商服務',
-  cat: '工商服務'
-},
+    title: '旅遊美食',
+    cat: '旅遊美食'
+  },
+  {
+    title: '交通運輸',
+    cat: '交通運輸'
+  },
+  {
+    title: '商業學術',
+    cat: '商業學術'
+  },
+  {
+    title: '生活服務',
+    cat: '生活服務'
+  },
+  {
+    title: '居家裝潢',
+    cat: '居家裝潢'
+  },
+  {
+    title: '醫療保健',
+    cat: '醫療保健'
+  },
+  {
+    title: '工商服務',
+    cat: '工商服務'
+  },
 ];
 
 
@@ -155,23 +155,9 @@ new Vue({
   },
 
   methods: {
-    dosomething(event) {
-      event.currentTarget.src = "./img/shop_item.svg"
-    },
     closeWeb() {
-
-      const icon = document.querySelector('.shop-web')
-      const windowItem = document.querySelector('.shop1688-web')
-      const close = document.querySelector('.touch-close')
-
-      const iconRect = icon.getBoundingClientRect()
-      const windowRect = windowItem.getBoundingClientRect()
-
-
-      windowItem.style.transform = `translate(-50%, -50%) scale(${iconRect.width / windowRect.width})`
-      windowItem.style.top = `${iconRect.top + iconRect.height / 2}px`
-      windowItem.style.left = `${iconRect.left + iconRect.width / 2}px`
-
+      this.activeCloseWeb = true;
+      this.activeOpenWeb = false;
     },
 
     onScroll() {
@@ -855,12 +841,12 @@ new Vue({
     geocodeResults(geocoder, resultsMap, address) {
       return new Promise((resolve, reject) => {
         geocoder.geocode({
-          address: address,
+            address: address,
 
-          componentRestrictions: {
-            country: "TW",
+            componentRestrictions: {
+              country: "TW",
+            },
           },
-        },
 
           (results, status) => {
             if (status === "OK") {
@@ -917,7 +903,6 @@ new Vue({
   },
 
   mounted() {
-
     document.addEventListener('scroll', this.onScroll);
     let draggableArea = document.querySelector('.draggableArea');
     let square0 = document.querySelector('#square0');

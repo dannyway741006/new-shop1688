@@ -4,8 +4,6 @@
   padding: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  -ms-scroll-snap-type: y mandatory;
-      scroll-snap-type: y mandatory;
 }
 
 .mask-all {
@@ -2428,7 +2426,7 @@
   max-width: 1920px;
   margin: 0 auto;
   height: 100%;
-  padding-top: 95px;
+  padding-top: 295px;
   padding-bottom: 180px;
 }
 
