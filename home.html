@@ -364,7 +364,7 @@
                 <p>{{item.地址[0]}}</p>
               </a>
             </div>
-              alt="item-jpg">
+            alt="item-jpg">
 
             <img onerror="this.onerror=null;this.src='./img/shop_item.svg';"
               :src="`https://www.shop1688.com.tw/${item.bid}/item.jpg`" alt="item-jpg">
@@ -406,7 +406,7 @@
               </div>
               <section class="map-content">
                 <div class="img-w-100">
-                  <img v-on:error.once="dosomething($event)" :src="`https://www.shop1688.com.tw/${item.bid}/item.jpg`">
+
                   <img onerror="this.onerror=null;this.src='./img/shop_item.svg';"
                     :src="`https://www.shop1688.com.tw/${item.bid}/item.jpg`">
                 </div>
