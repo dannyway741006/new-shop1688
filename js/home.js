@@ -180,11 +180,14 @@ new Vue({
       let Y;
       Y = Math.floor(window.pageYOffset);
       console.log(Y)
+
       let header = document.querySelector('.header');
       let fixed = document.querySelector('.shop-input-fixed');
       let allSection = document.querySelector('.all-section');
       let resultPage = document.querySelector('.resultPage');
       let headerSection = document.querySelector('.header');
+      let newAllSection = allSection.getBoundingClientRect();
+      console.log(newAllSection.top);
       if (this.resultPageSwitch === true) {
         if (allSection.getBoundingClientRect().top <= 0) {
           this.creatScrollBar = false;
@@ -202,6 +205,7 @@ new Vue({
       }
 
       if (headerSection.getBoundingClientRect().bottom <= headerSection.getBoundingClientRect().height / 1.2) {
+        console.log(allSection.scrollTo);
 
         // this.activeCloseWeb = true;
       }

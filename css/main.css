@@ -760,7 +760,6 @@
   background-image: url("../img/headerBoxBg.png");
   background-position: center;
   background-repeat: repeat;
-  scroll-snap-align: start;
 }
 
 .header .headerBar {
@@ -1209,10 +1208,6 @@
   border-radius: 5px;
   -webkit-transition: all 0.2s;
   transition: all 0.2s;
-}
-
-.header .draggableArea .shop1688-web .panel {
-  scroll-snap-align: start;
 }
 
 .header .draggableArea .shop1688-web .web-header {
@@ -2435,7 +2430,6 @@
   height: 100%;
   padding-top: 95px;
   padding-bottom: 180px;
-  scroll-snap-align: start;
 }
 
 .main .all-section .shop-title {
@@ -2657,7 +2651,6 @@
   display: -ms-flexbox;
   display: flex;
   border: 2px solid black;
-  scroll-snap-align: start;
 }
 
 .main .all-section .section-hot-shop .hot-shop-w50 .shop-title-box .shop-title {
@@ -2847,7 +2840,6 @@
   width: 84px;
   height: 84px;
   border-radius: 5px;
-  scroll-snap-align: start;
 }
 
 .main .all-section .section-hot-shop .hot-shop-w50 .shop-content .shop-color-border .shop-icon-box .shop-icon-type p,
@@ -3233,7 +3225,6 @@
 }
 
 .main .section-two {
-  scroll-snap-align: start;
   max-width: 1920px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -3332,7 +3323,6 @@
   max-width: 1920px;
   margin: 0 auto;
   padding: 70px 142px 0 142px;
-  scroll-snap-align: start;
 }
 
 .main .choice-shop .choice-section {
@@ -3609,7 +3599,6 @@
   width: 100%;
   border: 1px solid black;
   border-radius: 200px;
-  scroll-snap-align: start;
 }
 
 .main .choice-shop .choice-section .choice-logo-input .choice-city-input p {
@@ -3922,7 +3911,6 @@
           justify-content: center;
   padding-top: 116px;
   padding-bottom: 92.5px;
-  scroll-snap-align: start;
 }
 
 .main .section-three .shop-title {
@@ -4011,7 +3999,6 @@
   width: calc(25% - 46px);
   height: 100vh;
   max-height: 499px;
-  scroll-snap-align: start;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
