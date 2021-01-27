@@ -2,7 +2,7 @@
 
 * {
   @include domReset;
-  scroll-snap-type: y mandatory;
+
 }
 
 
@@ -333,6 +333,7 @@
   min-height: 700px;
   margin: 0 auto;
   @include header-background;
+
 
 
 
@@ -1881,14 +1882,18 @@
 }
 
 .main {
+
+
+
   .all-section {
     width: 100%;
     max-width: 1920px;
     margin: 0 auto;
     height: 100%;
-    padding-top: 95px;
+    padding-top: 295px;
     padding-bottom: 180px;
     @include section-title;
+
 
 
     .shop-title {
