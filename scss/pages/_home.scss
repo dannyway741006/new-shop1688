@@ -334,7 +334,7 @@
   margin: 0 auto;
   @include header-background;
 
-  scroll-snap-align: start;
+
 
   // border: 1px solid red;
 
@@ -729,10 +729,7 @@
       border-radius: 5px;
       transition: all 0.2s;
 
-      .panel {
-
-        scroll-snap-align: start;
-      }
+      .panel {}
 
 
       .web-header {
@@ -1892,7 +1889,7 @@
     padding-top: 95px;
     padding-bottom: 180px;
     @include section-title;
-    scroll-snap-align: start;
+
 
     .shop-title {
       width: 100%;
@@ -2042,7 +2039,7 @@
           height: 37px;
           display: flex;
           border: 2px solid black;
-          scroll-snap-align: start;
+
 
           .shop-title {
             width: 100%;
@@ -2139,7 +2136,7 @@
                 width: 84px;
                 height: 84px;
                 border-radius: 5px;
-                scroll-snap-align: start;
+
 
                 p {
                   display: flex;
@@ -2385,7 +2382,7 @@
   }
 
   .section-two {
-    scroll-snap-align: start;
+
     @include section-title;
     max-width: 1920px;
     display: flex;
@@ -2419,7 +2416,7 @@
     padding: 70px 142px 0 142px;
     // height: 100vh;
     // min-height: 1431px;
-    scroll-snap-align: start;
+
 
 
     .choice-section {
@@ -2678,7 +2675,7 @@
           width: 100%;
           border: 1px solid black;
           border-radius: 200px;
-          scroll-snap-align: start;
+
 
 
           p {
@@ -2863,7 +2860,7 @@
     justify-content: center;
     padding-top: 116px;
     padding-bottom: 92.5px;
-    scroll-snap-align: start;
+
 
 
   }
@@ -2884,7 +2881,7 @@
       width: calc(25% - 46px);
       height: 100vh;
       max-height: 499px;
-      scroll-snap-align: start;
+
 
 
 
