@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="./css/main.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/plugins/CSSPlugin.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenLite.min.js"></script>
@@ -1911,16 +1912,26 @@
               </div>
               <div class="view-content">
 
-                <a class="startBtn" href="">開始吧</a>
+                <a class="startBtn" href="#">開始吧</a>
               </div>
             </div>
           </div>
           <div class="company_tab">
-            <ul class="tab__menu">
-              <li data-tab="tab1" class="tab__item active">大師策略數位行銷</li>
-              <li data-tab="tab2" class="tab__item">凱斯東數位行銷</li>
-              <li data-tab="tab3" class="tab__item">奧斯曼數位行銷</li>
-            </ul>
+            <div class="mobile_bg">
+              <ul class="tab__menu">
+                <li data-tab="tab1" class="tab__item active"><img src="img/mobile_master.png" alt="">
+                  <p>大師策略數位行銷</p>
+                </li>
+                <li data-tab="tab2" class="tab__item">
+                  <img src="img/mobile_ksdon.png" alt="">
+                  <p>凱斯東數位行銷</p>
+                </li>
+                <li data-tab="tab3" class="tab__item">
+                  <img src="img/mobie_aosi.png" alt="">
+                  <p>奧斯曼數位行銷</p>
+                </li>
+              </ul>
+            </div>
             <div class="tab__content">
               <div id="tab1" class="tab__pane ">
                 <a class="tab__btn" href="https://www.master-mkt.com.tw/" target="_">
@@ -1948,10 +1959,78 @@
 
 
       </section>
+      <div class="modal">
+        <div class="email-mask">
+          <div class="email-modal">
+            <div class="view-header">
+              <div class="view-title">
 
+              </div>
+              <div class="view-btn"></div>
+              <div class="view-btn "></div>
+              <div class="view-btn">
+                <a class="closeBtn" href="">
+                  <span class="material-icons">
+                    close
+                  </span></a>
+              </div>
+            </div>
+            <div class="modal-content">
+              <div class="modal-text">
+                <img src="img/logo-input.png" alt="">
+                <p>希望進一步瞭解具體內容，填寫基本資料後，會有專員與您聯繫。</p>
+              </div>
+              <form action="" class="form">
+
+                <div class="form-group ">
+
+                  <label class="required" for="name">姓名</label>
+                  <input type="text" id="name" name="fullName" placeholder="輸入姓名">
+                  <div class="form-radio">
+                    <input type="radio" id="male" name="gender" checked value="先生" />
+                    <label for="male"><span></span>先生</label>
+
+                    <input type="radio" id="female" name="gender" value="女士" />
+                    <label for="female"><span></span>女士</label>
+                  </div>
+                </div>
+
+
+                <div class="form-group">
+
+                  <label class="required" for="name">電話</label>
+                  <input type="tel" id="phone" name="phone" placeholder="輸入電話">
+
+                </div>
+                <div class="form-group">
+
+                  <label for="name">Email</label>
+                  <input type="email" id="email" name="email" placeholder="輸入email">
+
+                </div>
+                <div class="form-group">
+
+                  <label for="name">公司名稱</label>
+                  <input type="text" id="company" name="company" placeholder="輸入公司名稱">
+
+                </div>
+
+
+                <div class="form-group">
+                  <textarea type="textarea" rows="5" id="commit" name="message" placeholder="備註"></textarea>
+
+                </div>
+                <a class="sendBtn" href="">送出</a>
+              </form>
+            </div>
+
+          </div>
+        </div>
+      </div>
       <!-- ====================email shop1688 end============================ -->
     </main>
     <footer>
+      <p>Copyright © 2021 Shop1688 All Rights Reserved.</p>
     </footer>
   </section>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -1962,6 +2041,7 @@
   <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.9/vue.js'></script>
   <script src="https://www.gstatic.com/firebasejs/7.5.2/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/7.5.2/firebase-firestore.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2.3.2/dist/email.min.js"></script>
   <script src="./js/home.js"></script>
   <script src="./js/email.js"></script>
 </body>
