@@ -83,6 +83,7 @@ new Vue({
     typeTitle: '請重新搜尋',
     cityTitle: '',
     allShop: [],
+    i: 0,
     icon: {
       "旅遊美食": 'food.png',
       "交通運輸": 'car.png',
@@ -187,7 +188,7 @@ new Vue({
         windowItem.style.top = `${39}%`
         windowItem.style.left = `${50}%`
         windowItem.style.opacity = `1`
-
+        windowItem.style.zIndex = `9999999`
       } else {
         windowItem.style.transform = `translate(-50%, -50%) scale(${1})`
         windowItem.style.top = `${45}%`
@@ -200,8 +201,8 @@ new Vue({
     },
 
     onScroll() {
-      const scrollTop =
-        document.documentElement.scrollTop + document.body.scrollTop;
+      // const scrollTop =
+      //   document.documentElement.scrollTop + document.body.scrollTop;
       let Y;
       Y = Math.floor(window.pageYOffset);
       console.log(Y);
@@ -211,6 +212,18 @@ new Vue({
       let allSection = document.querySelector('.all-section');
       let resultPage = document.querySelector('.resultPage');
       let headerSection = document.querySelector('.header');
+      var scrollTop = window.pageYOffset || document.documentElement.scrollTop ||
+        document.body.scrollTop
+      // var scroll = scrollTop - this.i;
+      // this.i = scrollTop;
+      // if (scroll < 0) {
+      //   console.log('up')
+      //   this.scrollInput = true;
+
+      // } else {
+      //   console.log('down')
+      //   this.scrollInput = false;
+      // }
       if (this.resultPageSwitch === true) {
         if (allSection.getBoundingClientRect().top <= 0) {
           this.creatScrollBar = false;
@@ -226,8 +239,6 @@ new Vue({
           this.scrollInput = false;
         }
       }
-
-
     },
 
 
@@ -926,7 +937,7 @@ new Vue({
   },
 
   mounted() {
-    document.addEventListener('scroll', this.onScroll);
+    document.addEventListener('scroll', this.onScroll, true);
 
     let draggableArea = document.querySelector('.draggableArea');
     let square0 = document.querySelector('#square0');

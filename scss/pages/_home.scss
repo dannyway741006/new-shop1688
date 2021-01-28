@@ -2,7 +2,6 @@
 
 * {
   @include domReset;
-
 }
 
 
@@ -1362,7 +1361,7 @@
       left: calc(50% - 612.5px);
       display: flex;
       max-width: 1225px;
-      z-index: 999999;
+      z-index: 999;
 
       .shop-web {
         width: 110px;
