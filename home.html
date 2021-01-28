@@ -63,9 +63,9 @@
           <div class="typeSearch" :class="{'active-typeBtn':openTypeSearch,'active-close-typeBtn':closeTypeSearch}"
             v-show="titleMenu.length" id="baseSearch">
             <ul id="baseType">
-              <li v-for="item in titleMenu">
+              <li v-for="item in titleMenu" @click="input.type = item.title">
                 <img :src="`./img/sevenIcon/${icon[item.cat]}`">
-                <p @click="input.type = item.title">
+                <p>
                   {{item.title}}
                 </p>
               </li>
@@ -81,8 +81,8 @@
           <div class="typeSearch citySearch" id="citySearch"
             :class="{'active-cityBtn':openCitySearch,'active-close-cityBtn':closeOpenCitySearch}">
             <ul id="baseType">
-              <li v-for="(item, index) in cityData">
-                <p @click="input.city = item">
+              <li v-for="(item, index) in cityData" @click="input.city = item">
+                <p>
                   {{item}}
                 </p>
               </li>
@@ -242,9 +242,9 @@
               <div class="typeSearch" :class="{'active-typeBtn':openTypeSearch,'active-close-typeBtn':closeTypeSearch}"
                 v-show="titleMenu.length" id="baseSearch">
                 <ul id="baseType">
-                  <li v-for="item in titleMenu">
+                  <li v-for="item in titleMenu" @click="input.type = item.title">
                     <img :src="`./img/sevenIcon/${icon[item.cat]}`">
-                    <p @click="input.type = item.title">
+                    <p>
                       {{item.title}}
                     </p>
                   </li>
@@ -261,8 +261,8 @@
               <div class="typeSearch citySearch" id="citySearch"
                 :class="{'active-cityBtn':openCitySearch,'active-close-cityBtn':closeOpenCitySearch}">
                 <ul id="baseType">
-                  <li v-for="(item, index) in cityData">
-                    <p @click="input.city = item">
+                  <li v-for="(item, index) in cityData" @click="input.city = item">
+                    <p>
                       {{item}}
                     </p>
                   </li>

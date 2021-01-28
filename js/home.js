@@ -937,39 +937,11 @@ new Vue({
   },
 
   mounted() {
-    document.addEventListener('scroll', this.onScroll, true);
-
+    document.addEventListener('scroll', this.onScroll);
     let draggableArea = document.querySelector('.draggableArea');
-    let square0 = document.querySelector('#square0');
-    let square1 = document.querySelector('#square1');
-    let square2 = document.querySelector('#square2');
-    let square3 = document.querySelector('#square3');
-    let square4 = document.querySelector('#square4');
-    let square5 = document.querySelector('#square5');
-    let square6 = document.querySelector('#square6');
-
     const header = document.querySelector('.header');
     const headerRect = header.getBoundingClientRect();
     console.log(headerRect.width);
-
-    if (headerRect.width <= 770) {
-      Draggable.create("#square6", {
-        bounds: draggableArea,
-        dragClickables: true,
-        type: 'x,y',
-        // radius: 15,
-      })
-    }
-
-
-
-
-    Draggable.create("#square0", {
-      bounds: draggableArea,
-      dragClickables: true,
-      type: 'x,y',
-      // radius: 15,
-    })
 
     Draggable.create("#square1", {
       bounds: draggableArea,
@@ -1003,6 +975,15 @@ new Vue({
       zIndex: -2000,
       // radius: 15,
     })
+
+    if (headerRect.width <= 770) {
+      Draggable.create("#square6", {
+        bounds: draggableArea,
+        dragClickables: true,
+        type: 'x,y',
+        // radius: 15,
+      })
+    }
   },
 
 

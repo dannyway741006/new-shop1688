@@ -1350,9 +1350,6 @@
       }
     }
 
-
-
-
     .dock-box {
       width: 100%;
       // border: 10px solid red;
@@ -1362,6 +1359,10 @@
       display: flex;
       max-width: 1225px;
       z-index: 999;
+
+      &:hover {
+        z-index: 10000000;
+      }
 
       .shop-web {
         width: 110px;
@@ -1733,6 +1734,7 @@
           width: 120px;
           height: 120px;
           opacity: 0;
+
         }
 
         li:nth-of-type(1):hover~.last-change img:nth-of-type(1),
@@ -1745,6 +1747,7 @@
           width: 120px;
           height: 120px;
           opacity: 1;
+
         }
 
         li:nth-of-type(1):hover~.last img:nth-of-type(2) {
