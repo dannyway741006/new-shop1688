@@ -156,16 +156,30 @@ new Vue({
 
   methods: {
     closeWeb() {
-
       const icon = document.querySelector('.shop-web')
       const windowItem = document.querySelector('.shop1688-web')
       const close = document.querySelector('.touch-close')
-
       const iconRect = icon.getBoundingClientRect()
       const windowRect = windowItem.getBoundingClientRect()
-      windowItem.style.transform = `translate(-50%, -50%) scale(${iconRect.width / windowRect.width})`
+      windowItem.style.transform = `translate(-50%, -50%) scale(${0})`
       windowItem.style.top = `${iconRect.top + iconRect.height / 2}px`
       windowItem.style.left = `${iconRect.left + iconRect.width / 2}px`
+      windowItem.style.opacity = `0`
+    },
+    openWeb() {
+      // transform: scale(1);
+      // top: 95px;
+      // left: calc(50% - 627.5px);
+      const icon = document.querySelector('.shop-web')
+      const windowItem = document.querySelector('.shop1688-web')
+      const close = document.querySelector('.touch-close')
+      const iconRect = icon.getBoundingClientRect()
+      const windowRect = windowItem.getBoundingClientRect()
+      windowItem.style.transform = `translate(-50%, -50%) scale(${1})`
+      windowItem.style.top = `${45}%`
+      windowItem.style.left = `${50}%`
+      windowItem.style.opacity = `1`
+
     },
 
     onScroll() {
@@ -252,7 +266,7 @@ new Vue({
       }
     },
     openSearchItems() {
-      if (this.mainSwitch === true) {
+      if (this.mainSwitch === true && this.scrollInput === true) {
         this.maskAll = true;
       }
 
@@ -278,15 +292,17 @@ new Vue({
       }
     },
     opencitySearchItems() {
-      if (this.mainSwitch === true) {
+      if (this.mainSwitch === true && this.scrollInput === true) {
         this.maskAll = true;
       }
-      // this.maskAll = true,
+
       this.creatScrollBar = true;
       this.creatScrollBar = true;
       this.cityBgChange = true;
       this.typeBgChange = false;
       this.baColorChange = true;
+
+
       if (this.openCitySearch === false && this.openTypeSearch === false) {
         this.openCitySearch = true;
         this.closeOpenCitySearch = false;
@@ -429,12 +445,19 @@ new Vue({
       this.deleteMarkers();
       this.typeTitle = this.input.type;
       this.cityTitle = this.input.city;
+
+
       this.filterItem = this.fireItems.filter(item => {
+        this.mainSwitch = true;
+        this.resultPageSwitch = false;
         return item.名稱.toLowerCase().trim() === this.input.type.toLowerCase().trim();
       })
 
       if (this.filterItem.length) {
-
+        this.mapInputSwitch = false;
+        this.resultPageSwitch = true;
+        this.headerSwitch = true;
+        this.scrollInput = true;
         for (let i = 0; i < this.filterItem.length; i++) {
           try {
             await this.geocodeResults(
@@ -462,7 +485,7 @@ new Vue({
         // }
         if (this.input.city) {
 
-          this.scrollInput = true;
+          this.scrollInput = false;
           this.resultPageSwitch = false;
           this.mainSwitch = true;
           this.headerSwitch = false;
@@ -596,7 +619,9 @@ new Vue({
           }
 
           const payload = this.input.city ? this.filterItem : this.fireItems
+
           this.filterItem = payload.filter(item => {
+
             return item.名稱.toLowerCase().includes(this.input.type.toLowerCase())
           })
           if (this.input.type && this.input.city) {
@@ -905,6 +930,7 @@ new Vue({
 
   mounted() {
     document.addEventListener('scroll', this.onScroll);
+
     let draggableArea = document.querySelector('.draggableArea');
     let square0 = document.querySelector('#square0');
     let square1 = document.querySelector('#square1');
@@ -912,6 +938,24 @@ new Vue({
     let square3 = document.querySelector('#square3');
     let square4 = document.querySelector('#square4');
     let square5 = document.querySelector('#square5');
+    let square6 = document.querySelector('#square6');
+
+    const header = document.querySelector('.header');
+    const headerRect = header.getBoundingClientRect();
+    console.log(headerRect.width);
+
+    if (headerRect.width <= 770) {
+      Draggable.create("#square6", {
+        bounds: draggableArea,
+        dragClickables: true,
+        type: 'x,y',
+        // radius: 15,
+      })
+    }
+
+
+
+
     Draggable.create("#square0", {
       bounds: draggableArea,
       dragClickables: true,

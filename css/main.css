@@ -1201,9 +1201,12 @@
   max-height: 697px;
   min-height: 600px;
   position: absolute;
-  top: 95px;
-  left: calc(50% - 627.5px);
+  top: 45%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
   border-radius: 5px;
+  opacity: 1;
   -webkit-transition: all 0.2s;
   transition: all 0.2s;
 }
@@ -6618,7 +6621,6 @@
     position: absolute;
     left: calc(50% - 177.5px);
     top: calc(50% - 177.5px);
-    display: none;
   }
   .header .draggableArea .dock-box .rwd-header-mask {
     width: 100%;
@@ -6631,7 +6633,7 @@
     display: none;
   }
   .header .draggableArea .dock-box .shop-web {
-    display: none;
+    position: absolute;
   }
   .header .draggableArea .dock-box .dock {
     max-height: 355px;

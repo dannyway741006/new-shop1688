@@ -12,159 +12,67 @@
 <style>
   * {
     box-sizing: border-box;
+    margin: 0;
     padding: 0;
-    margin: 0;
   }
 
-  body {
-    overflow-x: hidden;
+  .scroll {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
   }
 
-  section,
-  footer {
+  .-one {
+    background: #ff8080;
+    width: 100%;
+    height: 100vh
+  }
+
+  .-two {
+    background: #0f0f0f;
     display: flex;
-    height: 100vh;
-    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: auto;
   }
 
-  .left-col,
-  .middle-col,
-  .right-col,
-  .full-col {
-    height: 100vh;
-    margin: 0;
-  }
-
-  .width-0 {
-    width: 0;
-  }
-
-  .width-33 {
-    width: 33.33%;
-  }
-
-  .width-66 {
-    width: 66.66%;
-  }
-
-  .width-100 {
-    width: 100%;
-  }
-
-  #landing-page .full-col {
-    background-color: grey;
-  }
-
-  #rooms .left-col {
-    background-color: red;
-  }
-
-  #rooms .right-col {
-    background-color: pink;
-  }
-
-  #you .middle-col {
-    background-color: green;
-  }
-
-  #you .left-col,
-  #you .right-col {
-    background-color: palegreen;
-  }
-
-  #near .right-col {
-    background-color: blue;
-  }
-
-  #near .left-col {
-    background-color: lightblue;
-  }
-
-  footer {
-    background-color: black;
-    color: white;
-  }
-
-  .hero2 {
-    display: none;
+  .items {
+    width: 500px;
+    height: 700px;
+    border: 3px solid green;
   }
 </style>
 
 <body>
-  <section id="landing-page" class="hero-story hero hero1">
-    <div class="full-col width-100">
-      <h1>Landing Screen</h1>
+  <div class="scroll">
+    <div class="container -one"></div>
+    <div class="container -two">
+      <div class="items"></div>
+      <div class="items"></div>
+      <div class="items"></div>
+      <div class="items"></div>
+      <div class="items"></div>
     </div>
-  </section>
-
-  <section id="rooms" class="hero-story hero second-hero hero2">
-    <div class="left-col width-33">
-      <h2>Des chambres pour vous</h2>
-    </div>
-    <div class="right-col width-66 delayed">
-      <h2>Contenu pour les chambres</h2>
-    </div>
-  </section>
-
-  <section id="you" class="hero-story hero second-hero hero3">
-    <div class="left-col width-33 delayed">
-      <h2>Contenu gauche pour proche de vous</h2>
-    </div>
-    <div class="middle-col width-33">
-      <h2>Proche de vous</h2>
-    </div>
-    <div class="right-col width-33 delayed">
-      <h2>Contenu droite pour proche de vous</h2>
-    </div>
-  </section>
-
-  <section id="near" class="hero-story hero second-hero hero4">
-    <div class="left-col width-66 delayed">
-      <h2>Contenu pour proche de tout</h2>
-    </div>
-    <div class="right-col width-33">
-      <h2>Proche de tout</h2>
-    </div>
-  </section>
-
-  <footer class="hero-story hero second-hero hero5">
-    <h2>Contenu du footer</h2>
-  </footer>
+  </div>
 </body>
 <script>
-  const sections = document.querySelectorAll(".hero1, .hero2, .hero3");
+  // 
+  console.clear()
+  gsap.registerPlugin(ScrollTrigger);
 
-  function goToSection(section, anim) {
-    gsap.to(window, {
-      scrollTo: {
-        y: section,
-        autoKill: false
-      },
-      duration: 1
-    });
-
-    if (anim) {
-      anim.restart();
+  const sections = gsap.utils.toArray(".container");
+  gsap.to(sections, {
+    yPercent: (i, el) => -100 * (sections.length - 1),
+    ease: "none",
+    scrollTrigger: {
+      trigger: ".scroll",
+      pin: true,
+      scrub: 1,
+      snap: 1 / (sections.length - 1),
+      markers: true
     }
-  }
-
-  sections.forEach(section => {
-    const intoAnim = gsap.timeline({
-      paused: true
-    })
-
-
-    ScrollTrigger.create({
-      trigger: section,
-      onEnter: () => goToSection(section, intoAnim),
-    });
-
-    ScrollTrigger.create({
-      trigger: section,
-      start: "bottom bottom",
-      onEnterBack: () => goToSection(section),
-    });
-  });
+  })
 </script>
 
 </html>

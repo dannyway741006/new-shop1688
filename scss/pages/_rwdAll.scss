@@ -879,11 +879,6 @@
 
             width: 45px;
             height: 45px;
-
-
-
-
-
             top: 3px;
           }
         }
@@ -1317,7 +1312,7 @@
         position: absolute;
         left: calc(50% - 177.5px);
         top: calc(50% - 177.5px);
-        display: none;
+
 
         .rwd-header-mask {
           width: 100%;
@@ -1332,7 +1327,8 @@
         }
 
         .shop-web {
-          display: none;
+          position: absolute;
+          // display: none;
           // border: 1px solid green;
         }
 
