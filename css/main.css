@@ -1035,10 +1035,6 @@
   position: relative;
 }
 
-.header .draggableArea .rwd-square {
-  display: none;
-}
-
 .header .draggableArea .square {
   text-decoration: none;
   width: 100%;
@@ -1905,6 +1901,13 @@
   background-color: rgba(224, 224, 224, 0.5);
   border-radius: 12px 12px 0 0;
   padding-bottom: 10px;
+}
+
+@media (max-width: 770px) {
+  .header .draggableArea .dock-box .shop-web {
+    background-color: rgba(224, 224, 224, 0);
+    z-index: -99;
+  }
 }
 
 .header .draggableArea .dock-box .shop-web li {
@@ -6399,9 +6402,13 @@
     max-height: calc(100% - 70px);
   }
   .header .draggableArea .shop1688-web {
-    top: 0px;
+    position: absolute;
+    top: 39%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
     max-width: 95%;
-    left: 2.5%;
+    z-index: 999999999;
     height: 100vh;
     min-height: auto;
     max-height: calc(100% - 140px);
@@ -6543,14 +6550,6 @@
   }
   .header .draggableArea .shop1688-web .header-bottom .web-btn {
     display: none;
-  }
-  .header .draggableArea .rwd-square {
-    border: 1px solid red;
-    display: inline-block;
-  }
-  .header .draggableArea .rwd-square .rwd-square-img {
-    width: 74px;
-    height: 74px;
   }
   .header .draggableArea .rwd-draggable-box {
     background-color: #2E4A6C;

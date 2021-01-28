@@ -12,33 +12,33 @@ let newTypeData = [
   '工商服務'
 ];
 let typeData = [{
-    title: '旅遊美食',
-    cat: '旅遊美食'
-  },
-  {
-    title: '交通運輸',
-    cat: '交通運輸'
-  },
-  {
-    title: '商業學術',
-    cat: '商業學術'
-  },
-  {
-    title: '生活服務',
-    cat: '生活服務'
-  },
-  {
-    title: '居家裝潢',
-    cat: '居家裝潢'
-  },
-  {
-    title: '醫療保健',
-    cat: '醫療保健'
-  },
-  {
-    title: '工商服務',
-    cat: '工商服務'
-  },
+  title: '旅遊美食',
+  cat: '旅遊美食'
+},
+{
+  title: '交通運輸',
+  cat: '交通運輸'
+},
+{
+  title: '商業學術',
+  cat: '商業學術'
+},
+{
+  title: '生活服務',
+  cat: '生活服務'
+},
+{
+  title: '居家裝潢',
+  cat: '居家裝潢'
+},
+{
+  title: '醫療保健',
+  cat: '醫療保健'
+},
+{
+  title: '工商服務',
+  cat: '工商服務'
+},
 ];
 
 
@@ -104,8 +104,6 @@ new Vue({
     mainSwitch: false,
     mapInputSwitch: true,
     headerSwitch: false,
-    activeCloseWeb: false,
-    activeOpenWeb: false,
     // class 切換 end
     // tab 切換
     cur: 0, //默认选中第一个tab
@@ -161,10 +159,17 @@ new Vue({
       const close = document.querySelector('.touch-close')
       const iconRect = icon.getBoundingClientRect()
       const windowRect = windowItem.getBoundingClientRect()
+
+
+
+
       windowItem.style.transform = `translate(-50%, -50%) scale(${0})`
       windowItem.style.top = `${iconRect.top + iconRect.height / 2}px`
       windowItem.style.left = `${iconRect.left + iconRect.width / 2}px`
       windowItem.style.opacity = `0`
+
+
+
     },
     openWeb() {
       // transform: scale(1);
@@ -175,10 +180,22 @@ new Vue({
       const close = document.querySelector('.touch-close')
       const iconRect = icon.getBoundingClientRect()
       const windowRect = windowItem.getBoundingClientRect()
-      windowItem.style.transform = `translate(-50%, -50%) scale(${1})`
-      windowItem.style.top = `${45}%`
-      windowItem.style.left = `${50}%`
-      windowItem.style.opacity = `1`
+      const header = document.querySelector('.header');
+      const headerRect = header.getBoundingClientRect();
+      if (headerRect.width <= 770) {
+        windowItem.style.transform = `translate(-50%, -50%) scale(${1})`
+        windowItem.style.top = `${39}%`
+        windowItem.style.left = `${50}%`
+        windowItem.style.opacity = `1`
+
+      } else {
+        windowItem.style.transform = `translate(-50%, -50%) scale(${1})`
+        windowItem.style.top = `${45}%`
+        windowItem.style.left = `${50}%`
+        windowItem.style.opacity = `1`
+      }
+
+
 
     },
 
@@ -187,7 +204,8 @@ new Vue({
         document.documentElement.scrollTop + document.body.scrollTop;
       let Y;
       Y = Math.floor(window.pageYOffset);
-      console.log(Y)
+      console.log(Y);
+      this.maskAll = false;
       let header = document.querySelector('.header');
       let fixed = document.querySelector('.shop-input-fixed');
       let allSection = document.querySelector('.all-section');
@@ -331,7 +349,7 @@ new Vue({
 
     fireData() {
       db.collection('shop1688web')
-        .limit(547)
+        // .limit(547)
         .get()
         .then(querySnapshot => {
           // let i = 1;
@@ -420,33 +438,12 @@ new Vue({
     },
     //需加強！ end//
     async search() {
-      // let header = document.querySelector('.header');
-      // let fixed = document.querySelector('.shop-input-fixed');
-      // let allSection = document.querySelector('.all-section');
-      // let resultPage = document.querySelector('.resultPage');
-      // if (this.resultPageSwitch === true) {
-      //   if (allSection.getBoundingClientRect().top <= 0) {
-      //     this.creatScrollBar = false;
-      //     this.scrollInput = true;
-      //   } else {
-      //     this.scrollInput = false;
-      //   }
-      // } else {
-      //   if (resultPage.getBoundingClientRect().top <= 0) {
-      //     this.creatScrollBar = false;
-      //     this.scrollInput = true;
-      //   } else {
-      //     this.scrollInput = false;
-      //   }
-      // }
-      this.maskAll = false,
-        this.creatScrollBar = false;
-      // this.closeOpenCitySearch = true;
+      this.maskAll = false;
+      this.creatScrollBar = false;
+
       this.deleteMarkers();
       this.typeTitle = this.input.type;
       this.cityTitle = this.input.city;
-
-
       this.filterItem = this.fireItems.filter(item => {
         this.mainSwitch = true;
         this.resultPageSwitch = false;
@@ -867,12 +864,12 @@ new Vue({
     geocodeResults(geocoder, resultsMap, address) {
       return new Promise((resolve, reject) => {
         geocoder.geocode({
-            address: address,
+          address: address,
 
-            componentRestrictions: {
-              country: "TW",
-            },
+          componentRestrictions: {
+            country: "TW",
           },
+        },
 
           (results, status) => {
             if (status === "OK") {

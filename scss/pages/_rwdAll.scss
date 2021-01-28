@@ -1065,9 +1065,12 @@
 
 
       .shop1688-web {
-        top: 0px;
+        position: absolute;
+        top: 39%;
+        left: 50%;
+        transform: translate(-50%, -50%);
         max-width: 95%;
-        left: 2.5%;
+        z-index: 999999999;
 
         height: 100vh;
         min-height: auto;
@@ -1233,16 +1236,7 @@
         }
       }
 
-      .rwd-square {
-        border: 1px solid red;
-        display: inline-block;
 
-
-        .rwd-square-img {
-          width: 74px;
-          height: 74px;
-        }
-      }
 
       .rwd-draggable-box {
         background-color: $rwd-tag-items;
