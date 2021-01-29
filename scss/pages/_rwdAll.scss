@@ -121,10 +121,12 @@
     }
 
     .choice-shop {
-      padding: 70px 50px 0;
+      padding: 75px 50px 100px;
 
       .choice-section {
         .choice-content {
+          padding: 72px 0px 0px;
+
           .choice-card-box {
             .all-choice-card {
               .choice-card:nth-of-type(2) {
@@ -380,6 +382,7 @@
   }
 
   .main {
+
     .choice-shop {
       .choice-section {
         .choice-tab {
@@ -483,6 +486,26 @@
           }
         }
       }
+    }
+
+    .all-section {
+      .shop-title {
+        padding-left: 0;
+        display: flex;
+        justify-content: center;
+      }
+    }
+
+    .section-two {
+
+      padding: 0;
+      display: flex;
+      justify-content: center;
+
+      .shop-title {
+        padding: 0;
+      }
+
     }
 
     .all-card-shop {
@@ -940,6 +963,8 @@
             @include font-p;
             top: 25px;
           }
+
+
         }
 
 
@@ -949,6 +974,7 @@
           left: 5%;
           top: 60px;
           z-index: 9999999;
+          border-radius: 15px;
         }
 
         .citySearch {
@@ -956,6 +982,7 @@
           left: 5%;
           top: 133px;
           z-index: 9999999;
+
         }
 
         &:after {
@@ -974,6 +1001,8 @@
           &:hover {
             background-color: #ffffff;
           }
+
+
 
         }
 
@@ -1057,12 +1086,9 @@
     }
 
     .draggableArea {
-      padding: 42px 0 0 20px;
+      padding: 0;
       height: 100vh;
       max-height: calc(100% - 70px);
-
-
-
 
       .shop1688-web {
         position: absolute;
@@ -1085,8 +1111,8 @@
         }
 
         .web-content {
-          height: calc(100% - 40px);
-          padding-bottom: 12%;
+          height: calc(100% - 50px);
+          padding-bottom: 0;
 
           .inputBtn {
             width: 100%;
@@ -1115,15 +1141,23 @@
             .typeSearch {
               max-width: 90%;
               left: 5%;
-              top: 280px;
+              top: 260px;
               z-index: 9999999;
+
+              @include media(413px) {
+                top: 195px;
+              }
             }
 
             .citySearch {
               max-width: 90%;
               left: 5%;
-              top: 355px;
+              top: 335px;
               z-index: 9999999;
+
+              @include media(413px) {
+                top: 260px !important;
+              }
             }
 
             &:after {
@@ -1163,7 +1197,7 @@
 
           .web-logo {
             max-width: 260px;
-            padding-top: 60px;
+            padding-top: 40px;
 
             img {
               &:nth-of-type(1) {
@@ -1322,6 +1356,8 @@
 
         .shop-web {
           position: absolute;
+          left: -30%;
+          top: -50%;
           // display: none;
           // border: 1px solid green;
         }
@@ -1709,6 +1745,8 @@
     }
 
     .section-three {
+      padding-bottom: 47.5px;
+
       .shop-title {
         padding: 0;
         display: flex;
@@ -2030,7 +2068,7 @@
 
         .hot-shop-more {
           height: 100vh;
-          margin: 50px 0 0 0px;
+          margin: 50px 20px 0;
         }
       }
     }
@@ -2153,7 +2191,7 @@
     }
 
     .choice-shop {
-      padding: 70px 25px 0;
+      padding: 70px 20px 100px;
 
       .choice-section {
         .choice-logo-input {
@@ -2189,7 +2227,7 @@
     .all-product {
       .card-items {
         width: calc(100% - 30px);
-        margin: 25px auto;
+        margin: 15px auto;
 
         .card-item-name {
           justify-content: center;
@@ -2247,7 +2285,7 @@
     .all-card-shop {
       .card-items {
         width: calc(100% - 30px);
-        margin: 25px auto;
+        margin: 15px auto;
 
         .card-items-img {
           width: calc(100% - 60px);

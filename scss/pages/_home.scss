@@ -29,6 +29,9 @@
   opacity: 0;
   transition: all 0.5s;
 
+  @include media(770px) {
+    padding: 0 10px;
+  }
 
 
   .navItems {
@@ -195,12 +198,14 @@
 
       .typeGroup {
 
+
         img {
           // width: 55px;
           // height: 45px;
           width: 40px;
           height: 30px;
         }
+
       }
 
       .cityGroup {
@@ -230,6 +235,7 @@
         left: 65px;
         @include font-p-level2;
 
+
       }
 
       input:focus~label {
@@ -237,12 +243,20 @@
         left: 100px;
         font-size: font(1);
 
+        @include media(770px) {
+          left: 65px !important;
+        }
+
       }
 
       input:valid~label {
         top: 5px;
         left: 65px;
         @include font-p-level3;
+
+        @include media(770px) {
+          font-size: 14px !important;
+        }
 
       }
     }
@@ -271,7 +285,9 @@
           top: 30px;
           left: 65px;
           @include font-item-name;
+
           // border: 1px solid red;
+
 
         }
 
@@ -348,6 +364,10 @@
     // border: 1px solid red;
     height: 60px;
 
+    @include media(413px) {
+      height: 45px;
+    }
+
     .headerBar-w50 {
       width: 50%;
       // border: 1px solid gold;
@@ -359,7 +379,13 @@
       .logo {
         margin-right: 50px;
         cursor: pointer;
+
         // border: 1px solid red;
+        @include media(413px) {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
 
         img {
           width: 100%;
@@ -581,6 +607,9 @@
     padding: 42px 0 0 35px;
     position: relative;
 
+    @include media(413px) {
+      max-height: calc(100% - 45px) !important;
+    }
 
 
     .square {
@@ -691,6 +720,10 @@
       p {
         @include font-p-level2;
         margin-top: 8px;
+
+        @include media(413px) {
+          @include rwd-font-btn;
+        }
       }
 
       img {
@@ -738,6 +771,10 @@
         display: flex;
         border-radius: 5px 5px 0 0;
 
+        @include media(413px) {
+          height: 30px;
+        }
+
         .web-title {
           width: 100%;
           border: 1px solid #000000;
@@ -748,6 +785,8 @@
           position: relative;
           border-radius: 5px 0 0 0;
 
+
+
           .web-line {
             height: 2px;
             background-color: #000000;
@@ -757,6 +796,11 @@
 
           p {
             margin: 0 13px;
+
+            @include media(413px) {
+              @include font-p;
+            }
+
           }
         }
 
@@ -836,6 +880,10 @@
         border-bottom: 2px solid #000000;
         padding: 0 8px;
 
+        @include media(413px) {
+          max-height: 35px !important;
+        }
+
         .down-button {
           position: relative;
         }
@@ -878,6 +926,12 @@
           margin: 8px 0;
           width: 100%;
           max-width: 1090px;
+
+          p {
+            @include media(413px) {
+              @include font-input;
+            }
+          }
         }
       }
 
@@ -894,6 +948,7 @@
 
 
 
+
         .web-logo {
           width: 100%;
           max-width: 515px;
@@ -905,6 +960,10 @@
           cursor: pointer;
           padding-top: 182px;
           padding-bottom: 41px;
+
+          @include media(413px) {
+            padding: 20px 0 !important;
+          }
 
           img {
             width: 100%;
@@ -970,6 +1029,10 @@
           display: flex;
           box-shadow: $shadow;
 
+          @include media(413px) {
+            padding: 0 10px !important;
+          }
+
 
           &::after {
             position: absolute;
@@ -999,6 +1062,13 @@
               background-color: #ffffff;
               box-shadow: $shadow;
             }
+
+            input {
+              @include media(413px) {
+                top: 19px;
+
+              }
+            }
           }
 
           .typeGroup {
@@ -1007,9 +1077,18 @@
             align-items: center;
             padding: 0 0 0 21px;
 
+            @include media(413px) {
+              max-height: 45px !important;
+            }
+
             img {
               width: 43px;
               height: 37px;
+
+              @include media(770px) {
+                width: 35px;
+                height: 30px;
+              }
             }
           }
 
@@ -1036,6 +1115,7 @@
             background-color: #EFF7FF;
             cursor: pointer !important;
             opacity: 0;
+
 
 
             ul {
@@ -1143,9 +1223,13 @@
             padding-left: 16px;
             position: relative;
 
+            @include media(413px) {
+              max-height: 45px !important;
+            }
+
             img {
-              width: 37px;
-              height: 40px;
+              width: 33px;
+              height: 34px;
             }
 
             .cityTitle {
@@ -1255,6 +1339,7 @@
             font-size: font(1);
             color: $blue;
             font-weight: 900;
+
           }
 
           input:valid~label {
@@ -1295,6 +1380,10 @@
           z-index: 999999;
           right: 11px;
 
+          @include media(413px) {
+            max-height: 45px !important;
+          }
+
           img {
             @include full;
             width: 24.5px;
@@ -1308,11 +1397,21 @@
           align-items: center;
           justify-content: center;
 
+          @include media(413px) {
+            justify-content: space-between;
+            padding: 15px 15px;
+
+          }
+
           .link-shop {
             // border: 1px solid greenyellow;
 
             &:nth-of-type(2) {
               padding: 23px 40px;
+
+              @include media(413px) {
+                padding: 0;
+              }
             }
 
             a {
@@ -1351,6 +1450,7 @@
     }
 
     .dock-box {
+
       width: 100%;
       // border: 10px solid red;
       position: absolute;
@@ -1362,6 +1462,10 @@
 
       &:hover {
         z-index: 10000000;
+
+        @include media(770px) {
+          z-index: 99999;
+        }
       }
 
       .shop-web {
@@ -1896,10 +2000,14 @@
     max-width: 1920px;
     margin: 0 auto;
     height: 100%;
-    padding-top: 295px;
-    padding-bottom: 180px;
+    padding-top: 150px;
+    padding-bottom: 150px;
     @include section-title;
 
+    @include media(770px) {
+      padding-top: 100px;
+      padding-bottom: 100px;
+    }
 
     .shop-title {
       width: 100%;
@@ -1915,15 +2023,22 @@
       margin-top: 75px;
       display: flex;
 
+      @include media(770px) {
+        padding: 0 !important;
+      }
 
       .hot-shop-w50 {
 
         width: 50%;
-        height: 100vw;
+        height: 100vh;
         max-height: 744px;
         max-width: 841px;
         position: relative;
         margin-right: 36px;
+
+        @include media(770px) {
+          margin: 0 20px !important;
+        }
 
         .shop-content-cover {
           position: absolute;
@@ -1934,6 +2049,10 @@
           max-height: 687px;
           left: -10px;
           top: -10px;
+
+          @include media(413px) {
+            max-height: 410px !important;
+          }
         }
 
         .shop-title-cover {
@@ -1981,6 +2100,9 @@
             padding-left: 16px;
             background-color: #ffffff;
 
+            @include media(1280px) {
+              padding-left: 0;
+            }
 
             h3 {
               @include font-p;
@@ -2024,6 +2146,10 @@
             padding: 58px 0 0 51px;
             position: relative;
             @include move-map;
+
+            @include media(413px) {
+              height: 180px !important;
+            }
           }
 
           .shop-color-border {
@@ -2111,10 +2237,18 @@
             }
           }
 
+          .shop-hot-pic {
+            @include media(413px) {
+              height: 205px !important;
+            }
+          }
+
           &:hover {
 
 
             .shop-hot-pic {
+
+
               img {
                 transform: scale(1);
               }
@@ -2130,7 +2264,7 @@
 
         width: 50%;
         height: 100vh;
-        max-height: 744px;
+        min-height: 744px;
         overflow-x: auto;
 
         .testbig {
@@ -2328,9 +2462,11 @@
     width: 100%;
     max-width: 1920px;
     margin: 0 auto;
-    padding: 70px 142px 0 142px;
+    padding: 75px 142px 150px 142px;
+
     // height: 100vh;
     // min-height: 1431px;
+
 
     .choice-section {
       width: 100%;
@@ -2404,7 +2540,7 @@
           @include btnReset;
           width: 100%;
           max-width: 200px;
-          height: 100vw;
+          height: 100vh;
           height: 40px;
         }
 
@@ -2570,8 +2706,20 @@
           border: 1px solid black;
           border-radius: 200px;
 
+          @include media(770px) {
+            padding: 7px 52px !important;
+          }
+
+          @include media(413px) {
+            padding: 7px 15px !important;
+          }
+
           p {
             @include font-tab-title-active;
+
+            @include media(770px) {
+              @include scroll-input-font;
+            }
           }
         }
       }
@@ -2746,8 +2894,11 @@
     @include section-title;
     display: flex;
     justify-content: center;
-    padding-top: 116px;
-    padding-bottom: 92.5px;
+    padding-bottom: 75px;
+
+    .shop-title {
+      padding-left: 0;
+    }
   }
 
   .all-card-shop {
@@ -2938,30 +3089,51 @@
       justify-content: center;
       align-items: center;
       margin-top: 20px;
-      margin-bottom: 100px;
+      margin-bottom: 150px;
 
       .search-allShop {
         @include shopButton;
         background-color: $scrollBarColor;
         width: 100%;
-        max-width: 400px;
-        height: 70px;
+        max-width: 350px;
+        height: 65px;
         border-radius: 22px;
 
+        @include media(770px) {
+          max-width: 260px;
+          height: 50px;
+          border-radius: 15px;
+        }
+
         p {
-          @include font-allShop-btn;
+          @include font-tab-title;
+
+          @include media(770px) {
+            @include scroll-input-font;
+          }
         }
 
         img {
-          width: 51px;
-          height: 52px;
+          width: 40px;
+          height: 40px;
+
+          @include media(770px) {
+            width: 25px;
+            height: 25px;
+          }
         }
 
         &::after {
           width: 100%;
-          max-width: 399px;
-          height: 69px;
+          max-width: 349px;
+          height: 64px;
           border-radius: 22px;
+
+          @include media(770px) {
+            max-width: 259px;
+            height: 49px;
+            border-radius: 15px;
+          }
         }
       }
     }

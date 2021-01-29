@@ -12,36 +12,34 @@ let newTypeData = [
   '工商服務'
 ];
 let typeData = [{
-  title: '旅遊美食',
-  cat: '旅遊美食'
-},
-{
-  title: '交通運輸',
-  cat: '交通運輸'
-},
-{
-  title: '商業學術',
-  cat: '商業學術'
-},
-{
-  title: '生活服務',
-  cat: '生活服務'
-},
-{
-  title: '居家裝潢',
-  cat: '居家裝潢'
-},
-{
-  title: '醫療保健',
-  cat: '醫療保健'
-},
-{
-  title: '工商服務',
-  cat: '工商服務'
-},
+    title: '旅遊美食',
+    cat: '旅遊美食'
+  },
+  {
+    title: '交通運輸',
+    cat: '交通運輸'
+  },
+  {
+    title: '商業學術',
+    cat: '商業學術'
+  },
+  {
+    title: '生活服務',
+    cat: '生活服務'
+  },
+  {
+    title: '居家裝潢',
+    cat: '居家裝潢'
+  },
+  {
+    title: '醫療保健',
+    cat: '醫療保健'
+  },
+  {
+    title: '工商服務',
+    cat: '工商服務'
+  },
 ];
-
-
 let cityData = ['基隆市', '臺北市', '新北市', "桃園市", "新竹市", "新竹縣", "苗栗縣", "臺中市", "彰化縣",
   "南投縣", "雲林縣", "嘉義市", "嘉義縣", "臺南市", "高雄市", "屏東縣", "臺東縣", "花蓮縣", "宜蘭縣",
   "澎湖縣", "金門縣", "連江縣",
@@ -73,7 +71,6 @@ new Vue({
     cityData,
     filterItem: [],
     fireItems: [],
-
     iconmap: [],
     allTitle: [],
     input: {
@@ -107,7 +104,7 @@ new Vue({
     headerSwitch: false,
     // class 切換 end
     // tab 切換
-    cur: 0, //默认选中第一个tab
+    cur: 0, //默認選中第一个tab
     // tab 切換 end
 
     // scroll input
@@ -121,8 +118,6 @@ new Vue({
     map: null,
     lat: 25.0325917,
     lng: 121.5624999,
-
-
     zoom: 7,
     markers: [],
     infowindow: null,
@@ -130,26 +125,21 @@ new Vue({
   },
 
   computed: {
-
     titleMenu() {
-
       const value = this.input.type.toLowerCase();
       if (value === "旅遊美食" || value === "交通運輸" || value === "居家裝潢" || value === "醫療保健" || value === "工商服務" || value === "生活服務" || value === "商業學術") {
         return this.typeData;
         // this.searchPadding = false;
       }
-
       if (value.trim()) {
         return this.allShop.filter(item => {
           return item.title.toLowerCase().indexOf(value) !== -1;
           //this.searchPadding = false;
         })
-
       } else {
         //this.searchPadding = false;
         return this.typeData;
       }
-
     },
   },
 
@@ -161,21 +151,12 @@ new Vue({
       const iconRect = icon.getBoundingClientRect()
       const windowRect = windowItem.getBoundingClientRect()
 
-
-
-
       windowItem.style.transform = `translate(-50%, -50%) scale(${0})`
       windowItem.style.top = `${iconRect.top + iconRect.height / 2}px`
       windowItem.style.left = `${iconRect.left + iconRect.width / 2}px`
       windowItem.style.opacity = `0`
-
-
-
     },
     openWeb() {
-      // transform: scale(1);
-      // top: 95px;
-      // left: calc(50% - 627.5px);
       const icon = document.querySelector('.shop-web')
       const windowItem = document.querySelector('.shop1688-web')
       const close = document.querySelector('.touch-close')
@@ -196,24 +177,20 @@ new Vue({
         windowItem.style.opacity = `1`
       }
 
-
-
     },
 
     onScroll() {
-      // const scrollTop =
-      //   document.documentElement.scrollTop + document.body.scrollTop;
-      let Y;
-      Y = Math.floor(window.pageYOffset);
-      console.log(Y);
+      let scrollTop = window.pageYOffset || document.documentElement.scrollTop ||
+        document.body.scrollTop
       this.maskAll = false;
       let header = document.querySelector('.header');
       let fixed = document.querySelector('.shop-input-fixed');
       let allSection = document.querySelector('.all-section');
       let resultPage = document.querySelector('.resultPage');
       let headerSection = document.querySelector('.header');
-      var scrollTop = window.pageYOffset || document.documentElement.scrollTop ||
-        document.body.scrollTop
+      let Y;
+      Y = Math.floor(window.pageYOffset);
+      console.log(Y);
       // var scroll = scrollTop - this.i;
       // this.i = scrollTop;
       // if (scroll < 0) {
@@ -317,20 +294,17 @@ new Vue({
           this.closeTypeSearch = false;
 
         }
-
       }
     },
     opencitySearchItems() {
       if (this.mainSwitch === true && this.scrollInput === true) {
         this.maskAll = true;
       }
-
       this.creatScrollBar = true;
       this.creatScrollBar = true;
       this.cityBgChange = true;
       this.typeBgChange = false;
       this.baColorChange = true;
-
 
       if (this.openCitySearch === false && this.openTypeSearch === false) {
         this.openCitySearch = true;
@@ -345,7 +319,6 @@ new Vue({
       }
     },
     // search bar 動畫控制 end
-
 
     // 錨點平滑滾動
     scroll(t) {
@@ -391,7 +364,6 @@ new Vue({
       let hh = newdate.getHours() < 10 ? "0" + newdate.getHours() : newdate.getHours();
       let mm = newdate.getMinutes() < 10 ? "0" + newdate.getMinutes() : newdate.getMinutes();
       let ss = newdate.getSeconds() < 10 ? "0" + newdate.getSeconds() : newdate.getSeconds();
-
       this.nowTime = hh + ":" + mm + ":" + ss;
       this.nowDay = year + "/" + month + "/" + date;
     },
@@ -482,15 +454,6 @@ new Vue({
           }
         }
       } else {
-        // if (!this.controlType) {
-        //   // this.onlyBg = true;
-        //   // this.logo = true;
-        //   console.log("aaaaadddd");
-        // } else {
-        //   console.log("asdfasdf");
-        //   // this.logo = true;
-        //   // this.onlyBg = false;
-        // }
         if (this.input.city) {
 
           this.scrollInput = false;
@@ -498,8 +461,6 @@ new Vue({
           this.mainSwitch = true;
           this.headerSwitch = false;
           this.mapInputSwitch = true;
-
-
           this.filterItem = this.fireItems.filter(item => {
             return item['地址'].includes(this.input.city);
           })
@@ -675,11 +636,6 @@ new Vue({
         scrollwheel: true,
         draggable: true,
       });
-      // let markers = new google.maps.Marker({
-      //   position: this.location,
-      //   map: this.map
-      // });
-
     },
     apndWant() {
       this.map.setZoom(18);
@@ -875,12 +831,11 @@ new Vue({
     geocodeResults(geocoder, resultsMap, address) {
       return new Promise((resolve, reject) => {
         geocoder.geocode({
-          address: address,
-
-          componentRestrictions: {
-            country: "TW",
+            address: address,
+            componentRestrictions: {
+              country: "TW",
+            },
           },
-        },
 
           (results, status) => {
             if (status === "OK") {
@@ -986,7 +941,6 @@ new Vue({
     }
   },
 
-
   // 創建完成時
   created() {
     window.addEventListener("load", () => {
@@ -994,9 +948,6 @@ new Vue({
       this.fireData();
       this.nowTimes();
       this.onScroll();
-      // this.localMounted();
-      // this.test();
     });
-
   },
 })

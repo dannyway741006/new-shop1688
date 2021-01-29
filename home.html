@@ -388,6 +388,9 @@
 
     <!-- 地圖頁面 -->
     <main class="mapInput" :class="{'active-mapInput-display':mapInputSwitch}">
+      <div id="map-close">
+
+      </div>
       <article class="results-map">
         <article class="map-titles">
           <h4>地圖範圍內的商家</h4>
@@ -459,7 +462,10 @@
         </ul>
 
       </article>
-      <article id="map" class="mapBox"></article>
+
+      <article id="map" class="mapBox">
+
+      </article>
     </main>
 
 
@@ -1939,19 +1945,19 @@
             <div class="tab__content">
               <div id="tab1" class="tab__pane ">
                 <a class="tab__btn" href="https://www.master-mkt.com.tw/" target="_">
-                  <img src="img/Master Logo_LINE.png" alt="">
+                  <img src="img/Master Logo_LINE.png" alt="icon">
                   <p>大師策略數位行銷</p>
                 </a>
               </div>
               <div id="tab2" class="tab__pane">
                 <a class="tab__btn" href="https://www.ksdon818.com/" target="_">
-                  <img src="img/ksdon.png" alt="">
+                  <img src="img/ksdon.png" alt="icon">
                   <p>凱斯東數位行銷</p>
                 </a>
               </div>
               <div id="tab3" class="tab__pane">
                 <a class="tab__btn" href="https://www.aosiman-marketing.com/" target="_">
-                  <img src="img/aosi.png" alt="">
+                  <img src="img/aosi.png" alt="icon">
                   <p>奧斯曼數位行銷</p>
                 </a>
               </div>
@@ -1985,49 +1991,34 @@
                 <p>希望進一步瞭解具體內容，填寫基本資料後，會有專員與您聯繫。</p>
               </div>
               <form action="" class="form">
-
                 <div class="form-group ">
-
                   <label class="required" for="name">姓名</label>
                   <input type="text" id="name" name="fullName" placeholder="輸入姓名">
                   <div class="form-radio">
                     <input type="radio" id="male" name="gender" checked value="先生" />
                     <label for="male"><span></span>先生</label>
-
                     <input type="radio" id="female" name="gender" value="女士" />
                     <label for="female"><span></span>女士</label>
                   </div>
                 </div>
-
-
                 <div class="form-group">
-
                   <label class="required" for="name">電話</label>
                   <input type="tel" id="phone" name="phone" placeholder="輸入電話">
-
                 </div>
                 <div class="form-group">
-
                   <label for="name">Email</label>
                   <input type="email" id="email" name="email" placeholder="輸入email">
-
                 </div>
                 <div class="form-group">
-
                   <label for="name">公司名稱</label>
                   <input type="text" id="company" name="company" placeholder="輸入公司名稱">
-
                 </div>
-
-
                 <div class="form-group">
                   <textarea type="textarea" rows="5" id="commit" name="message" placeholder="備註"></textarea>
-
                 </div>
                 <a class="sendBtn" href="">送出</a>
               </form>
             </div>
-
           </div>
         </div>
       </div>
