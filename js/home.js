@@ -12,33 +12,33 @@ let newTypeData = [
   '工商服務'
 ];
 let typeData = [{
-    title: '旅遊美食',
-    cat: '旅遊美食'
-  },
-  {
-    title: '交通運輸',
-    cat: '交通運輸'
-  },
-  {
-    title: '商業學術',
-    cat: '商業學術'
-  },
-  {
-    title: '生活服務',
-    cat: '生活服務'
-  },
-  {
-    title: '居家裝潢',
-    cat: '居家裝潢'
-  },
-  {
-    title: '醫療保健',
-    cat: '醫療保健'
-  },
-  {
-    title: '工商服務',
-    cat: '工商服務'
-  },
+  title: '旅遊美食',
+  cat: '旅遊美食'
+},
+{
+  title: '交通運輸',
+  cat: '交通運輸'
+},
+{
+  title: '商業學術',
+  cat: '商業學術'
+},
+{
+  title: '生活服務',
+  cat: '生活服務'
+},
+{
+  title: '居家裝潢',
+  cat: '居家裝潢'
+},
+{
+  title: '醫療保健',
+  cat: '醫療保健'
+},
+{
+  title: '工商服務',
+  cat: '工商服務'
+},
 ];
 let cityData = ['基隆市', '臺北市', '新北市', "桃園市", "新竹市", "新竹縣", "苗栗縣", "臺中市", "彰化縣",
   "南投縣", "雲林縣", "嘉義市", "嘉義縣", "臺南市", "高雄市", "屏東縣", "臺東縣", "花蓮縣", "宜蘭縣",
@@ -90,6 +90,10 @@ new Vue({
       "醫療保健": 'ser.png',
       "工商服務": 'user-graduate-solid.png',
     },
+
+    textword: "",
+    searchWord: "",
+    webBtnSearch: "",
     // class 切換
     openTypeSearch: false,
     closeTypeSearch: false,
@@ -102,6 +106,9 @@ new Vue({
     mainSwitch: false,
     mapInputSwitch: true,
     headerSwitch: false,
+    mapBoxClose: false,
+    mapCloseClose: false,
+    resultsMapSwitch: false,
     // class 切換 end
     // tab 切換
     cur: 0, //默認選中第一个tab
@@ -144,6 +151,11 @@ new Vue({
   },
 
   methods: {
+    closeMap() {
+      this.mapBoxClose = true;
+      this.mapCloseClose = true;
+      this.resultsMapSwitch = true;
+    },
     closeWeb() {
       const icon = document.querySelector('.shop-web')
       const windowItem = document.querySelector('.shop1688-web')
@@ -201,6 +213,7 @@ new Vue({
       //   console.log('down')
       //   this.scrollInput = false;
       // }
+      this.searchWord = "";
       if (this.resultPageSwitch === true) {
         if (allSection.getBoundingClientRect().top <= 0) {
           this.creatScrollBar = false;
@@ -276,7 +289,7 @@ new Vue({
         this.maskAll = true;
       }
 
-      this.creatScrollBar = true;
+
       this.creatScrollBar = true;
       this.cityBgChange = false;
       this.typeBgChange = true;
@@ -295,12 +308,15 @@ new Vue({
 
         }
       }
+      if (this.creatScrollBar === true) {
+        this.searchWord = "搜尋";
+      }
     },
     opencitySearchItems() {
       if (this.mainSwitch === true && this.scrollInput === true) {
         this.maskAll = true;
       }
-      this.creatScrollBar = true;
+
       this.creatScrollBar = true;
       this.cityBgChange = true;
       this.typeBgChange = false;
@@ -317,6 +333,10 @@ new Vue({
           this.closeOpenCitySearch = false;
         }
       }
+      if (this.creatScrollBar === true) {
+        this.searchWord = "搜尋";
+      }
+
     },
     // search bar 動畫控制 end
 
@@ -421,6 +441,7 @@ new Vue({
     },
     //需加強！ end//
     async search() {
+      this.textword = "";
       this.maskAll = false;
       this.creatScrollBar = false;
 
@@ -454,6 +475,7 @@ new Vue({
           }
         }
       } else {
+
         if (this.input.city) {
 
           this.scrollInput = false;
@@ -530,6 +552,10 @@ new Vue({
             this.filterItem = shopload.filter(item => {
               return item.分類[0].includes(this.input.type);
             })
+            console.log(this.filterItem);
+            if (this.filterItem.length === 0) {
+              this.textword = "很抱歉...查無此商家,請重新搜尋。"
+            }
             for (let i = 0; i < this.filterItem.length; i++) {
               try {
                 await this.geocodeResults(
@@ -620,6 +646,7 @@ new Vue({
           }
         }
       }
+
       this.input.city = "";
       this.input.type = "";
     },
@@ -831,11 +858,11 @@ new Vue({
     geocodeResults(geocoder, resultsMap, address) {
       return new Promise((resolve, reject) => {
         geocoder.geocode({
-            address: address,
-            componentRestrictions: {
-              country: "TW",
-            },
+          address: address,
+          componentRestrictions: {
+            country: "TW",
           },
+        },
 
           (results, status) => {
             if (status === "OK") {
@@ -893,11 +920,14 @@ new Vue({
 
   mounted() {
     document.addEventListener('scroll', this.onScroll);
+
     let draggableArea = document.querySelector('.draggableArea');
     const header = document.querySelector('.header');
     const headerRect = header.getBoundingClientRect();
     console.log(headerRect.width);
-
+    if (headerRect.width <= 770) {
+      this.webBtnSearch = "搜尋";
+    }
     Draggable.create("#square1", {
       bounds: draggableArea,
       dragClickables: true,

@@ -93,6 +93,10 @@
 
   }
 
+  .active-map-close {
+    display: none;
+  }
+
   .results-map {
     width: 45%;
 
@@ -108,9 +112,14 @@
     }
   }
 
+
   .map-titles {
     width: calc(100% - 20px);
     padding: 20px 40px 40px 10px;
+
+    @include media(770px) {
+      padding: 0;
+    }
 
     h4 {
       font-weight: 900;
@@ -130,6 +139,10 @@
       flex-wrap: wrap;
       padding: 0 20px;
       overflow: unset;
+    }
+
+    @include media(1000px) {
+      padding: 0 5px;
     }
 
     &::-webkit-scrollbar {
@@ -165,6 +178,19 @@
         padding: 0;
         margin: 27.5px 15px;
       }
+
+      @include media(1000px) {
+        width: calc(50% - 10px);
+        margin: 27.5px 5px;
+
+      }
+
+      @include media(413px) {
+        width: calc(100% - 10px);
+        margin: 27.5px 5px;
+
+      }
+
 
       .map-card-itmes {
         width: 100%;
@@ -225,11 +251,22 @@
             top: 0;
             left: 0;
 
+
             @include media(1280px) {
               top: 0;
               left: 0;
               width: 100%;
               height: 53%;
+            }
+
+            @include media(512px) {
+
+              height: 29vw;
+            }
+
+            @include media(413px) {
+
+              height: 70vw;
             }
           }
 
@@ -250,14 +287,40 @@
             @include media(1280px) {
 
               width: calc(100% - 66px);
-              height: 100vh;
-              max-height: 270px;
+              height: 100vw;
+              max-height: 18vw;
               overflow: hidden;
               margin-top: 24px;
               margin-left: auto;
               margin-right: auto;
               border-radius: 5px;
               position: relative;
+
+              .show-move-map {
+                top: 10px;
+                left: 10px;
+                z-index: 1;
+                position: absolute;
+                @include move-map;
+              }
+            }
+
+            @include media(1000px) {
+
+              max-height: 35vw;
+            }
+
+            @include media(512px) {
+              width: calc(100% - 28px);
+              margin-top: 8px;
+
+            }
+
+            @include media(413px) {
+              width: calc(100% - 40px);
+              max-height: 79vw;
+              margin-top: 15px;
+
             }
 
             img {
@@ -339,6 +402,10 @@
                     text-align: center;
                     -webkit-line-clamp: 1; //行數
                   }
+
+                  @include media(512px) {
+                    @include font-p;
+                  }
                 }
               }
 
@@ -347,6 +414,11 @@
                 height: 33.333%;
                 display: flex;
                 padding-left: 15px;
+
+                @include media(1280px) {
+                  padding-left: 0;
+                  width: 100%;
+                }
 
                 .name-display {
                   margin: 0;
@@ -373,10 +445,18 @@
                     img {
                       width: 25px;
                       margin-right: 10px;
+
+                      @include media(512px) {
+                        margin-right: 5px;
+                      }
                     }
 
                     p {
                       margin: 0;
+
+                      @include media(512px) {
+                        @include rwd-font-btn;
+                      }
                     }
                   }
 
@@ -389,10 +469,19 @@
                     img {
                       width: 25px;
                       margin-right: 10px;
+
+                      @include media(512px) {
+                        margin-right: 5px;
+                        width: 18px;
+                      }
                     }
 
                     p {
                       margin: 0;
+
+                      @include media(512px) {
+                        @include rwd-font-btn;
+                      }
                     }
                   }
                 }
@@ -409,8 +498,10 @@
                 @include media(1280px) {
                   justify-content: center;
                   width: 100%;
-                  padding: 18px 0;
+                  padding: 18px 0px;
                 }
+
+
 
                 a {
                   text-decoration: none;
@@ -418,13 +509,37 @@
                   max-width: 161px;
                   height: 30px;
 
+                  @include media(512px) {
+                    max-width: 104px;
+                    height: 25px;
+                  }
+
                   &::after {
                     max-width: 160px;
                     height: 29px;
+
+                    @include media(512px) {
+                      max-width: 103px;
+                      height: 24px;
+                      top: -3px;
+                      left: -4px;
+                    }
+                  }
+
+                  img {
+                    @include media(512px) {
+                      width: 15px;
+                      height: 15px;
+                      margin-right: 4px;
+                    }
                   }
 
                   p {
                     @include font-p-level2;
+
+                    @include media(512px) {
+                      @include rwd-font-btn;
+                    }
                   }
                 }
               }
@@ -517,6 +632,136 @@
   }
 }
 
+.active-results-map {
+  height: auto;
+  padding-bottom: 100px;
+
+  .results-map {
+    width: 100%;
+    border: 1px solid red;
+  }
+
+  .results-map-w100 {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 20px;
+    overflow: unset;
+
+    .li-w100-flex {
+      border: none;
+      height: auto;
+      width: calc(25% - 30px);
+      padding: 0;
+      margin: 27.5px 15px;
+
+
+
+      @include media(1280px) {
+        width: calc(33.333333% - 30px);
+      }
+
+      @include media(1000px) {
+        width: calc(50% - 30px);
+
+      }
+
+
+      .map-card-itmes {
+        width: 100%;
+        height: auto;
+
+        .map-content {
+          &::before {
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 53%;
+
+            @include media(512px) {
+              height: 29vw;
+            }
+
+            @include media(413px) {
+              height: 70vw;
+            }
+          }
+
+          flex-wrap: wrap;
+          padding: 0;
+
+          .img-w-100 {
+            width: calc(100% - 66px);
+            height: 100vw;
+            max-height: 18vw;
+            overflow: hidden;
+            margin-top: 24px;
+            margin-left: auto;
+            margin-right: auto;
+            border-radius: 5px;
+            position: relative;
+          }
+
+          .map-content-w100 {
+            flex-wrap: wrap;
+            width: 100%;
+
+            .content-header {
+              width: 100%;
+
+              // border: 1px solid red;
+              .content-title {
+                padding: 11px 0 13px 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                // border: 1px solid red;
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                display: -webkit-box;
+                -webkit-line-clamp: 1;
+                -webkit-box-orient: vertical;
+                white-space: normal;
+                line-height: 30px;
+
+                h3 {
+                  text-align: center;
+                  -webkit-line-clamp: 1; //行數
+                }
+              }
+
+              .name-w60 {
+                .name-display {
+                  justify-content: space-evenly;
+
+                  .name-type {
+                    margin-right: 0;
+                  }
+                }
+              }
+
+              .map-button {
+                justify-content: center;
+                width: 100%;
+                padding: 18px 0;
+              }
+            }
+
+            .content-bottom {
+              width: 20%;
+
+              .content-map-icon {
+                display: none;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
 .mapBox {
   width: 55%;
   height: 100%;
@@ -526,12 +771,13 @@
     display: none;
   }
 
-
-
-
   @include media(1600px) {
     width: 50%;
   }
+}
+
+.active-mapBox {
+  display: none;
 }
 
 .active-mapInput-display {

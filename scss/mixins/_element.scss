@@ -223,11 +223,20 @@
         right: 6px;
         top: 7px;
         z-index: 999999;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
 
         img {
           @include full;
           width: 24.5px;
           height: 24.5px;
+        }
+
+        p {
+          color: #ffffff;
+          font-size: 20px;
         }
       }
     }
@@ -503,14 +512,29 @@
     text-decoration: none;
     cursor: pointer;
 
+    @include media(512px) {
+      width: 70px;
+      height: 23px;
+
+    }
+
     img {
       width: 21px;
       height: 21px;
+
+      @include media(512px) {
+        width: 17px;
+        height: 17px;
+      }
     }
 
     p {
       padding: 6px 0;
       @include font-p-level2;
+
+      @include media(512px) {
+        @include font-input;
+      }
     }
   }
 
@@ -569,6 +593,10 @@
         -webkit-line-clamp: 1; //行數
         -webkit-box-orient: vertical;
         white-space: normal;
+
+        @include media(512px) {
+          @include rwd-font-btn;
+        }
       }
     }
 
