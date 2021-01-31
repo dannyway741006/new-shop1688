@@ -64,7 +64,7 @@
             v-show="titleMenu.length" id="baseSearch">
             <ul id="baseType">
               <li v-for="item in titleMenu" @click="input.type = item.title">
-                <img :src="`./img/sevenIcon/${icon[item.cat]}`">
+                <img :src="`./img/sevenIcon/${icon[item.cat]}`" loading="lazy">
                 <p>
                   {{item.title}}
                 </p>
@@ -244,7 +244,7 @@
                 v-show="titleMenu.length" id="baseSearch">
                 <ul id="baseType">
                   <li v-for="item in titleMenu" @click="input.type = item.title">
-                    <img :src="`./img/sevenIcon/${icon[item.cat]}`">
+                    <img :src="`./img/sevenIcon/${icon[item.cat]}`" loading="lazy">
                     <p>
                       {{item.title}}
                     </p>
@@ -369,14 +369,14 @@
 
 
             <img onerror="this.onerror=null;this.src='./img/shop_item.svg';"
-              :src="`https://www.shop1688.com.tw/${item.bid}/item.jpg`" alt="item-jpg">
+              :src="`https://www.shop1688.com.tw/${item.bid}/item.jpg`" alt="item-jpg" loading="lazy">
           </div>
           <div class="card-item-name">
             <h2>{{item.名稱}}</h2>
           </div>
           <div class="card-items-btn">
             <div class="card-items-icon">
-              <img :src="`./img/sevenIcon/${icon[item['分類'][0]]}`" alt="icon">
+              <img :src="`./img/sevenIcon/${icon[item['分類'][0]]}`" alt="icon" loading="lazy">
             </div>
             <a :href="`https://www.shop1688.com.tw/${item.bid}`" class="card-btn" target="_blank">
               <img src="./img/search-icon.png" alt="search-data">
@@ -391,15 +391,21 @@
     <!-- 地圖頁面 -->
     <main class="mapInput" :class="{'active-mapInput-display':mapInputSwitch,'active-results-map':resultsMapSwitch}">
       <div id="map-close" @click="closeMap" :class="{'active-map-close':mapCloseClose}">
-
       </div>
-      <article class="results-map">
+
+      <article class="results-map" :class="{'active-results-map':test}">
         <article class="map-titles">
           <h4>地圖範圍內的商家</h4>
           <p>搜尋「{{cityTitle}}{{typeTitle}}」的結果</p>
 
         </article>
         <ul class="results-map-w100">
+          <div id="map-open" :class="{
+            'active-map-open':mapOpen
+          }" @click.stop="openMap">
+            <img src="./img/路径 581.png" alt="map">
+            <p>顯示地圖</p>
+          </div>
           <p>{{textword}}</p>
           <li class="li-w100-flex" v-for="(item,index) in filterItem" :key="index">
             <article class="map-card-itmes">
@@ -420,7 +426,7 @@
                     </a>
                   </div>
                   <img onerror="this.onerror=null;this.src='./img/shop_item.svg';"
-                    :src="`https://www.shop1688.com.tw/${item.bid}/item.jpg`">
+                    :src="`https://www.shop1688.com.tw/${item.bid}/item.jpg`" loading="lazy">
                 </div>
                 <div class="map-content-w100">
                   <div class="content-header">
@@ -431,7 +437,7 @@
                     <div class="name-w60">
                       <span class="name-display">
                         <div class="name-type">
-                          <img :src="`./img/sevenIcon/${icon[item['分類'][0]]}`" alt="icon">
+                          <img :src="`./img/sevenIcon/${icon[item['分類'][0]]}`" alt="icon" loading="lazy">
                           <p>
                             {{ item['分類'][0] }}
                           </p>

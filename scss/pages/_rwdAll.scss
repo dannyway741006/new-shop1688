@@ -1152,6 +1152,7 @@
               left: 5%;
               top: 260px;
               z-index: 9999999;
+              border-radius: 15px;
 
               @include media(413px) {
                 top: 195px;

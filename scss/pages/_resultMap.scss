@@ -93,12 +93,15 @@
 
   }
 
+
+
   .active-map-close {
     display: none;
   }
 
   .results-map {
     width: 45%;
+
 
 
 
@@ -112,6 +115,9 @@
     }
   }
 
+  .active-results-map {
+    display: none;
+  }
 
   .map-titles {
     width: calc(100% - 20px);
@@ -133,6 +139,63 @@
     // border: 2px solid rgb(39, 199, 172);
     padding: 0 40px;
     overflow: auto;
+
+    #map-open {
+      background-color: $fixed-input-bg;
+      position: fixed;
+      bottom: 80px;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 99;
+      border-radius: 200px;
+      padding: 10px 0px;
+      width: 140px;
+      cursor: pointer;
+      transition: all 1s;
+      display: none;
+
+      @include media(1280px) {
+        display: flex;
+      }
+
+      p {
+        transition: all 0.5s;
+        color: #ffffff;
+        letter-spacing: 1px;
+      }
+
+      img {
+        transition: all 1s;
+        width: 100%;
+        height: 100%;
+        max-width: 20px;
+        max-width: height 20px;
+
+        margin-right: 10px;
+        object-fit: contain;
+        object-position: center;
+      }
+
+      &:hover {
+        transition: all 1s;
+        background-color: #ffffff;
+        border: 0.5px solid black;
+
+        p {
+          color: black;
+        }
+
+        img {
+          transition: all 0.3s;
+          filter: drop-shadow(#000000 1px 0);
+        }
+      }
+    }
+
+
 
     @include media(1280px) {
       display: flex;
@@ -283,6 +346,14 @@
             box-shadow: 1px 1px 5px 0px rgb(172, 172, 172);
             background-color: #ffffff;
             z-index: 1;
+
+            .show-move-map {
+              display: none;
+
+              @include media(1280px) {
+                display: block;
+              }
+            }
 
             @include media(1280px) {
 
@@ -638,7 +709,7 @@
 
   .results-map {
     width: 100%;
-    border: 1px solid red;
+    // border: 1px solid red;
   }
 
   .results-map-w100 {
@@ -646,6 +717,72 @@
     flex-wrap: wrap;
     padding: 0 20px;
     overflow: unset;
+
+    #map-open {
+      background-color: $fixed-input-bg;
+      position: fixed;
+      bottom: 80px;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 99;
+      border-radius: 200px;
+      padding: 10px 0px;
+      width: 140px;
+      cursor: pointer;
+      transition: all 1s;
+      display: none;
+
+      @include media(1280px) {
+        display: flex;
+      }
+
+      p {
+        transition: all 0.5s;
+        color: #ffffff;
+        letter-spacing: 1px;
+      }
+
+      img {
+        transition: all 1s;
+        width: 100%;
+        height: 100%;
+        max-width: 20px;
+        max-width: height 20px;
+
+        margin-right: 10px;
+        object-fit: contain;
+        object-position: center;
+      }
+
+      &:hover {
+        transition: all 1s;
+        background-color: #ffffff;
+        border: 0.5px solid black;
+
+        p {
+          color: black;
+        }
+
+        img {
+          transition: all 0.3s;
+          filter: drop-shadow(#000000 1px 0);
+        }
+      }
+    }
+
+    .active-map-open {
+      display: flex;
+    }
+
+    @include media(1000px) {
+      padding: 0 5px;
+
+    }
+
+
 
     .li-w100-flex {
       border: none;
@@ -661,8 +798,14 @@
       }
 
       @include media(1000px) {
-        width: calc(50% - 30px);
+        width: calc(50% - 10px);
+        margin: 27.5px 5px;
 
+      }
+
+      @include media (413px) {
+        width: calc(100% - 10px);
+        margin: 27.5px 5px;
       }
 
 
@@ -699,6 +842,31 @@
             margin-right: auto;
             border-radius: 5px;
             position: relative;
+
+            @include media(1000px) {
+              max-height: 35vw;
+            }
+
+            @include media(512px) {
+              width: calc(100% - 28px);
+              margin-top: 8px;
+            }
+
+            @include media(413px) {
+              width: calc(100% - 40px);
+              max-height: 79vw;
+              margin-top: 15px;
+            }
+
+
+            .show-move-map {
+              top: 10px;
+              left: 10px;
+              z-index: 1;
+              position: absolute;
+              @include move-map;
+              display: block;
+            }
           }
 
           .map-content-w100 {
@@ -768,7 +936,10 @@
   position: relative;
 
   @include media(1280px) {
+    width: 100%;
+    overflow: unset;
     display: none;
+    border: 1px solid red;
   }
 
   @include media(1600px) {

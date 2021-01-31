@@ -104,11 +104,13 @@ new Vue({
     cityBgChange: false,
     resultPageSwitch: true,
     mainSwitch: false,
-    mapInputSwitch: true,
+    mapInputSwitch: false,
     headerSwitch: false,
     mapBoxClose: false,
     mapCloseClose: false,
     resultsMapSwitch: false,
+    mapOpen: false,
+    test: false,
     // class 切換 end
     // tab 切換
     cur: 0, //默認選中第一个tab
@@ -155,6 +157,14 @@ new Vue({
       this.mapBoxClose = true;
       this.mapCloseClose = true;
       this.resultsMapSwitch = true;
+      this.mapOpen = true;
+    },
+    openMap() {
+      this.mapBoxClose = false;
+      this.mapCloseClose = false;
+      this.resultsMapSwitch = false;
+      this.mapOpen = false;
+      this.test = true;
     },
     closeWeb() {
       const icon = document.querySelector('.shop-web')
@@ -268,6 +278,7 @@ new Vue({
     removeMask() {
       this.creatScrollBar = false;
       this.maskAll = false;
+      this.searchWord = "";
     },
     headerRemove() {
       this.cityBgChange = false;
@@ -308,7 +319,9 @@ new Vue({
 
         }
       }
-      if (this.creatScrollBar === true) {
+
+
+      if (document.body.getBoundingClientRect().width <= 770) {
         this.searchWord = "搜尋";
       }
     },
@@ -333,7 +346,8 @@ new Vue({
           this.closeOpenCitySearch = false;
         }
       }
-      if (this.creatScrollBar === true) {
+
+      if (document.body.getBoundingClientRect().width <= 770) {
         this.searchWord = "搜尋";
       }
 
@@ -353,7 +367,7 @@ new Vue({
 
     fireData() {
       db.collection('shop1688web')
-        // .limit(547)
+        // .limit(12)
         .get()
         .then(querySnapshot => {
           // let i = 1;
@@ -442,6 +456,7 @@ new Vue({
     //需加強！ end//
     async search() {
       this.textword = "";
+      this.searchWord = "";
       this.maskAll = false;
       this.creatScrollBar = false;
 
@@ -474,6 +489,8 @@ new Vue({
             console.log(e)
           }
         }
+        this.input.city = "";
+        this.input.type = "";
       } else {
 
         if (this.input.city) {
@@ -645,6 +662,7 @@ new Vue({
             }
           }
         }
+
       }
 
       this.input.city = "";
