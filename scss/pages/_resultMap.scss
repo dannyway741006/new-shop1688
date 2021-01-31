@@ -114,6 +114,10 @@
     }
   }
 
+  .active-results-map {
+    display: none;
+  }
+
 
   .map-titles {
     width: calc(100% - 20px);
@@ -145,19 +149,31 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      z-index: 1;
+      z-index: 99;
+
       border-radius: 200px;
-      padding: 15px 10px;
-      width: 150px;
+      padding: 10px 0px;
+      width: 140px;
+
       cursor: pointer;
-      transition: all 0.3s;
+      transition: all 1s;
+      display: none;
+
+      @include media(1280px) {
+        display: flex;
+      }
+
 
       p {
+        transition: all 0.5s;
+
         color: #ffffff;
         letter-spacing: 1px;
       }
 
       img {
+        transition: all 1s;
+
         width: 100%;
         height: 100%;
         max-width: 20px;
@@ -169,12 +185,20 @@
       }
 
       &:hover {
+        transition: all 1s;
         background-color: #ffffff;
-        border: 1px solid black;
+        border: 0.5px solid black;
+
 
         p {
           color: black;
         }
+
+        img {
+          transition: all 0.3s;
+          filter: drop-shadow(#000000 1px 0);
+        }
+
       }
     }
 
@@ -699,6 +723,65 @@
     padding: 0 20px;
     overflow: unset;
 
+    #map-open {
+      background-color: $fixed-input-bg;
+      position: fixed;
+      bottom: 80px;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 99;
+      border-radius: 200px;
+      padding: 10px 0px;
+      width: 140px;
+      cursor: pointer;
+      transition: all 1s;
+      display: none;
+
+      @include media(1280px) {
+        display: flex;
+      }
+
+      p {
+        transition: all 0.5s;
+        color: #ffffff;
+        letter-spacing: 1px;
+      }
+
+      img {
+        transition: all 1s;
+        width: 100%;
+        height: 100%;
+        max-width: 20px;
+        max-width: height 20px;
+
+        margin-right: 10px;
+        object-fit: contain;
+        object-position: center;
+      }
+
+      &:hover {
+        transition: all 1s;
+        background-color: #ffffff;
+        border: 0.5px solid black;
+
+        p {
+          color: black;
+        }
+
+        img {
+          transition: all 0.3s;
+          filter: drop-shadow(#000000 1px 0);
+        }
+      }
+    }
+
+    .active-map-open {
+      display: flex;
+    }
+
     @include media(1000px) {
       padding: 0 5px;
 
@@ -856,8 +939,12 @@
   position: relative;
 
   @include media(1280px) {
+    width: 100%;
+    overflow: unset;
     display: none;
+    border: 1px solid red;
   }
+
 
   @include media(1600px) {
     width: 50%;
