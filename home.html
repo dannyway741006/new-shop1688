@@ -393,19 +393,13 @@
       <div id="map-close" @click="closeMap" :class="{'active-map-close':mapCloseClose}">
       </div>
 
-      <article class="results-map" :class="{'active-results-map':test}">
+      <article class="results-map">
         <article class="map-titles">
           <h4>地圖範圍內的商家</h4>
           <p>搜尋「{{cityTitle}}{{typeTitle}}」的結果</p>
 
         </article>
         <ul class="results-map-w100">
-          <div id="map-open" :class="{
-            'active-map-open':mapOpen
-          }" @click.stop="openMap">
-            <img src="./img/路径 581.png" alt="map">
-            <p>顯示地圖</p>
-          </div>
           <p>{{textword}}</p>
           <li class="li-w100-flex" v-for="(item,index) in filterItem" :key="index">
             <article class="map-card-itmes">

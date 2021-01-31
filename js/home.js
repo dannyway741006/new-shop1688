@@ -104,13 +104,11 @@ new Vue({
     cityBgChange: false,
     resultPageSwitch: true,
     mainSwitch: false,
-    mapInputSwitch: false,
+    mapInputSwitch: true,
     headerSwitch: false,
     mapBoxClose: false,
     mapCloseClose: false,
     resultsMapSwitch: false,
-    mapOpen: false,
-    test: false,
     // class 切換 end
     // tab 切換
     cur: 0, //默認選中第一个tab
@@ -157,14 +155,6 @@ new Vue({
       this.mapBoxClose = true;
       this.mapCloseClose = true;
       this.resultsMapSwitch = true;
-      this.mapOpen = true;
-    },
-    openMap() {
-      this.mapBoxClose = false;
-      this.mapCloseClose = false;
-      this.resultsMapSwitch = false;
-      this.mapOpen = false;
-      this.test = true;
     },
     closeWeb() {
       const icon = document.querySelector('.shop-web')
@@ -278,7 +268,6 @@ new Vue({
     removeMask() {
       this.creatScrollBar = false;
       this.maskAll = false;
-      this.searchWord = "";
     },
     headerRemove() {
       this.cityBgChange = false;
@@ -322,7 +311,10 @@ new Vue({
 
 
       if (document.body.getBoundingClientRect().width <= 770) {
+
+
         this.searchWord = "搜尋";
+
       }
     },
     opencitySearchItems() {
@@ -346,9 +338,12 @@ new Vue({
           this.closeOpenCitySearch = false;
         }
       }
-
-      if (document.body.getBoundingClientRect().width <= 770) {
-        this.searchWord = "搜尋";
+      if (this.creatScrollBar === true) {
+        const header = document.querySelector('.header');
+        const headerRect = header.getBoundingClientRect();
+        if (headerRect.width <= 770) {
+          this.searchWord = "搜尋";
+        }
       }
 
     },
