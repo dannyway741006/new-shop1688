@@ -29,12 +29,16 @@
     box-shadow: $boxShadow;
     transition: all 0.2s;
 
-    @include media(1280px) {
-      display: none;
-    }
+    // @include media(1280px) {
+    //   display: none;
+    // }
 
     @include media(1600px) {
       left: 50.8%;
+    }
+
+    @include media(1280px) {
+      left: 1%;
     }
 
     &:before {
@@ -100,8 +104,10 @@
   }
 
   .results-map {
+    display: flex;
     width: 45%;
-
+    // border: 10px solid black;
+    flex-wrap: wrap;
 
 
     @include media(1600px) {
@@ -114,7 +120,7 @@
     }
   }
 
-  .active-results-map {
+  .active-type-map {
     display: none;
   }
 
@@ -159,9 +165,9 @@
       transition: all 1s;
       display: none;
 
-      @include media(1280px) {
-        display: flex;
-      }
+      // @include media(1280px) {
+      //   display: ;
+      // }
 
 
       p {
@@ -200,6 +206,10 @@
         }
 
       }
+    }
+
+    .active-map-open {
+      display: flex !important;
     }
 
     @include media(1280px) {
@@ -712,10 +722,17 @@
   height: auto;
   padding-bottom: 100px;
 
+
   .results-map {
     width: 100%;
-    border: 1px solid red;
+    // border: 1px solid red;
+    flex-wrap: wrap;
+
   }
+
+  // .active-type-map {
+  //   display: none;
+  // }
 
   .results-map-w100 {
     display: flex;
@@ -741,7 +758,7 @@
       display: none;
 
       @include media(1280px) {
-        display: flex;
+        display: none;
       }
 
       p {
@@ -779,7 +796,7 @@
     }
 
     .active-map-open {
-      display: flex;
+      display: flex !important;
     }
 
     @include media(1000px) {
@@ -938,16 +955,22 @@
   height: 100%;
   position: relative;
 
-  @include media(1280px) {
-    width: 100%;
-    overflow: unset;
-    display: none;
-    border: 1px solid red;
-  }
+
 
 
   @include media(1600px) {
     width: 50%;
+  }
+
+  @include media(1280px) {
+    width: 100%;
+    overflow: unset;
+    // display: none;
+    height: 100vh;
+    // border: 1px solid red;
+    position: fixed;
+    top: 0;
+    left: 0;
   }
 }
 

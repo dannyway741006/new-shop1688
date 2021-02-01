@@ -2,6 +2,7 @@
 
 @media (max-width:1920px) {
   .shop-input-fixed {
+    z-index: 99;
     left: 0;
   }
 }
@@ -377,6 +378,7 @@
           height: 90px;
         }
       }
+
 
     }
   }
@@ -1090,6 +1092,11 @@
       height: 100vh;
       max-height: calc(100% - 70px);
 
+      .rwd-shop-web {
+        position: absolute;
+        @include shop-web;
+      }
+
       .shop1688-web {
         position: absolute;
         top: 39%;
@@ -1347,7 +1354,7 @@
         max-width: 355px;
         max-height: 355px;
         height: 100vh;
-        position: absolute;
+        position: fixed;
         left: calc(50% - 177.5px);
         top: calc(50% - 177.5px);
 
@@ -1360,8 +1367,11 @@
           left: 0;
           backdrop-filter: blur(5px);
           display: none;
+          z-index: 999999999;
+        }
 
-
+        .active-header-mask {
+          display: block;
         }
 
         .shop-web {
@@ -1388,6 +1398,7 @@
           background-color: #999999c2;
           position: relative;
           display: none;
+          z-index: 1000000000;
 
           &::after {
             content: '商家分類';
@@ -1646,6 +1657,13 @@
 
           }
         }
+
+        .active-dock {
+          display: flex;
+        }
+
+
+
       }
     }
   }

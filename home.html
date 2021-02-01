@@ -99,6 +99,8 @@
     </section>
 
     <header class="header" :class="{'active-header-display':headerSwitch}">
+      <div class="openNav" @click.stop="openNav"></div>
+
       <section class="headerBar">
         <article class="headerBar-w50">
           <figure class="logo" onclick="javascript:window.location.reload()">
@@ -148,7 +150,15 @@
         </article>
       </section>
       <section class="draggableArea">
-
+        <div class="rwd-shop-web" id="square7">
+          <ul class="shop-web">
+            <li @click.stop="openWeb">
+              <a href="#">
+                <img src="./img/shop-web-open.png" alt="shop-web-open">
+              </a>
+            </li>
+          </ul>
+        </div>
         <article class="rwd-draggable-box">
 
           <a id="square1" class="square" @click="scroll('anchor1')">
@@ -301,7 +311,8 @@
         </div>
 
         <section class="dock-box">
-          <div class="rwd-header-mask"></div>
+          <div class="rwd-header-mask" :class="{'active-header-mask':openHeaderMask}" @click.stop="closeHeaderMask">
+          </div>
           <ul class="shop-web" id="square6">
             <li @click.stop="openWeb">
               <a href="#">
@@ -309,7 +320,7 @@
               </a>
             </li>
           </ul>
-          <ul class="dock">
+          <ul class="dock" :class="{'active-dock':dockSwitch}">
             <li><a @click="food"></a></li>
             <li><a @click="car"></a></li>
             <li><a @click="academic"></a></li>
@@ -393,96 +404,91 @@
       <div id="map-close" @click="closeMap" :class="{'active-map-close':mapCloseClose}">
       </div>
 
-      <article class="results-map" :class="{'active-results-map':test}">
-        <article class="results-map">
-          <article class="map-titles">
-            <h4>地圖範圍內的商家</h4>
-            <p>搜尋「{{cityTitle}}{{typeTitle}}」的結果</p>
 
-          </article>
-          <ul class="results-map-w100">
-            <div id="map-open" :class="{
+      <article class="results-map" :class="{'active-type-map':openTypeMap}">
+        <article class="map-titles">
+          <h4>地圖範圍內的商家</h4>
+          <p>搜尋「{{cityTitle}}{{typeTitle}}」的結果</p>
+
+        </article>
+        <ul class="results-map-w100">
+          <div id="map-open" :class="{
             'active-map-open':mapOpen
           }" @click.stop="openMap">
-              <img src="./img/路径 581.png" alt="map">
-              <p>顯示地圖</p>
-            </div>
+            <img src="./img/路径 581.png" alt="map">
+            <p>顯示地圖</p>
+          </div>
 
-            <p>{{textword}}</p>
-            <li class="li-w100-flex" v-for="(item,index) in filterItem" :key="index">
-              <article class="map-card-itmes">
-                <div class="card-title">
-                  <div class="card-txt">
-                    <p>{{item.名稱}}</p>
-                  </div>
-                  <div class="card-button">
-                    <img src="./img/Group 92.png" alt="card-button">
-                  </div>
+          <p>{{textword}}</p>
+          <li class="li-w100-flex" v-for="(item,index) in filterItem" :key="index">
+            <article class="map-card-itmes">
+              <div class="card-title">
+                <div class="card-txt">
+                  <p>{{item.名稱}}</p>
                 </div>
-                <section class="map-content">
-                  <div class="img-w-100">
-                    <div class="show-move-map">
-                      <a class="shop-move-map" :href="`https://www.google.com/maps/place/${lat},${lng}`">
-                        <img src="./img/map-24px.png" alt="look-map">
-                        <p>{{item.地址[0]}}</p>
+                <div class="card-button">
+                  <img src="./img/Group 92.png" alt="card-button">
+                </div>
+              </div>
+              <section class="map-content">
+                <div class="img-w-100">
+                  <div class="show-move-map">
+                    <a class="shop-move-map" :href="`https://www.google.com/maps/place/${lat},${lng}`">
+                      <img src="./img/map-24px.png" alt="look-map">
+                      <p>{{item.地址[0]}}</p>
+                    </a>
+                  </div>
+                  <img onerror="this.onerror=null;this.src='./img/shop_item.svg';"
+                    :src="`https://www.shop1688.com.tw/${item.bid}/item.jpg`" loading="lazy">
+                </div>
+                <div class="map-content-w100">
+                  <div class="content-header">
+                    <div class="content-title">
+
+                      <h3>{{item.名稱}}</h3>
+                    </div>
+                    <div class="name-w60">
+                      <span class="name-display">
+                        <div class="name-type">
+                          <img :src="`./img/sevenIcon/${icon[item['分類'][0]]}`" alt="icon" loading="lazy">
+                          <p>
+                            {{ item['分類'][0] }}
+                          </p>
+                        </div>
+                        <div class="name-city">
+                          <img src="./img/city-icon.png">
+                          <p> {{item.地址[0]}}</p>
+                        </div>
+                      </span>
+                    </div>
+                    <div class="map-button">
+                      <a :href="`https://www.shop1688.com.tw/${item.bid}`" class="card-btn" target="_blank">
+                        <img src="./img/search-icon.png" alt="search-data">
+                        <p>查看商家</p>
+                      </a>
+
+                    </div>
+                  </div>
+                  <div class="content-bottom">
+                    <div class="content-map-icon">
+
+                      <a :href="`https://www.google.com/maps/place/${lat},${lng}`" class="google-src" target="_blank">
+                        <img class="map-markers" src="./img/组 233.png">
+                        <img class="map-map" src="./img/map.png">
                       </a>
                     </div>
-                    <img onerror="this.onerror=null;this.src='./img/shop_item.svg';"
-                      :src="`https://www.shop1688.com.tw/${item.bid}/item.jpg`" loading="lazy">
                   </div>
-                  <div class="map-content-w100">
-                    <div class="content-header">
-                      <div class="content-title">
+                </div>
+              </section>
+            </article>
+          </li>
+        </ul>
 
-                        <h3>{{item.名稱}}</h3>
-                      </div>
-                      <div class="name-w60">
-                        <span class="name-display">
-                          <div class="name-type">
-                            <img :src="`./img/sevenIcon/${icon[item['分類'][0]]}`" alt="icon" loading="lazy">
-                            <p>
-                              {{ item['分類'][0] }}
-                            </p>
-                          </div>
-                          <div class="name-city">
-                            <img src="./img/city-icon.png">
-                            <p> {{item.地址[0]}}</p>
-                          </div>
-                        </span>
-                      </div>
-                      <div class="map-button">
-                        <a :href="`https://www.shop1688.com.tw/${item.bid}`" class="card-btn" target="_blank">
-                          <img src="./img/search-icon.png" alt="search-data">
-                          <p>查看商家</p>
-                        </a>
+      </article>
 
-                      </div>
-                    </div>
-                    <div class="content-bottom">
-                      <div class="content-map-icon">
+      <article id="map" class="mapBox" :class="{'active-mapBox':mapBoxClose}">
 
-                        <a :href="`https://www.google.com/maps/place/${lat},${lng}`" class="google-src" target="_blank">
-                          <img class="map-markers" src="./img/组 233.png">
-                          <img class="map-map" src="./img/map.png">
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </section>
-              </article>
-
-
-
-
-
-            </li>
-          </ul>
-
-        </article>
-
-        <article id="map" class="mapBox" :class="{'active-mapBox':mapBoxClose}">
-
-        </article>
+      </article>
     </main>
 
 
