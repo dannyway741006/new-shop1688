@@ -100,7 +100,6 @@
 
     <header class="header" :class="{'active-header-display':headerSwitch}">
       <div class="openNav" @click.stop="openNav"></div>
-
       <section class="headerBar">
         <article class="headerBar-w50">
           <figure class="logo" onclick="javascript:window.location.reload()">
@@ -150,15 +149,7 @@
         </article>
       </section>
       <section class="draggableArea">
-        <div class="rwd-shop-web" id="square7">
-          <ul class="shop-web">
-            <li @click.stop="openWeb">
-              <a href="#">
-                <img src="./img/shop-web-open.png" alt="shop-web-open">
-              </a>
-            </li>
-          </ul>
-        </div>
+
         <article class="rwd-draggable-box">
 
           <a id="square1" class="square" @click="scroll('anchor1')">
@@ -348,6 +339,14 @@
             </li>
           </ul>
         </section>
+        <a id="square7" class="square-shop-web" @click.stop="rwdOpenWeb">
+          <!-- <a href="#"> -->
+          <img src="./img/shop-web-open.png" alt="shop-web-open">
+
+
+
+          <!-- </a> -->
+        </a>
       </section>
     </header>
 

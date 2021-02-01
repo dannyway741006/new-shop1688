@@ -200,15 +200,27 @@ new Vue({
     },
     closeWeb() {
       const icon = document.querySelector('.shop-web')
+      const squareIcon = document.querySelector('.square-shop-web')
+
       const windowItem = document.querySelector('.shop1688-web')
       const close = document.querySelector('.touch-close')
       const iconRect = icon.getBoundingClientRect()
+      const squareIconRect = squareIcon.getBoundingClientRect()
       const windowRect = windowItem.getBoundingClientRect()
+      const header = document.querySelector('.header');
+      const headerRect = header.getBoundingClientRect();
+      if (headerRect.width > 770) {
+        windowItem.style.transform = `translate(-50%, -50%) scale(${0})`
+        windowItem.style.top = `${iconRect.top + iconRect.height / 2}px`
+        windowItem.style.left = `${iconRect.left + iconRect.width / 2}px`
+        windowItem.style.opacity = `0`
+      } else {
+        windowItem.style.transform = `translate(-50%, -50%) scale(${0})`
+        windowItem.style.top = `${squareIconRect.top + squareIconRect.height / 2}px`
+        windowItem.style.left = `${squareIconRect.left + squareIconRect.width / 2}px`
+        windowItem.style.opacity = `0`
+      }
 
-      windowItem.style.transform = `translate(-50%, -50%) scale(${0})`
-      windowItem.style.top = `${iconRect.top + iconRect.height / 2}px`
-      windowItem.style.left = `${iconRect.left + iconRect.width / 2}px`
-      windowItem.style.opacity = `0`
     },
     openWeb() {
       const icon = document.querySelector('.shop-web')
@@ -218,17 +230,29 @@ new Vue({
       const windowRect = windowItem.getBoundingClientRect()
       const header = document.querySelector('.header');
       const headerRect = header.getBoundingClientRect();
-      if (headerRect.width <= 770) {
-        windowItem.style.transform = `translate(-50%, -50%) scale(${1})`
-        windowItem.style.top = `${39}%`
-        windowItem.style.left = `${50}%`
-        windowItem.style.opacity = `1`
-        windowItem.style.zIndex = `9999999`
-      } else {
+      if (headerRect.width > 770) {
         windowItem.style.transform = `translate(-50%, -50%) scale(${1})`
         windowItem.style.top = `${45}%`
         windowItem.style.left = `${50}%`
         windowItem.style.opacity = `1`
+        windowItem.style.zIndex = `9999999`
+      }
+
+    },
+    rwdOpenWeb() {
+      const icon = document.querySelector('.square-shop-web')
+      const windowItem = document.querySelector('.shop1688-web')
+      const close = document.querySelector('.touch-close')
+      const iconRect = icon.getBoundingClientRect()
+      const windowRect = windowItem.getBoundingClientRect()
+      const header = document.querySelector('.header');
+      const headerRect = header.getBoundingClientRect();
+      if (headerRect.width <= 770) {
+        windowItem.style.transform = `translate(-50%, -50%) scale(${1})`
+        windowItem.style.top = `${41}%`
+        windowItem.style.left = `${50}%`
+        windowItem.style.opacity = `1`
+        windowItem.style.zIndex = `9999999`
       }
 
     },
@@ -1040,7 +1064,7 @@ new Vue({
         // radius: 15,
       })
     }
-    Draggable.create("#square7", {
+    Draggable.create('#square7', {
       bounds: draggableArea,
       dragClickables: true,
       type: 'x,y',
