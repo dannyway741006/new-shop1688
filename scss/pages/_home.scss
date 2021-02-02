@@ -352,12 +352,33 @@
   .openNav {
     width: 50px;
     height: 50px;
-    background-color: blue;
+    background-color: rgba(0, 0, 0, 0.4);
     cursor: pointer;
     position: fixed;
     bottom: 70px;
     right: 20px;
     z-index: 999999999;
+    border-radius: 13px;
+    display: none;
+    justify-content: center;
+    align-items: center;
+
+    .openNav-inner {
+      width: 55%;
+      height: 55%;
+      border-radius: 50%;
+
+      background-color: rgba(255, 255, 255, 0.5);
+
+    }
+
+
+
+
+    @include media(770px) {
+      z-index: 99999999 !important;
+      display: flex;
+    }
 
   }
 
@@ -891,6 +912,7 @@
         .touch-close {
           position: relative;
           border-radius: 0 5px 0 0;
+          cursor: pointer;
 
           &::after {
             transform: rotate(45deg);
@@ -1509,12 +1531,11 @@
       max-width: 1225px;
       z-index: 999;
 
+
       &:hover {
         z-index: 10000000;
 
-        @include media(770px) {
-          z-index: 99999;
-        }
+
       }
 
       .shop-web {
@@ -1548,28 +1569,22 @@
             img {
               width: 85px;
               height: 85px;
-
-
-            }
-
-            &:hover {
               transform: scale(1);
-              animation-name: shop-web;
-              animation-duration: 0.5s;
-              animation-fill-mode: forwards;
-              animation-timing-function: cubic-bezier(.8, -2, .2, 4);
-              transform-origin: bottom;
-            }
+              transition: all 0.5s cubic-bezier(.8, -2, .2, 4);
 
-            @keyframes shop-web {
-              from {
-                transform: scale(1);
-              }
-
-              to {
+              &:hover {
                 transform: scale(1.3);
+
+
+
+                transition: all 0.5s cubic-bezier(.8, -2, .2, 4);
+
               }
             }
+
+
+
+
           }
         }
       }

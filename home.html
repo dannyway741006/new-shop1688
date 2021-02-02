@@ -18,7 +18,7 @@
 
 <body>
 
-  <section id="app" @click.stop="headerRemove">
+  <section id="app" @click.stop="headerRemove" class="sectionDraggable">
     <div class="mask-all" :class="{'active-mask-all':maskAll}" @click.stop="removeMask"></div>
     <section :class="{'active-input-fixed':scrollInput,'active-creat-input':creatScrollBar}" class="shop-input-fixed">
       <div class="navItems">
@@ -99,7 +99,9 @@
     </section>
 
     <header class="header" :class="{'active-header-display':headerSwitch}">
-      <div class="openNav" @click.stop="openNav"></div>
+      <div id="square8" class="openNav" @click.stop="openNav">
+        <div class="openNav-inner"></div>
+      </div>
       <section class="headerBar">
         <article class="headerBar-w50">
           <figure class="logo" onclick="javascript:window.location.reload()">
@@ -133,7 +135,7 @@
 
         </article>
         <article class="itemBar-w50">
-          <figure class="hearder-search" @click.stop="activeOpenWeb = true">
+          <figure class="hearder-search" @click.stop="openWeb">
             <img src="./img/search.png" alt="hearder-search">
           </figure>
           <figure class="voice">
@@ -148,8 +150,10 @@
           </div>
         </article>
       </section>
-      <section class="draggableArea">
 
+      <section class="draggableArea">
+        <div class="rwd-header-mask" :class="{'active-header-mask':openHeaderMask}" @click.stop="closeHeaderMask">
+        </div>
         <article class="rwd-draggable-box">
 
           <a id="square1" class="square" @click="scroll('anchor1')">
@@ -192,7 +196,7 @@
 
           </a>
         </article>
-        <div id="square5" class="shop1688-web">
+        <div id="square5" class="shop1688-web" :class="{'active-shop1688-web':shop1688WebSwatch}">
           <div class="web-header">
             <div class="web-title">
               <span class="web-line"></span>
@@ -301,9 +305,8 @@
           </div>
         </div>
 
-        <section class="dock-box">
-          <div class="rwd-header-mask" :class="{'active-header-mask':openHeaderMask}" @click.stop="closeHeaderMask">
-          </div>
+        <section class="dock-box" :class="{'active-dock-box':dockBoxSwitch}">
+
           <ul class="shop-web" id="square6">
             <li @click.stop="openWeb">
               <a href="#">

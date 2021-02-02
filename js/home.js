@@ -113,6 +113,8 @@ new Vue({
     openTypeMap: false,
     openHeaderMask: false,
     dockSwitch: false,
+    dockBoxSwitch: false,
+    shop1688WebSwatch: false,
     // class 切換 end
     // tab 切換
     cur: 0, //默認選中第一个tab
@@ -165,10 +167,13 @@ new Vue({
     openNav() {
       this.openHeaderMask = true;
       this.dockSwitch = true;
+      this.dockBoxSwitch = true;
+      this.shop1688WebSwatch = true;
     },
     closeHeaderMask() {
       this.openHeaderMask = false;
       this.dockSwitch = false;
+      this.dockBoxSwitch = false;
     },
     closeMap() {
       window.scrollTo({
@@ -1017,6 +1022,7 @@ new Vue({
     document.addEventListener('scroll', this.onScroll);
 
     let draggableArea = document.querySelector('.draggableArea');
+    let sectionDraggable = document.querySelector('.sectionDraggable');
     const header = document.querySelector('.header');
     const headerRect = header.getBoundingClientRect();
     console.log(headerRect.width);
@@ -1068,6 +1074,13 @@ new Vue({
       bounds: draggableArea,
       dragClickables: true,
       type: 'x,y',
+      // radius: 15,
+    })
+    Draggable.create('#square8', {
+      bounds: sectionDraggable,
+      dragClickables: true,
+      type: 'x,y',
+
       // radius: 15,
     })
   },
