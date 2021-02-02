@@ -7083,10 +7083,6 @@
   position: relative;
 }
 
-.mapBox #testmapcard {
-  border: 10px solid red;
-}
-
 @media (max-width: 1600px) {
   .mapBox {
     width: 50%;
