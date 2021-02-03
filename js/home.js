@@ -982,16 +982,16 @@ new Vue({
                 const infowindow = new google.maps.InfoWindow({
                   // 設定想要顯示的內容
                   content: `
-                       <div id="testmapcard">
-                       <div>
-                       <img  src="https://www.shop1688.com.tw/${this.cardBid}/item.jpg">
-                       </div>
-                          <p>${address}</p>
-                          <h1>${this.cardName}</h1>
-                          <a href="https://www.google.com/maps/place/${this.lat},${this.lng}" target="_blank"> 導航至此 </a>
-                          <p></p>
-                        
+                    <div id="map-card">
+                    <div class="map-img-box">
+                        <img src="https://www.shop1688.com.tw/${this.cardBid}/item.jpg"> 
                     </div>
+                    <h1>${address}</h1>
+                    <p>${this.cardName}</p>
+                    <button class="shop-hot-button">
+                      <a href="https://www.google.com/maps/place/${this.lat},${this.lng}" target="_blank"> 導航至此 </a>
+                    </button>
+                  </div>
                      `,
                   // 設定訊息視窗最大寬度
                   maxWidth: 200,

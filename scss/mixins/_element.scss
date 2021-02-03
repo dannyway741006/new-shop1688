@@ -360,7 +360,7 @@
 @mixin shopButton {
   display: flex;
   @include btnReset;
-
+  text-decoration: none;
   width: 100%;
   max-width: 229px;
   height: 46px;
