@@ -3175,6 +3175,7 @@
   outline: none;
   border: none;
   cursor: pointer;
+  text-decoration: none;
   width: 100%;
   max-width: 229px;
   height: 46px;
@@ -4055,6 +4056,14 @@
   letter-spacing: 0.6px;
   font-weight: 900;
   color: #2D2D2D;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  white-space: normal;
+  text-align: center;
 }
 
 .main .choice-shop .choice-section .choice-content .choice-card-box .all-choice-card .choice-card .choice-card-btn {
@@ -4068,6 +4077,7 @@
   outline: none;
   border: none;
   cursor: pointer;
+  text-decoration: none;
   width: 100%;
   max-width: 229px;
   height: 46px;
@@ -4083,7 +4093,7 @@
   -webkit-transition: all 0.2s;
   transition: all 0.2s;
   background-color: #58B1DB;
-  z-index: 1;
+  z-index: 10;
   width: 195px;
   height: 43px;
 }
@@ -4670,6 +4680,7 @@
   outline: none;
   border: none;
   cursor: pointer;
+  text-decoration: none;
   width: 100%;
   max-width: 229px;
   height: 46px;
@@ -4779,6 +4790,7 @@
   outline: none;
   border: none;
   cursor: pointer;
+  text-decoration: none;
   width: 100%;
   max-width: 229px;
   height: 46px;
@@ -4907,141 +4919,6 @@
 
 .active-main-display {
   display: none;
-}
-
-.testmapsection .mapout {
-  border: 1px solid red;
-  width: 100%;
-  max-width: 200px;
-  height: auto;
-  margin: 0 auto;
-}
-
-.testmapsection .mapout #map-card {
-  width: 100%;
-  border: 5px solid green;
-}
-
-.testmapsection .mapout #map-card .map-img-box {
-  width: 100%;
-  height: 11vw;
-  margin: 0 auto;
-}
-
-.testmapsection .mapout #map-card .map-img-box img {
-  width: 100%;
-  height: 100%;
-  border: 2px solid red;
-  -o-object-position: center;
-     object-position: center;
-  -o-object-fit: cover;
-     object-fit: cover;
-}
-
-.testmapsection .mapout #map-card h1 {
-  margin-top: 10px;
-  margin-left: 5px;
-  margin-right: 5px;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: 1;
-  -webkit-box-orient: vertical;
-  white-space: normal;
-  text-align: center;
-}
-
-.testmapsection .mapout #map-card p {
-  margin: 0 auto;
-  display: block;
-  text-align: center;
-  border: 1px solid red;
-}
-
-.testmapsection .mapout #map-card .shop-hot-button {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  background-color: transparent;
-  outline: none;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-  max-width: 229px;
-  height: 46px;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  border-radius: 100px;
-  position: relative;
-  -webkit-transition: all 0.2s;
-  transition: all 0.2s;
-  background-color: #58B1DB;
-  width: 100px;
-  height: 30px;
-  margin: 10px auto 15px;
-}
-
-.testmapsection .mapout #map-card .shop-hot-button:after {
-  width: 100%;
-  max-width: 228px;
-  height: 45px;
-  content: '';
-  border: 1px solid #000000;
-  position: absolute;
-  border-radius: 100px;
-  top: -5px;
-  left: -7px;
-  z-index: 1;
-  -webkit-transition: all 0.2s;
-  transition: all 0.2s;
-}
-
-.testmapsection .mapout #map-card .shop-hot-button img {
-  margin-right: 10px;
-}
-
-.testmapsection .mapout #map-card .shop-hot-button p {
-  font-size: 21px;
-  letter-spacing: 0.6px;
-  font-weight: 900;
-  color: #2D2D2D;
-}
-
-.testmapsection .mapout #map-card .shop-hot-button:hover {
-  -webkit-transform: scale(1);
-          transform: scale(1);
-  -webkit-animation: button-ani 0.4s cubic-bezier(0.8, -1, 0.2, 2) forwards;
-          animation: button-ani 0.4s cubic-bezier(0.8, -1, 0.2, 2) forwards;
-}
-
-.testmapsection .mapout #map-card .shop-hot-button:hover:after {
-  -webkit-transition: all 0.5s;
-  transition: all 0.5s;
-  top: 0px;
-  left: 0px;
-  -webkit-box-shadow: 0px 0px 3px 0px #a5a5a5;
-          box-shadow: 0px 0px 3px 0px #a5a5a5;
-}
-
-@keyframes button-ani {
-  from {
-    -webkit-transform: scale(1);
-            transform: scale(1);
-  }
-  to {
-    -webkit-transform: scale(1.1);
-            transform: scale(1.1);
-  }
-}
-
-.testmapsection .mapout #map-card .shop-hot-button::after {
-  width: 99px;
-  height: 29px;
 }
 
 .resultPage {
@@ -5458,6 +5335,7 @@
   outline: none;
   border: none;
   cursor: pointer;
+  text-decoration: none;
   width: 100%;
   max-width: 229px;
   height: 46px;
@@ -6513,6 +6391,7 @@
   outline: none;
   border: none;
   cursor: pointer;
+  text-decoration: none;
   width: 100%;
   max-width: 229px;
   height: 46px;
@@ -7083,6 +6962,169 @@
   position: relative;
 }
 
+<<<<<<< HEAD
+.mapBox #map-card {
+  width: 100%;
+  border: 1px solid white;
+  position: relative;
+}
+
+.mapBox #map-card::after {
+  content: '';
+  width: 100%;
+  height: 150px;
+  position: absolute;
+  background-color: #5F98B4;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  border-radius: 15px;
+}
+
+.mapBox #map-card .map-img-box {
+  width: 90%;
+  height: 160px;
+  margin: 15px auto 0;
+  border-radius: 15px;
+  overflow: hidden;
+  -webkit-box-shadow: 0px 0px 3px 0px #a5a5a5;
+          box-shadow: 0px 0px 3px 0px #a5a5a5;
+}
+
+.mapBox #map-card .map-img-box img {
+  width: 100%;
+  height: 100%;
+  -o-object-position: center;
+     object-position: center;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -webkit-transform: scale(1.3);
+          transform: scale(1.3);
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.mapBox #map-card:hover img {
+  -webkit-transform: scale(1);
+          transform: scale(1);
+}
+
+.mapBox #map-card h1 {
+  margin-top: 10px;
+  margin-left: 5px;
+  margin-right: 5px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  white-space: normal;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+.mapBox #map-card p {
+  margin: 0 auto;
+  display: block;
+  text-align: center;
+}
+
+.mapBox #map-card .shop-hot-button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  width: 100%;
+  max-width: 229px;
+  height: 46px;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 100px;
+  position: relative;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+  background-color: #58B1DB;
+  width: 100px;
+  height: 30px;
+  margin: 10px auto 15px;
+}
+
+.mapBox #map-card .shop-hot-button:after {
+  width: 100%;
+  max-width: 228px;
+  height: 45px;
+  content: '';
+  border: 1px solid #000000;
+  position: absolute;
+  border-radius: 100px;
+  top: -5px;
+  left: -7px;
+  z-index: 1;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+
+.mapBox #map-card .shop-hot-button img {
+  margin-right: 10px;
+}
+
+.mapBox #map-card .shop-hot-button p {
+  font-size: 21px;
+  letter-spacing: 0.6px;
+  font-weight: 900;
+  color: #2D2D2D;
+}
+
+.mapBox #map-card .shop-hot-button:hover {
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  -webkit-animation: button-ani 0.4s cubic-bezier(0.8, -1, 0.2, 2) forwards;
+          animation: button-ani 0.4s cubic-bezier(0.8, -1, 0.2, 2) forwards;
+}
+
+.mapBox #map-card .shop-hot-button:hover:after {
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  top: 0px;
+  left: 0px;
+  -webkit-box-shadow: 0px 0px 3px 0px #a5a5a5;
+          box-shadow: 0px 0px 3px 0px #a5a5a5;
+}
+
+@keyframes button-ani {
+  from {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  to {
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+  }
+}
+
+.mapBox #map-card .shop-hot-button a {
+  text-decoration: none;
+  color: #ffffff;
+  z-index: 10;
+}
+
+.mapBox #map-card .shop-hot-button::after {
+  width: 99px;
+  height: 29px;
+}
+
+=======
+>>>>>>> c7c2569df69fd874964f5864132cb947a22ac3ab
 @media (max-width: 1600px) {
   .mapBox {
     width: 50%;
@@ -9439,6 +9481,7 @@ body.modalOpen {
   outline: none;
   border: none;
   cursor: pointer;
+  text-decoration: none;
   width: 100%;
   max-width: 229px;
   height: 46px;
@@ -10043,6 +10086,7 @@ textarea:focus::placeholder {
   outline: none;
   border: none;
   cursor: pointer;
+  text-decoration: none;
   width: 100%;
   max-width: 229px;
   height: 46px;
