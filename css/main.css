@@ -3269,6 +3269,7 @@
 }
 
 .main .all-section .section-hot-shop .hot-shop-more {
+  border: 2px solid black;
   width: 50%;
   height: 100vh;
   min-height: 744px;
