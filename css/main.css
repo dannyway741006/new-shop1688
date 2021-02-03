@@ -6962,7 +6962,6 @@
   position: relative;
 }
 
-<<<<<<< HEAD
 .mapBox #map-card {
   width: 100%;
   border: 1px solid white;
@@ -7123,8 +7122,6 @@
   height: 29px;
 }
 
-=======
->>>>>>> c7c2569df69fd874964f5864132cb947a22ac3ab
 @media (max-width: 1600px) {
   .mapBox {
     width: 50%;
