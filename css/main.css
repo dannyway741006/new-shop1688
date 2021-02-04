@@ -42,7 +42,7 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  padding-top: 20px;
+  padding-top: 15px;
   padding-left: 30px;
   padding-right: 30px;
 }
@@ -3269,7 +3269,6 @@
 }
 
 .main .all-section .section-hot-shop .hot-shop-more {
-  border: 2px solid black;
   width: 50%;
   height: 100vh;
   min-height: 744px;
@@ -3944,6 +3943,7 @@
 
 .main .choice-shop .choice-section .choice-content .choice-card-box {
   width: 100%;
+  padding: 0 20px;
 }
 
 .main .choice-shop .choice-section .choice-content .choice-card-box .all-choice-card {
@@ -3959,11 +3959,16 @@
   margin-bottom: 48px;
 }
 
+@media (max-width: 1280px) {
+  .main .choice-shop .choice-section .choice-content .choice-card-box .all-choice-card:nth-of-type(2) {
+    margin-bottom: 48px;
+  }
+}
+
 .main .choice-shop .choice-section .choice-content .choice-card-box .all-choice-card .choice-card {
   width: 100%;
-  height: 100vh;
+  height: auto;
   max-width: 375px;
-  max-height: 384px;
   border: 1px solid black;
   position: relative;
 }
@@ -4001,7 +4006,7 @@
 
 .main .choice-shop .choice-section .choice-content .choice-card-box .all-choice-card .choice-card .card-img {
   width: 100%;
-  height: 50%;
+  height: 55%;
   overflow: hidden;
 }
 
@@ -4036,7 +4041,7 @@
       -ms-flex-align: center;
           align-items: center;
   left: calc(50% - 40px);
-  top: calc(50% - 40px);
+  top: calc(55% - 40px);
   background-color: rgba(227, 227, 227, 0.5);
 }
 
@@ -4044,7 +4049,11 @@
   width: 100%;
   height: 100%;
   max-width: 49px;
-  max-height: 42px;
+  max-height: 50px;
+  -o-object-position: center;
+     object-position: center;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
 .main .choice-shop .choice-section .choice-content .choice-card-box .all-choice-card .choice-card .choice-card-title {
@@ -4065,12 +4074,21 @@
   -webkit-box-orient: vertical;
   white-space: normal;
   text-align: center;
+  padding: 0 20px;
+}
+
+@media (max-width: 770px) {
+  .main .choice-shop .choice-section .choice-content .choice-card-box .all-choice-card .choice-card .choice-card-title h2 {
+    font-size: 20px;
+    letter-spacing: 0.6px;
+    font-weight: 900;
+    color: #2D2D2D;
+  }
 }
 
 .main .choice-shop .choice-section .choice-content .choice-card-box .all-choice-card .choice-card .choice-card-btn {
   margin: 0 auto;
   margin-top: 18px;
-  margin-bottom: 44px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -5686,6 +5704,12 @@
   display: none;
 }
 
+@media (max-width: 770px) {
+  .mapInput .results-map-w100 #map-open {
+    bottom: 30px;
+  }
+}
+
 .mapInput .results-map-w100 #map-open p {
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
@@ -6665,6 +6689,12 @@
 @media (max-width: 1280px) {
   .active-results-map .results-map-w100 #map-open {
     display: none;
+  }
+}
+
+@media (max-width: 770px) {
+  .active-results-map .results-map-w100 #map-open {
+    bottom: 30px !important;
   }
 }
 
@@ -7866,7 +7896,7 @@
   }
   .shop-input-fixed .scroll-input {
     height: 100vh;
-    max-height: 95px;
+    max-height: 75px;
   }
   .shop-input-fixed .scroll-input .web-search-bar {
     -webkit-transform: translateY(0px);

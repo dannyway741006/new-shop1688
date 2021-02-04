@@ -436,7 +436,7 @@
               <section class="map-content">
                 <div class="img-w-100">
                   <div class="show-move-map">
-                    <a class="shop-move-map" :href="`https://www.google.com/maps/place/${lat},${lng}`">
+                    <a class="shop-move-map" :href="`https://www.google.com/maps/place/${lat},${lng}`" target="_blank">
                       <img src="./img/map-24px.png" alt="look-map">
                       <p>{{item.地址[0]}}</p>
                     </a>
@@ -524,12 +524,14 @@
             </div>
             <section class="shop-content">
               <article class="shop-color-blue">
-                <a class="shop-move-map">
+                <a class="shop-move-map" href="`${hrefShop}`">
                   <img src="./img/map-24px.png" alt="look-map">
                   <p>查看地圖</p>
                 </a>
+
                 <div class="shop-hot-pic">
-                  <img src="./img/shop-img.png" alt="hot-img">
+                  <img src="./img/item.jpg" alt="hot-img" v-show="src==0">
+
                 </div>
               </article>
               <article class="shop-color-border">
@@ -554,7 +556,7 @@
           <div class="hot-shop-more">
             <div class="testbig" @mousedown="dropMove">
               <section class="hot-shop-img">
-                <article class="shop-card">
+                <article class="shop-card" @click="changeHref(0)">
                   <div class="card-title">
                     <div class="card-txt">
                       <p>Jc art studio</p>
@@ -1117,7 +1119,7 @@
                     <a class="shop-move-map" href="https://www.google.com/maps/place/25.0325917,121.5624999"
                       target="_blank">
                       <img src="./img/map-24px.png" alt="look-map">
-                      <p>高雄市11</p>
+                      <p>高雄市</p>
                     </a>
                   </div>
                   <div class="card-img">
@@ -1256,135 +1258,141 @@
               <section class="all-choice-card">
                 <article class="choice-card">
                   <div class="choice-map">
-                    <a class="shop-move-map">
+                    <a class="shop-move-map" href="https://www.google.com/maps/place/25.0325917,121.5624999"
+                      target="_blank">
                       <img src="./img/map-24px.png" alt="look-map">
-                      <p>台北市</p>
+                      <p>花蓮縣</p>
                     </a>
                   </div>
                   <div class="card-img">
-                    <img src="./img/item.jpg" alt="item-jpg">
+                    <img src="https://www.shop1688.com.tw/aom20190621001/item.jpg" alt="item-jpg">
                   </div>
                   <div class="choice-icon">
                     <img src="./img/Group 72.png" alt="choice-icon">
                   </div>
                   <div class="choice-card-title">
-                    <h2>莓果生林室內裝修</h2>
+                    <h2>吉安陶板浴健康館|花蓮舒緩壓力陶板浴,花蓮陶板浴,紓壓養生浴,花蓮健康spa,紓壓養生浴</h2>
                   </div>
-                  <button class="choice-card-btn">
+                  <a class="choice-card-btn" href="https://www.shop1688.com.tw/aom20190621001" target="_blank">
                     <img src="./img/search-icon.png" alt="search-data">
                     <p>查看商家</p>
-                  </button>
+                  </a>
                 </article>
                 <article class="choice-card">
                   <div class="choice-map">
-                    <a class="shop-move-map">
+                    <a class="shop-move-map" href="https://www.google.com/maps/place/25.0325917,121.5624999"
+                      target="_blank">
                       <img src="./img/map-24px.png" alt="look-map">
-                      <p>台北市</p>
+                      <p>花蓮縣</p>
                     </a>
                   </div>
                   <div class="card-img">
-                    <img src="./img/item.jpg" alt="item-jpg">
+                    <img src="https://www.shop1688.com.tw/aom20190531145/item.jpg" alt="item-jpg">
                   </div>
 
                   <div class="choice-icon">
                     <img src="./img/Group 72.png" alt="choice-icon">
                   </div>
                   <div class="choice-card-title">
-                    <h2>莓果生林室內裝修</h2>
+                    <h2>中日當舖|花蓮當舖,花蓮借錢,花蓮快速貸款</h2>
                   </div>
-                  <button class="choice-card-btn">
+                  <a class="choice-card-btn" href="https://www.shop1688.com.tw/aom20190531145" target="_blank">
                     <img src="./img/search-icon.png" alt="search-data">
                     <p>查看商家</p>
-                  </button>
+                  </a>
 
                 </article>
                 <article class="choice-card">
                   <div class="choice-map">
-                    <a class="shop-move-map">
+                    <a class="shop-move-map" href="https://www.google.com/maps/place/25.0325917,121.5624999"
+                      target="_blank">
                       <img src="./img/map-24px.png" alt="look-map">
-                      <p>台北市</p>
+                      <p>臺東縣</p>
                     </a>
                   </div>
                   <div class="card-img">
-                    <img src="./img/item.jpg" alt="item-jpg">
+                    <img src="https://www.shop1688.com.tw/aom20190627023/item.jpg" alt="item-jpg">
                   </div>
                   <div class="choice-icon">
                     <img src="./img/Group 72.png" alt="choice-icon">
                   </div>
                   <div class="choice-card-title">
-                    <h2>莓果生林室內裝修</h2>
+                    <h2>陳柄辰身心科診所|臺東身心科診所,台東失眠門診,台東心理諮詢門診,台東自律神經失調,台東失智</h2>
                   </div>
-                  <button class="choice-card-btn">
+                  <a class="choice-card-btn" href="https://www.shop1688.com.tw/aom20190627023" target="_blank">
                     <img src="./img/search-icon.png" alt="search-data">
                     <p>查看商家</p>
-                  </button>
+                  </a>
                 </article>
               </section>
               <section class="all-choice-card">
                 <article class="choice-card">
                   <div class="choice-map">
-                    <a class="shop-move-map">
+                    <a class="shop-move-map" href="https://www.google.com/maps/place/25.0325917,121.5624999"
+                      target="_blank">
                       <img src="./img/map-24px.png" alt="look-map">
-                      <p>台北市</p>
+                      <p>臺東縣</p>
                     </a>
                   </div>
                   <div class="card-img">
-                    <img src="./img/item.jpg" alt="item-jpg">
+                    <img src="https://www.shop1688.com.tw/aom20190430116/item.jpg" alt="item-jpg">
                   </div>
                   <div class="choice-icon">
                     <img src="./img/Group 72.png" alt="choice-icon">
                   </div>
                   <div class="choice-card-title">
-                    <h2>莓果生林室內裝修</h2>
+                    <h2>清厚咖啡｜台東烘焙咖啡,台東咖啡館手作烘培</h2>
                   </div>
-                  <button class="choice-card-btn">
+                  <a class="choice-card-btn" href="https://www.shop1688.com.tw/aom20190430116" target="_blank">
                     <img src="./img/search-icon.png" alt="search-data">
                     <p>查看商家</p>
-                  </button>
+                  </a>
                 </article>
                 <article class="choice-card">
                   <div class="choice-map">
-                    <a class="shop-move-map">
+                    <a class="shop-move-map" href="https://www.google.com/maps/place/25.0325917,121.5624999"
+                      target="_blank">
                       <img src="./img/map-24px.png" alt="look-map">
-                      <p>台北市</p>
+                      <p>臺東縣</p>
                     </a>
                   </div>
                   <div class="card-img">
-                    <img src="./img/item.jpg" alt="item-jpg">
+                    <img src="https://www.shop1688.com.tw/aom20190424002/item.jpg" alt="item-jpg">
                   </div>
 
                   <div class="choice-icon">
                     <img src="./img/Group 72.png" alt="choice-icon">
                   </div>
                   <div class="choice-card-title">
-                    <h2>莓果生林室內裝修</h2>
+                    <h2>暖宿Warm House</h2>
                   </div>
-                  <button class="choice-card-btn">
+                  <a class="choice-card-btn" href="https://www.shop1688.com.tw/aom20190424002" target="_blank">
                     <img src="./img/search-icon.png" alt="search-data">
                     <p>查看商家</p>
-                  </button>
+                  </a>
 
                 </article>
                 <article class="choice-card">
                   <div class="choice-map">
-                    <a class="shop-move-map">
+                    <a class="shop-move-map" href="https://www.google.com/maps/place/25.0325917,121.5624999"
+                      target="_blank">
                       <img src="./img/map-24px.png" alt="look-map">
-                      <p>台北市</p>
+                      <p>臺東縣</p>
                     </a>
                   </div>
                   <div class="card-img">
-                    <img src="./img/item.jpg" alt="item-jpg">
+                    <img src="https://www.shop1688.com.tw/aom20181022005/item.jpg" alt="item-jpg">
                   </div>
                   <div class="choice-icon">
                     <img src="./img/Group 72.png" alt="choice-icon">
                   </div>
                   <div class="choice-card-title">
-                    <h2>莓果生林室內裝修</h2>
+                    <h2>LP懶骨頭民宿｜台東火車站毛小孩民宿,台東火車站工業風民宿推薦</h2>
                   </div>
-                  <button class="choice-card-btn">
-                    <img src="./img/search-icon.png" alt="search-data">
-                    <p>查看商家</p>
-                  </button>
+                  <area class="choice-card-btn" href="https://www.shop1688.com.tw/aom20181022005" target="_blank">
+                  <img src="./img/search-icon.png" alt="search-data">
+                  <p>查看商家</p>
+                  </area>
                 </article>
               </section>
             </div>
@@ -1392,46 +1400,48 @@
               <section class="all-choice-card">
                 <article class="choice-card">
                   <div class="choice-map">
-                    <a class="shop-move-map">
+                    <a class="shop-move-map" href="https://www.google.com/maps/place/25.0325917,121.5624999"
+                      target="_blank">
                       <img src="./img/map-24px.png" alt="look-map">
-                      <p>台北市</p>
+                      <p>澎湖縣</p>
                     </a>
                   </div>
                   <div class="card-img">
-                    <img src="./img/item.jpg" alt="item-jpg">
+                    <img src="https://www.shop1688.com.tw/aom20190426002/item.jpg" alt="item-jpg">
                   </div>
                   <div class="choice-icon">
                     <img src="./img/Group 72.png" alt="choice-icon">
                   </div>
                   <div class="choice-card-title">
-                    <h2>莓果生林室內裝修</h2>
+                    <h2>澎湖撒野民宿|澎湖馬公民宿,澎湖馬公租車,澎湖馬公包車</h2>
                   </div>
-                  <button class="choice-card-btn">
+                  <a class="choice-card-btn" href="https://www.shop1688.com.tw/aom20190426002" target="_blank">
                     <img src="./img/search-icon.png" alt="search-data">
                     <p>查看商家</p>
-                  </button>
+                  </a>
                 </article>
                 <article class="choice-card">
                   <div class="choice-map">
-                    <a class="shop-move-map">
+                    <a class="shop-move-map" href="https://www.google.com/maps/place/25.0325917,121.5624999"
+                      target="_blank">
                       <img src="./img/map-24px.png" alt="look-map">
-                      <p>台北市</p>
+                      <p>澎湖縣</p>
                     </a>
                   </div>
                   <div class="card-img">
-                    <img src="./img/item.jpg" alt="item-jpg">
+                    <img src="https://www.shop1688.com.tw/aom20201224001/item.jpg" alt="item-jpg">
                   </div>
 
                   <div class="choice-icon">
                     <img src="./img/Group 72.png" alt="choice-icon">
                   </div>
                   <div class="choice-card-title">
-                    <h2>莓果生林室內裝修</h2>
+                    <h2>打個盹海景民宿 ｜澎湖海景民宿，澎湖親子住宿推薦</h2>
                   </div>
-                  <button class="choice-card-btn">
+                  <a class="choice-card-btn" href="https://www.shop1688.com.tw/aom20201224001" target="_blank">
                     <img src="./img/search-icon.png" alt="search-data">
                     <p>查看商家</p>
-                  </button>
+                  </a>
 
                 </article>
                 <article class="choice-card">

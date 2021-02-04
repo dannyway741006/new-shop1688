@@ -165,9 +165,9 @@
       transition: all 1s;
       display: none;
 
-      // @include media(1280px) {
-      //   display: ;
-      // }
+      @include media(770px) {
+        bottom: 30px;
+      }
 
 
       p {
@@ -759,6 +759,10 @@
 
       @include media(1280px) {
         display: none;
+      }
+
+      @include media(770px) {
+        bottom: 30px !important;
       }
 
       p {
