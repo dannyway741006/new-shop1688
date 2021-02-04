@@ -121,12 +121,10 @@ new Vue({
     // tab 切換 end
     hrefShop: "https://google.com",
     src: 0,
-    web: [{
-        web0: "https://1",
-      },
-      {
-        web2: "https://2",
-      }
+    web: [
+      web0 = "https://1",
+      web2 = "https://2",
+
     ],
     // scroll input
     scrollInput: false,
@@ -166,8 +164,7 @@ new Vue({
 
   methods: {
     changeHref(e) {
-      this.hrefShop = web[e].web0;
-      console.log(web[e].web0)
+      this.hrefShop = this.web[e];
     },
     resizeAll() {
       if (document.body.getBoundingClientRect().width <= 1280) {
