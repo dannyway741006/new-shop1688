@@ -13,9 +13,23 @@
         padding: 0 50px;
 
         .hot-shop-w50 {
-          width: 60%;
+          width: 55%;
 
           .shop-content {
+            .shop-color-blue {
+              width: 45%;
+
+              .shop-hot-pic {
+                max-height: 23vw;
+              }
+
+
+            }
+
+            .shop-color-border {
+              width: 55%;
+            }
+
             .shop-color-border h3 {
               @include font-tab-title;
             }
@@ -52,7 +66,7 @@
 
 
   .main .all-section .section-hot-shop .hot-shop-more {
-    width: 40%;
+    width: 45%;
   }
 
 }
@@ -62,12 +76,14 @@
     .all-section {
       .section-hot-shop {
         .hot-shop-w50 {
+          width: 45%;
+
           .shop-content {
             flex-wrap: wrap;
 
             .shop-color-blue {
               width: 100%;
-              height: 45%;
+              height: 50%;
               // border: 1px solid red;
               padding: 0;
 
@@ -79,11 +95,12 @@
               }
 
               .shop-hot-pic {
-                top: 30px;
-                left: calc(50% - 40%);
-                // border: 1px solid blue;
-                max-width: 80%;
-                height: 110%;
+                // top: 30px;
+                left: calc(50% - 15.8vw);
+                transform: translateY(-38%);
+
+                max-width: 32vw;
+                min-height: 410px;
 
                 img {
                   width: 100%;
@@ -95,7 +112,7 @@
 
             .shop-color-border {
               width: 100%;
-              height: 55%;
+              height: 52%;
 
               &::after {
                 width: 100%;
@@ -110,12 +127,16 @@
               }
 
               h3 {
-                margin-top: 20px;
-                margin-bottom: 30px;
+                margin-top: 34px;
+                margin-bottom: 10px;
               }
             }
           }
 
+        }
+
+        .hot-shop-more {
+          width: 55%;
         }
       }
     }
@@ -528,8 +549,25 @@
         flex-wrap: wrap;
 
         .hot-shop-w50 {
-          width: 100%;
-          margin: 0 80px;
+          width: 74%;
+          margin: 0 auto;
+          max-width: 610px;
+          min-width: 580px;
+
+          .shop-content {
+            .shop-color-blue {
+              .shop-move-map {
+                left: 16%;
+              }
+
+              .shop-hot-pic {
+                max-width: 47vw;
+                min-width: 50vw;
+                max-height: 42vw;
+                left: calc(50% - 25vw);
+              }
+            }
+          }
         }
 
         .hot-shop-more {
@@ -1696,7 +1734,38 @@
   }
 
   .main {
+
+
     .all-section {
+      .section-hot-shop {
+        .hot-shop-w50 {
+          max-width: 90%;
+          width: 100%;
+          min-width: auto;
+          // min-width: 450px;
+          // max-width: 561px;
+
+          .shop-content {
+            .shop-color-blue {
+              .shop-move-map {
+                left: 18vw;
+              }
+
+              .shop-hot-pic {
+                min-width: 413px;
+                min-height: 413px;
+
+                left: 50%;
+                top: 21px;
+                -webkit-transform: translateY(-50%);
+                transform: translatex(-50%);
+
+              }
+            }
+          }
+        }
+      }
+
       .shop-title {
         padding: 0;
         display: flex;
@@ -1991,21 +2060,16 @@
     }
   }
 
-
-
-
-
-
-
   .main {
     .all-section {
       .section-hot-shop {
         padding: 0 30px;
 
         .hot-shop-w50 {
-          margin: 0;
+          margin: 0 auto;
           max-height: 100%;
           height: auto;
+          min-width: 90%;
 
           .shop-content-cover {
             max-height: 475px;
@@ -2112,8 +2176,8 @@
 
               .shop-hot-pic {
                 max-width: 78%;
-                height: 260px;
-                left: calc(50% - 39%);
+                min-width: 78%;
+                min-height: 260px;
 
 
               }

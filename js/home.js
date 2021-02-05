@@ -12,33 +12,33 @@ let newTypeData = [
   '工商服務'
 ];
 let typeData = [{
-  title: '旅遊美食',
-  cat: '旅遊美食'
-},
-{
-  title: '交通運輸',
-  cat: '交通運輸'
-},
-{
-  title: '商業學術',
-  cat: '商業學術'
-},
-{
-  title: '生活服務',
-  cat: '生活服務'
-},
-{
-  title: '居家裝潢',
-  cat: '居家裝潢'
-},
-{
-  title: '醫療保健',
-  cat: '醫療保健'
-},
-{
-  title: '工商服務',
-  cat: '工商服務'
-},
+    title: '旅遊美食',
+    cat: '旅遊美食'
+  },
+  {
+    title: '交通運輸',
+    cat: '交通運輸'
+  },
+  {
+    title: '商業學術',
+    cat: '商業學術'
+  },
+  {
+    title: '生活服務',
+    cat: '生活服務'
+  },
+  {
+    title: '居家裝潢',
+    cat: '居家裝潢'
+  },
+  {
+    title: '醫療保健',
+    cat: '醫療保健'
+  },
+  {
+    title: '工商服務',
+    cat: '工商服務'
+  },
 ];
 let cityData = ['基隆市', '臺北市', '新北市', "桃園市", "新竹市", "新竹縣", "苗栗縣", "臺中市", "彰化縣",
   "南投縣", "雲林縣", "嘉義市", "嘉義縣", "臺南市", "高雄市", "屏東縣", "臺東縣", "花蓮縣", "宜蘭縣",
@@ -119,11 +119,85 @@ new Vue({
     // tab 切換
     cur: 0, //默認選中第一个tab
     // tab 切換 end
-    hrefShop: "https://google.com",
+
     src: 0,
-    web: [
-      web0 = "https://1",
-      web2 = "https://2",
+    web: [{
+        itemnum: "mas20210113949487",
+        src: 0,
+        name: "羅東小築",
+        lat: "24.6653995",
+        lng: "121.7999018",
+        address: "宜蘭縣",
+        icon: "food.png",
+        type: "旅遊美食"
+      },
+      {
+        itemnum: "aom20200629009",
+        src: 1,
+        name: "Opium 韓國批發",
+        lat: "25.046776397292927",
+        lng: "121.57923591534076",
+        address: "台北市",
+        icon: "life.png",
+        type: "生活服務"
+      },
+      {
+        itemnum: "aom20200623034",
+        src: 2,
+        name: "123玩遊戲",
+        lat: "25.112485733114262",
+        lng: "121.52925008465925",
+        address: "台北市",
+        icon: "life.png",
+        type: "生活服務"
+      },
+      {
+        itemnum: "aom20200630010",
+        src: 3,
+        name: "捷透肌男士保養",
+        lat: "25.046251746556315",
+        lng: "121.52966375958923",
+        address: "新北市",
+        icon: "life.png",
+        type: "生活服務"
+      }, {
+        itemnum: "aom20200429001",
+        src: 4,
+        name: "Jc art studio",
+        lat: "24.19476467966244",
+        lng: "120.70262254232965",
+        address: "臺中市",
+        icon: "life.png",
+        type: "生活服務"
+      }, {
+        itemnum: "aom20200427019",
+        src: 5,
+        name: "MODA.沐mood 沐達精品服飾",
+        lat: "24.109500369605197",
+        lng: "120.67635625397774",
+        address: "臺中市",
+        icon: "life.png",
+        type: "生活服務"
+      }, {
+        itemnum: "aom20191129023",
+        src: 6,
+        name: "Wrap Bull銳步設計",
+        lat: "24.149887843932614",
+        lng: "120.6312790000035",
+        address: "臺中市",
+        icon: "life.png",
+        type: "生活服務"
+      },
+      {
+        itemnum: "aom20200427031",
+        src: 7,
+        name: "2-Sheep 韓國服飾",
+        lat: "24.081169978249623",
+        lng: "120.57108982740537",
+        address: "彰化縣",
+        icon: "life.png",
+        type: "生活服務"
+      }
     ],
     // scroll input
     scrollInput: false,
@@ -162,9 +236,9 @@ new Vue({
   },
 
   methods: {
-    changeHref(e) {
-      this.hrefShop = this.web[e];
-    },
+    // changeHref() {
+    //   console.log(this.web["itemnum"])
+    // },
     resizeAll() {
       if (document.body.getBoundingClientRect().width <= 1280) {
         this.mapBoxClose = true;
@@ -282,7 +356,7 @@ new Vue({
       let headerSection = document.querySelector('.header');
       let Y;
       Y = Math.floor(window.pageYOffset);
-      console.log(Y);
+      // console.log(Y);
       // var scroll = scrollTop - this.i;
       // this.i = scrollTop;
       // if (scroll < 0) {
@@ -966,11 +1040,11 @@ new Vue({
     geocodeResults(geocoder, resultsMap, address) {
       return new Promise((resolve, reject) => {
         geocoder.geocode({
-          address: address,
-          componentRestrictions: {
-            country: "TW",
+            address: address,
+            componentRestrictions: {
+              country: "TW",
+            },
           },
-        },
 
           (results, status) => {
             if (status === "OK") {

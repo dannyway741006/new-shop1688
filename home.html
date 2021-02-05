@@ -514,8 +514,8 @@
               </div>
             </div>
             <div class="shop-title-box">
-              <div class="shop-title">
-                <h3>川老爺麻辣鍋</h3>
+              <div class="shop-title" v-for="(item, index) in web" :key="index">
+                <h3 v-show="src==`${item.src}`">{{item.name}}</h3>
               </div>
               <div class="shop-close-box">
                 <img src="./img/Group 92.png" alt="close">
@@ -523,26 +523,32 @@
             </div>
             <section class="shop-content">
               <article class="shop-color-blue">
-                <a class="shop-move-map" href="`${hrefShop}`">
+
+                <a v-for="items in web" class="shop-move-map"
+                  :href="`https://www.google.com/maps/place/${items.lat},${items.lng}`" v-show="src==`${items.src}`"
+                  target="_blank">
                   <img src="./img/map-24px.png" alt="look-map">
                   <p>查看地圖</p>
                 </a>
 
-                <div class="shop-hot-pic">
-                  <img src="./img/item.jpg" alt="hot-img" v-show="src==0">
+
+
+                <div class="shop-hot-pic" v-for="(item, index) in web" :key="index">
+                  <img :src="`https://www.shop1688.com.tw/${item.itemnum}/item.jpg`" alt="hot-img"
+                    v-show="src==`${item.src}`">
 
                 </div>
               </article>
               <article class="shop-color-border">
-                <h3>川老爺麻辣鍋</h3>
+                <h3 v-for="(item, index) in web" :key="index" v-show="src==`${item.src}`">{{item.name}}</h3>
                 <div class="shop-icon-box">
-                  <div class="shop-icon-type">
-                    <img src="./img/sevenIcon/food.png" alt="icon-type">
-                    <p>旅遊美食</p>
+                  <div class="shop-icon-type" v-for="item in web" v-show="src==`${item.src}`">
+                    <img :src="`./img/sevenIcon/${item.icon}`" alt="icon-type">
+                    <p>{{item.type}}</p>
                   </div>
-                  <div class="shop-icon-city">
+                  <div class="shop-icon-city" v-for="(item, index) in web" :key="index" v-show="src==`${item.src}`">
                     <img src="./img/city-icon.png" alt="icon-city">
-                    <p>台北市</p>
+                    <p>{{item.address}}</p>
                   </div>
                 </div>
                 <button class="shop-hot-button">
@@ -555,10 +561,10 @@
           <div class="hot-shop-more">
             <div class="testbig" @mousedown="dropMove">
               <section class="hot-shop-img">
-                <article class="shop-card" @click="changeHref">
+                <article class="shop-card" @click="src=0">
                   <div class="card-title">
                     <div class="card-txt">
-                      <p>Jc art studio</p>
+                      <p>羅東小築</p>
                     </div>
                     <div class="card-button">
                       <img src="./img/Group 92.png" alt="card-button">
@@ -566,21 +572,21 @@
                     </div>
                   </div>
                   <div class="card-content">
-                    <img src="./img/item.png" alt="card-shop-item">
+                    <img src="https://www.shop1688.com.tw/mas20210113949487/item.jpg" alt="card-shop-item">
                     <div class="card-type-city">
                       <div class="card-type">
-                        <p>生活服務</p>
+                        <p>旅遊美食</p>
                       </div>
                       <div class="card-city">
-                        <p>台北市</p>
+                        <p>宜蘭縣</p>
                       </div>
                     </div>
                   </div>
                 </article>
-                <article class="shop-card">
+                <article class="shop-card" @click="src=1">
                   <div class="card-title">
                     <div class="card-txt">
-                      <p>Jc art studio</p>
+                      <p>Opium 韓國批發</p>
                     </div>
                     <div class="card-button">
                       <img src="./img/Group 92.png" alt="card-button">
@@ -588,54 +594,7 @@
                     </div>
                   </div>
                   <div class="card-content">
-                    <img src="./img/item.png" alt="card-shop-item">
-                    <div class="card-type-city">
-                      <div class="card-type">
-                        <p>生活服務</p>
-                      </div>
-                      <div class="card-city">
-                        <p>台北市</p>
-                      </div>
-                    </div>
-
-                  </div>
-                </article>
-              </section>
-              <section class="hot-shop-img">
-                <article class="shop-card">
-                  <div class="card-title">
-                    <div class="card-txt">
-                      <p>Jc art studio</p>
-                    </div>
-                    <div class="card-button">
-                      <img src="./img/Group 92.png" alt="card-button">
-
-                    </div>
-                  </div>
-                  <div class="card-content">
-                    <img src="./img/item.png" alt="card-shop-item">
-                    <div class="card-type-city">
-                      <div class="card-type">
-                        <p>生活服務</p>
-                      </div>
-                      <div class="card-city">
-                        <p>台北市</p>
-                      </div>
-                    </div>
-                  </div>
-                </article>
-                <article class="shop-card">
-                  <div class="card-title">
-                    <div class="card-txt">
-                      <p>Jc art studio</p>
-                    </div>
-                    <div class="card-button">
-                      <img src="./img/Group 92.png" alt="card-button">
-
-                    </div>
-                  </div>
-                  <div class="card-content">
-                    <img src="./img/item.png" alt="card-shop-item">
+                    <img src="https://www.shop1688.com.tw/aom20200629009/item.jpg" alt="card-shop-item">
                     <div class="card-type-city">
                       <div class="card-type">
                         <p>生活服務</p>
@@ -649,10 +608,10 @@
                 </article>
               </section>
               <section class="hot-shop-img">
-                <article class="shop-card">
+                <article class="shop-card" @click="src=2">
                   <div class="card-title">
                     <div class="card-txt">
-                      <p>Jc art studio</p>
+                      <p>123玩遊戲</p>
                     </div>
                     <div class="card-button">
                       <img src="./img/Group 92.png" alt="card-button">
@@ -660,21 +619,21 @@
                     </div>
                   </div>
                   <div class="card-content">
-                    <img src="./img/item.png" alt="card-shop-item">
+                    <img src="https://www.shop1688.com.tw/aom20200623034/item.jpg" alt="card-shop-item">
                     <div class="card-type-city">
                       <div class="card-type">
                         <p>生活服務</p>
                       </div>
                       <div class="card-city">
-                        <p>台北市</p>
+                        <p>臺北市</p>
                       </div>
                     </div>
                   </div>
                 </article>
-                <article class="shop-card">
+                <article class="shop-card" @click="src=3">
                   <div class="card-title">
                     <div class="card-txt">
-                      <p>Jc art studio</p>
+                      <p>捷透肌男士保養</p>
                     </div>
                     <div class="card-button">
                       <img src="./img/Group 92.png" alt="card-button">
@@ -682,13 +641,13 @@
                     </div>
                   </div>
                   <div class="card-content">
-                    <img src="./img/item.png" alt="card-shop-item">
+                    <img src="https://www.shop1688.com.tw/aom20200630010/item.jpg" alt="card-shop-item">
                     <div class="card-type-city">
                       <div class="card-type">
                         <p>生活服務</p>
                       </div>
                       <div class="card-city">
-                        <p>台北市</p>
+                        <p>新北市</p>
                       </div>
                     </div>
 
@@ -696,7 +655,7 @@
                 </article>
               </section>
               <section class="hot-shop-img">
-                <article class="shop-card">
+                <article class="shop-card" @click="src=4">
                   <div class="card-title">
                     <div class="card-txt">
                       <p>Jc art studio</p>
@@ -713,15 +672,15 @@
                         <p>生活服務</p>
                       </div>
                       <div class="card-city">
-                        <p>台北市</p>
+                        <p>臺中市</p>
                       </div>
                     </div>
                   </div>
                 </article>
-                <article class="shop-card">
+                <article class="shop-card" @click="src=5">
                   <div class="card-title">
                     <div class="card-txt">
-                      <p>Jc art studio</p>
+                      <p>MODA.沐mood 沐達精品服飾</p>
                     </div>
                     <div class="card-button">
                       <img src="./img/Group 92.png" alt="card-button">
@@ -729,13 +688,60 @@
                     </div>
                   </div>
                   <div class="card-content">
-                    <img src="./img/item.png" alt="card-shop-item">
+                    <img src="https://www.shop1688.com.tw/aom20200427019/item.jpg" alt="card-shop-item">
                     <div class="card-type-city">
                       <div class="card-type">
                         <p>生活服務</p>
                       </div>
                       <div class="card-city">
-                        <p>台北市</p>
+                        <p>臺中市</p>
+                      </div>
+                    </div>
+
+                  </div>
+                </article>
+              </section>
+              <section class="hot-shop-img">
+                <article class="shop-card" @click="src=6">
+                  <div class="card-title">
+                    <div class="card-txt">
+                      <p>Wrap Bull銳步設計</p>
+                    </div>
+                    <div class="card-button">
+                      <img src="./img/Group 92.png" alt="card-button">
+
+                    </div>
+                  </div>
+                  <div class="card-content">
+                    <img src="https://www.shop1688.com.tw/aom20191129023/item.jpg" alt="card-shop-item">
+                    <div class="card-type-city">
+                      <div class="card-type">
+                        <p>生活服務</p>
+                      </div>
+                      <div class="card-city">
+                        <p>台中市</p>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+                <article class="shop-card" @click="src=7">
+                  <div class="card-title">
+                    <div class="card-txt">
+                      <p>2-Sheep 韓國服飾</p>
+                    </div>
+                    <div class="card-button">
+                      <img src="./img/Group 92.png" alt="card-button">
+
+                    </div>
+                  </div>
+                  <div class="card-content">
+                    <img src="https://www.shop1688.com.tw/aom20200427031/item.jpg" alt="card-shop-item">
+                    <div class="card-type-city">
+                      <div class="card-type">
+                        <p>生活服務</p>
+                      </div>
+                      <div class="card-city">
+                        <p>彰化縣</p>
                       </div>
                     </div>
 
@@ -749,8 +755,8 @@
       <section class="section-two" ref="anchor2">
         <article class="shop-title">
           <div class="shop-icon">
-            <h2>熱門商家</h2>
-            <img class="shop-title-icon" src="./img/section-one.png" alt="hot-shop">
+            <h2>精選商家</h2>
+            <img class="shop-title-icon" src="./img/428.png" alt="hot-shop">
           </div>
         </article>
       </section>
