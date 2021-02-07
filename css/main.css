@@ -5571,6 +5571,12 @@
   }
 }
 
+@media (max-width: 770px) {
+  .mapInput {
+    padding-top: 124px;
+  }
+}
+
 .mapInput #map-close {
   position: absolute;
   width: 45px;
@@ -5692,6 +5698,7 @@
 @media (max-width: 770px) {
   .mapInput .map-titles {
     padding: 0;
+    padding-left: 15px;
   }
 }
 

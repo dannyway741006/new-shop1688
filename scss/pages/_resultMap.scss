@@ -16,6 +16,10 @@
     padding-bottom: 100px;
   }
 
+  @include media(770px) {
+    padding-top: 124px;
+  }
+
   #map-close {
     position: absolute;
     width: 45px;
@@ -132,12 +136,17 @@
 
     @include media(770px) {
       padding: 0;
+      padding-left: 15px;
     }
 
     h4 {
       font-weight: 900;
       font-size: font(10);
+
+
     }
+
+
   }
 
   .results-map-w100 {

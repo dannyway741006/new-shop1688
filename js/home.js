@@ -574,6 +574,8 @@ new Vue({
       this.filterItem = this.fireItems.filter(item => {
         this.mainSwitch = true;
         this.resultPageSwitch = false;
+        this.headerSwitch = false;
+        this.mapInputSwitch = true;
         return item.名稱.toLowerCase().trim() === this.input.type.toLowerCase().trim();
       })
 
