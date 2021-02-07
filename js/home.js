@@ -510,42 +510,56 @@ new Vue({
     //需加強！//
     food() {
       console.log(this.typeData[0].title);
+      this.mainSwitch = true;
+      this.resultPageSwitch = false;
       this.typeTitle = this.typeData[0].title;
       this.filterItem = this.fireItems.filter(item => {
         return item.分類[0].includes(this.typeData[0].title);
       })
     },
     car() {
+      this.mainSwitch = true;
+      this.resultPageSwitch = false;
       this.typeTitle = this.typeData[1].title;
       this.filterItem = this.fireItems.filter(item => {
         return item.分類[0].includes(this.typeData[1].title);
       })
     },
     academic() {
+      this.mainSwitch = true;
+      this.resultPageSwitch = false;
       this.typeTitle = this.typeData[2].title;
       this.filterItem = this.fireItems.filter(item => {
         return item.分類[0].includes(this.typeData[2].title);
       })
     },
     serivce() {
+      this.mainSwitch = true;
+      this.resultPageSwitch = false;
       this.typeTitle = this.typeData[3].title;
       this.filterItem = this.fireItems.filter(item => {
         return item.分類[0].includes(this.typeData[3].title);
       })
     },
     home() {
+      this.mainSwitch = true;
+      this.resultPageSwitch = false;
       this.typeTitle = this.typeData[4].title;
       this.filterItem = this.fireItems.filter(item => {
         return item.分類[0].includes(this.typeData[4].title);
       })
     },
     medical() {
+      this.mainSwitch = true;
+      this.resultPageSwitch = false;
       this.typeTitle = this.typeData[5].title;
       this.filterItem = this.fireItems.filter(item => {
         return item.分類[0].includes(this.typeData[5].title);
       })
     },
     business() {
+      this.mainSwitch = true;
+      this.resultPageSwitch = false;
       this.typeTitle = this.typeData[6].title;
       this.filterItem = this.fireItems.filter(item => {
         return item.分類[0].includes(this.typeData[6].title);

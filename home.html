@@ -111,13 +111,13 @@
             <p>File</p>
             <div class="typeItems">
               <ul>
-                <li><a @click="food">旅遊美食</a></li>
-                <li><a @click="car">交通運輸</a></li>
-                <li><a @click="academic">商業學術</a></li>
-                <li><a @click="serivce">生活服務</a></li>
-                <li><a @click="home">居家裝潢</a></li>
-                <li><a @click="medical">醫療保健</a></li>
-                <li><a @click="business">工商服務</a></li>
+                <li><a href="#goResult" @click="food">旅遊美食</a></li>
+                <li><a href="#goResult" @click="car">交通運輸</a></li>
+                <li><a href="#goResult" @click="academic">商業學術</a></li>
+                <li><a href="#goResult" @click="serivce">生活服務</a></li>
+                <li><a href="#goResult" @click="home">居家裝潢</a></li>
+                <li><a href="#goResult" @click="medical">醫療保健</a></li>
+                <li><a href="#goResult" @click="business">工商服務</a></li>
               </ul>
             </div>
           </span>
@@ -126,9 +126,9 @@
             <p>Contact</p>
             <div class="cityItems">
               <ul>
-                <li><a href="#">大師策略行銷</a></li>
-                <li><a href="#">凱斯東網路行銷</a></li>
-                <li><a href="#">奧斯曼網路行銷</a></li>
+                <li><a href="https://www.master-mkt.com.tw/" target="_blank">大師策略行銷</a></li>
+                <li><a href="https://www.ksdon818.com/" target="_blank">凱斯東網路行銷</a></li>
+                <li><a href="https://www.aosiman-marketing.com/" target="_blank">奧斯曼網路行銷</a></li>
               </ul>
             </div>
           </span>
@@ -315,13 +315,13 @@
             </li>
           </ul>
           <ul class="dock" :class="{'active-dock':dockSwitch}">
-            <li><a @click="food"></a></li>
-            <li><a @click="car"></a></li>
-            <li><a @click="academic"></a></li>
-            <li><a @click="serivce"></a></li>
-            <li><a @click="home"></a></li>
-            <li><a @click="medical"></a></li>
-            <li><a @click="business"></a></li>
+            <li><a href="#goResult" @click="food"></a></li>
+            <li><a href="#goResult" @click="car"></a></li>
+            <li><a href="#goResult" @click="academic"></a></li>
+            <li><a href="#goResult" @click="serivce"></a></li>
+            <li><a href="#goResult" @click="home"></a></li>
+            <li><a href="#goResult" @click="medical"></a></li>
+            <li><a href="#goResult" @click="business"></a></li>
             <li class="last">
               <img src="./img/sevenIcon/food.png" alt="food">
               <img src="./img/sevenIcon/car.png" alt="car">
@@ -355,7 +355,7 @@
 
     <!-- 結果頁面 -->
 
-    <main class="resultPage" :class="{'active-resultpage-display':resultPageSwitch}">
+    <main id="goResult" class="resultPage" :class="{'active-resultpage-display':resultPageSwitch}">
       <article class="shop-title">
         <div class="shop-icon">
           <h2>{{cityTitle}}&ensp;{{typeTitle}}</h2>
