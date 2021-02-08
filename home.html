@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link rel="stylesheet" href="./css/main.css?01">
+  <link rel="stylesheet" href="./css/main.css?02">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/plugins/CSSPlugin.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenLite.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/utils/Draggable.min.js"></script>
@@ -19,6 +19,10 @@
 <body>
 
   <section id="app" @click.stop="headerRemove" class="sectionDraggable">
+    <a href="#" ref="goTop"></a>
+    <div class="goTop" :class="{'active-goTop':goTopSwitch}" @click.stop="scroll('goTop')">
+      <img src="./img/arrow-alt-circle-up-solid.svg" alt="arrow">
+    </div>
     <div class="mask-all" :class="{'active-mask-all':maskAll}" @click.stop="removeMask"></div>
     <section :class="{'active-input-fixed':scrollInput,'active-creat-input':creatScrollBar}" class="shop-input-fixed">
       <div class="navItems">
@@ -356,7 +360,7 @@
     <!-- 結果頁面 -->
 
     <main id="goResult" class="resultPage" :class="{'active-resultpage-display':resultPageSwitch}">
-      <article class="shop-title">
+      <article class="shop-title" ref="resulttag">
         <div class="shop-icon">
           <h2>{{cityTitle}}&ensp;{{typeTitle}}</h2>
           <img class="shop-title-icon" src="./img/section-one.png" alt="hot-shop">
@@ -556,10 +560,11 @@
 
                   </div>
                 </div>
-                <button class="shop-hot-button">
+                <a class="shop-hot-button" v-for="item in web" v-show="src==`${item.src}`"
+                  :href="`https://www.shop1688.com.tw/${item.itemnum}`" target="_blank">
                   <img src="./img/search-icon.png" alt="search-data">
                   <p>查看商家</p>
-                </button>
+                </a>
               </article>
             </section>
           </div>
@@ -883,7 +888,8 @@
               <section class="all-choice-card">
                 <article class="choice-card">
                   <div class="choice-map">
-                    <a class="shop-move-map">
+                    <a class="shop-move-map" href="https://www.google.com/maps/place/25.0344995,121.5287891"
+                      target="_blank">
                       <img src="./img/map-24px.png" alt="look-map">
                       <p>台北市</p>
                     </a>
@@ -904,7 +910,8 @@
                 </article>
                 <article class="choice-card">
                   <div class="choice-map">
-                    <a class="shop-move-map">
+                    <a class="shop-move-map" href="https://www.google.com/maps/place/25.0325917,121.5624999"
+                      target="_blank">
                       <img src="./img/map-24px.png" alt="look-map">
                       <p>台北市</p>
                     </a>
@@ -927,7 +934,8 @@
                 </article>
                 <article class="choice-card">
                   <div class="choice-map">
-                    <a class="shop-move-map">
+                    <a class="shop-move-map" href="https://www.google.com/maps/place/25.0564975,121.5074405"
+                      target="_blank">
                       <img src="./img/map-24px.png" alt="item-jpg">
                       <p>新北市</p>
                     </a>
@@ -950,7 +958,8 @@
               <section class="all-choice-card">
                 <article class="choice-card">
                   <div class="choice-map">
-                    <a class="shop-move-map">
+                    <a class="shop-move-map" href="https://www.google.com/maps/place/25.0520475,121.4546621"
+                      target="_blank">
                       <img src="./img/map-24px.png" alt="look-map">
                       <p>新北市</p>
                     </a>
@@ -971,7 +980,8 @@
                 </article>
                 <article class="choice-card">
                   <div class="choice-map">
-                    <a class="shop-move-map">
+                    <a class="shop-move-map" href="https://www.google.com/maps/place/25.058013,121.511399"
+                      target="_blank">
                       <img src="./img/map-24px.png" alt="look-map">
                       <p>臺北市</p>
                     </a>
@@ -994,7 +1004,8 @@
                 </article>
                 <article class="choice-card">
                   <div class="choice-map">
-                    <a class="shop-move-map">
+                    <a class="shop-move-map" href="https://www.google.com/maps/place/24.9553663,121.2244023"
+                      target="_blank">
                       <img src="./img/map-24px.png" alt="look-map">
                       <p>桃園市</p>
                     </a>
@@ -1019,7 +1030,8 @@
               <section class="all-choice-card">
                 <article class="choice-card">
                   <div class="choice-map">
-                    <a class="shop-move-map">
+                    <a class="shop-move-map" href="https://www.google.com/maps/place/24.803836,120.974659"
+                      target="_blank">
                       <img src="./img/map-24px.png" alt="look-map">
                       <p>新竹縣</p>
                     </a>
@@ -1040,7 +1052,8 @@
                 </article>
                 <article class="choice-card">
                   <div class="choice-map">
-                    <a class="shop-move-map">
+                    <a class="shop-move-map" href="https://www.google.com/maps/place/24.8489555,120.966506"
+                      target="_blank">
                       <img src="./img/map-24px.png" alt="look-map">
                       <p>新竹縣</p>
                     </a>
@@ -1062,7 +1075,8 @@
                 </article>
                 <article class="choice-card">
                   <div class="choice-map">
-                    <a class="shop-move-map" href="https://www.google.com/maps/place/25.0325917,121.5624999">
+                    <a class="shop-move-map" href="https://www.google.com/maps/place/25.0325917,121.5624999"
+                      target="_blank">
                       <img src="./img/map-24px.png" alt="look-map">
                       <p>台中市</p>
                     </a>
@@ -1487,91 +1501,95 @@
                 </article>
                 <article class="choice-card">
                   <div class="choice-map">
-                    <a class="shop-move-map">
+                    <a class="shop-move-map" href="https://www.google.com/maps/place/25.0325917,121.5624999"
+                      target="_blank">
                       <img src="./img/map-24px.png" alt="look-map">
-                      <p>台北市</p>
+                      <p>澎湖縣</p>
                     </a>
                   </div>
                   <div class="card-img">
-                    <img src="./img/item.jpg" alt="item-jpg">
+                    <img src="https://www.shop1688.com.tw/aom20191029025/item.jpg" alt="item-jpg">
                   </div>
                   <div class="choice-icon">
                     <img src="./img/Group 72.png" alt="choice-icon">
                   </div>
                   <div class="choice-card-title">
-                    <h2>莓果生林室內裝修</h2>
+                    <h2>澎湖民宿 說走就走,海景民宿,免費wifi住宿</h2>
                   </div>
-                  <button class="choice-card-btn">
+                  <a class="choice-card-btn" href="https://www.shop1688.com.tw/aom20191029025" target="_blank">
                     <img src="./img/search-icon.png" alt="search-data">
                     <p>查看商家</p>
-                  </button>
+                  </a>
                 </article>
               </section>
               <section class="all-choice-card">
                 <article class="choice-card">
                   <div class="choice-map">
-                    <a class="shop-move-map">
+                    <a class="shop-move-map" target="_blank"
+                      href="https://www.google.com/maps/place/25.0325917,121.5624999">
                       <img src="./img/map-24px.png" alt="look-map">
-                      <p>台北市</p>
+                      <p>澎湖縣</p>
                     </a>
                   </div>
                   <div class="card-img">
-                    <img src="./img/item.jpg" alt="item-jpg">
+                    <img src="https://www.shop1688.com.tw/aom20190927029/item.jpg" alt="item-jpg">
                   </div>
                   <div class="choice-icon">
                     <img src="./img/Group 72.png" alt="choice-icon">
                   </div>
                   <div class="choice-card-title">
-                    <h2>莓果生林室內裝修</h2>
+                    <h2>半天鳥精品民宿|澎湖煙火民宿,澎湖包棟住宿</h2>
                   </div>
-                  <button class="choice-card-btn">
+                  <a class="choice-card-btn" href="https://www.shop1688.com.tw/aom20190927029" target="_blank">
                     <img src="./img/search-icon.png" alt="search-data">
                     <p>查看商家</p>
-                  </button>
+                  </a>
                 </article>
                 <article class="choice-card">
                   <div class="choice-map">
-                    <a class="shop-move-map">
+                    <a class="shop-move-map" href="https://www.google.com/maps/place/25.0325917,121.5624999"
+                      target="_blank">
                       <img src="./img/map-24px.png" alt="look-map">
-                      <p>台北市</p>
+                      <p>澎湖縣</p>
                     </a>
                   </div>
                   <div class="card-img">
-                    <img src="./img/item.jpg" alt="item-jpg">
+                    <img src="https://www.shop1688.com.tw/aom20201130005/item.jpg" alt="item-jpg">
                   </div>
 
                   <div class="choice-icon">
-                    <img src="./img/Group 72.png" alt="choice-icon">
+                    <img src="./img/Group 69.png" alt="choice-icon">
                   </div>
                   <div class="choice-card-title">
-                    <h2>莓果生林室內裝修</h2>
+                    <h2>澎湖勁鮮水產｜澎湖海鮮直送網路宅配，澎湖著名美食代購線上賣場</h2>
                   </div>
-                  <button class="choice-card-btn">
+                  <a class="choice-card-btn" href="https://www.shop1688.com.tw/aom20201130005" target="_blank">
                     <img src="./img/search-icon.png" alt="search-data">
                     <p>查看商家</p>
-                  </button>
+                  </a>
 
                 </article>
                 <article class="choice-card">
                   <div class="choice-map">
-                    <a class="shop-move-map">
+                    <a class="shop-move-map" target="_blank"
+                      href="https://www.google.com/maps/place/25.0325917,121.5624999">
                       <img src="./img/map-24px.png" alt="look-map">
-                      <p>台北市</p>
+                      <p>澎湖縣</p>
                     </a>
                   </div>
                   <div class="card-img">
-                    <img src="./img/item.jpg" alt="item-jpg">
+                    <img src="https://www.shop1688.com.tw/aom20190828027/item.jpg" alt="item-jpg">
                   </div>
                   <div class="choice-icon">
                     <img src="./img/Group 72.png" alt="choice-icon">
                   </div>
                   <div class="choice-card-title">
-                    <h2>莓果生林室內裝修</h2>
+                    <h2>玄武岩之美民宿|澎湖景觀民宿,澎湖旅遊住宿</h2>
                   </div>
-                  <button class="choice-card-btn">
+                  <a class="choice-card-btn" href="https://www.shop1688.com.tw/aom20190828027" target="_blank">
                     <img src="./img/search-icon.png" alt="search-data">
                     <p>查看商家</p>
-                  </button>
+                  </a>
                 </article>
               </section>
             </div>
@@ -1590,7 +1608,7 @@
         <article class="card-items">
           <div class="card-title">
             <div class="card-txt">
-              <p>Jc art studio</p>
+              <p>Fandai凡代室內設計│台北專業室內設計</p>
             </div>
             <div class="card-button">
               <img src="./img/Group 92.png" alt="card-button">
@@ -1598,30 +1616,30 @@
           </div>
           <div class="card-items-img">
             <div class="card-items-map">
-              <a class="shop-move-map">
+              <a class="shop-move-map" href="https://www.google.com/maps/place/25.0325917,121.5624999" target="_blank">
                 <img src="./img/map-24px.png" alt="look-map">
                 <p>新北市</p>
               </a>
             </div>
-            <img src="./img/item (1).jpg" alt="item-jpg">
+            <img src="https://www.shop1688.com.tw/aom20190731003/item.jpg" alt="item-jpg">
           </div>
           <div class="card-item-name">
-            <h2>小米粒手作米飯糰</h2>
+            <h2>Fandai凡代室內設計│台北專業室內設計</h2>
           </div>
           <div class="card-items-btn">
             <div class="card-items-icon">
               <img src="./img/sevenIcon/food.png" alt="icon">
             </div>
-            <button class="card-btn">
+            <a class="card-btn" href="https://www.shop1688.com.tw/aom20190731003" target="_blank">
               <img src="./img/search-icon.png" alt="search-data">
               <p>查看商家</p>
-            </button>
+            </a>
           </div>
         </article>
         <article class="card-items">
           <div class="card-title">
             <div class="card-txt">
-              <p>Jc art studio</p>
+              <p>食襪者Eat Socks Man|台中一中商圈韓國襪子，台中一中街潮流襪子</p>
             </div>
             <div class="card-button">
               <img src="./img/Group 92.png" alt="card-button">
@@ -1629,30 +1647,30 @@
           </div>
           <div class="card-items-img">
             <div class="card-items-map">
-              <a class="shop-move-map">
+              <a class="shop-move-map" href="https://www.google.com/maps/place/25.0325917,121.5624999" target="_blank">
                 <img src="./img/map-24px.png" alt="look-map">
                 <p>新北市</p>
               </a>
             </div>
-            <img src="./img/item (1).jpg" alt="item-jpg">
+            <img src="https://www.shop1688.com.tw/aom20191030004/item.jpg" alt="item-jpg">
           </div>
           <div class="card-item-name">
-            <h2>小米粒手作米飯糰</h2>
+            <h2>食襪者Eat Socks Man|台中一中商圈韓國襪子，台中一中街潮流襪子</h2>
           </div>
           <div class="card-items-btn">
             <div class="card-items-icon">
-              <img src="./img/sevenIcon/food.png" alt="icon">
+              <img src="./img/sevenIcon/life.png" alt="icon">
             </div>
-            <button class="card-btn">
+            <a class="card-btn" href="https://www.shop1688.com.tw/aom20191030004" target="_blank">
               <img src="./img/search-icon.png" alt="search-data">
               <p>查看商家</p>
-            </button>
+            </a>
           </div>
         </article>
         <article class="card-items">
           <div class="card-title">
             <div class="card-txt">
-              <p>Jc art studio</p>
+              <p>鯊利先生尼泊爾概念店｜台北東門喀什米爾羊毛圍巾網購，台北東門羊毛氈工具網路購</p>
             </div>
             <div class="card-button">
               <img src="./img/Group 92.png" alt="card-button">
@@ -1660,30 +1678,30 @@
           </div>
           <div class="card-items-img">
             <div class="card-items-map">
-              <a class="shop-move-map">
+              <a class="shop-move-map" href="https://www.google.com/maps/place/25.0325917,121.5624999" target="_blank">
                 <img src="./img/map-24px.png" alt="look-map">
                 <p>新北市</p>
               </a>
             </div>
-            <img src="./img/item (1).jpg" alt="item-jpg">
+            <img src="https://www.shop1688.com.tw/aom20201127012/item.jpg" alt="item-jpg">
           </div>
           <div class="card-item-name">
-            <h2>小米粒手作米飯糰</h2>
+            <h2>鯊利先生尼泊爾概念店｜台北東門喀什米爾羊毛圍巾網購，台北東門羊毛氈工具網路購</h2>
           </div>
           <div class="card-items-btn">
             <div class="card-items-icon">
-              <img src="./img/sevenIcon/food.png" alt="icon">
+              <img src="./img/sevenIcon/life.png" alt="icon">
             </div>
-            <button class="card-btn">
+            <a class="card-btn" href="https://www.shop1688.com.tw/aom20201127012" target="_blank">
               <img src="./img/search-icon.png" alt="search-data">
               <p>查看商家</p>
-            </button>
+            </a>
           </div>
         </article>
         <article class="card-items">
           <div class="card-title">
             <div class="card-txt">
-              <p>Jc art studio</p>
+              <p>魔力小紅|中山區格鬥運動館,女子綜合格鬥</p>
             </div>
             <div class="card-button">
               <img src="./img/Group 92.png" alt="card-button">
@@ -1691,30 +1709,30 @@
           </div>
           <div class="card-items-img">
             <div class="card-items-map">
-              <a class="shop-move-map">
+              <a class="shop-move-map" href="https://www.google.com/maps/place/25.0325917,121.5624999" target="_blank">
                 <img src="./img/map-24px.png" alt="look-map">
-                <p>新北市</p>
+                <p>臺北市</p>
               </a>
             </div>
-            <img src="./img/item (1).jpg" alt="item-jpg">
+            <img src="https://www.shop1688.com.tw/aom20191031012/item.jpg" alt="item-jpg">
           </div>
           <div class="card-item-name">
-            <h2>小米粒手作米飯糰</h2>
+            <h2>魔力小紅|中山區格鬥運動館,女子綜合格鬥</h2>
           </div>
           <div class="card-items-btn">
             <div class="card-items-icon">
-              <img src="./img/sevenIcon/food.png" alt="icon">
+              <img src="./img/sevenIcon/furniture.png" alt="icon">
             </div>
-            <button class="card-btn">
+            <a class="card-btn" href="https://www.shop1688.com.tw/aom20191031012" target="_blank">
               <img src="./img/search-icon.png" alt="search-data">
               <p>查看商家</p>
-            </button>
+            </a>
           </div>
         </article>
         <article class="card-items">
           <div class="card-title">
             <div class="card-txt">
-              <p>Jc art studio</p>
+              <p>漢品室內裝修｜台北室內裝修公司,大安區商業空間裝潢</p>
             </div>
             <div class="card-button">
               <img src="./img/Group 92.png" alt="card-button">
@@ -1722,30 +1740,30 @@
           </div>
           <div class="card-items-img">
             <div class="card-items-map">
-              <a class="shop-move-map">
+              <a class="shop-move-map" href="https://www.google.com/maps/place/25.0325917,121.5624999" target="_blank">
                 <img src="./img/map-24px.png" alt="look-map">
                 <p>新北市</p>
               </a>
             </div>
-            <img src="./img/item (1).jpg" alt="item-jpg">
+            <img src="https://www.shop1688.com.tw/aom20191031018/item.jpg" alt="item-jpg">
           </div>
           <div class="card-item-name">
-            <h2>小米粒手作米飯糰</h2>
+            <h2>漢品室內裝修｜台北室內裝修公司,大安區商業空間裝潢</h2>
           </div>
           <div class="card-items-btn">
             <div class="card-items-icon">
-              <img src="./img/sevenIcon/food.png" alt="icon">
+              <img src="./img/sevenIcon/life.png" alt="icon">
             </div>
-            <button class="card-btn">
+            <a class="card-btn" href="https://www.shop1688.com.tw/aom20191031018" target="_blank">
               <img src="./img/search-icon.png" alt="search-data">
               <p>查看商家</p>
-            </button>
+            </a>
           </div>
         </article>
         <article class="card-items">
           <div class="card-title">
             <div class="card-txt">
-              <p>Jc art studio</p>
+              <p>金山八煙溫泉會館｜金山碳酸氫鈉泉,金山泡湯推薦</p>
             </div>
             <div class="card-button">
               <img src="./img/Group 92.png" alt="card-button">
@@ -1753,30 +1771,30 @@
           </div>
           <div class="card-items-img">
             <div class="card-items-map">
-              <a class="shop-move-map">
+              <a class="shop-move-map" href="https://www.google.com/maps/place/25.0325917,121.5624999" target="_blank">
                 <img src="./img/map-24px.png" alt="look-map">
                 <p>新北市</p>
               </a>
             </div>
-            <img src="./img/item (1).jpg" alt="item-jpg">
+            <img src="https://www.shop1688.com.tw/aom20191031021/item.jpg" alt="item-jpg">
           </div>
           <div class="card-item-name">
-            <h2>小米粒手作米飯糰</h2>
+            <h2>金山八煙溫泉會館｜金山碳酸氫鈉泉,金山泡湯推薦</h2>
           </div>
           <div class="card-items-btn">
             <div class="card-items-icon">
-              <img src="./img/sevenIcon/food.png" alt="icon">
+              <img src="./img/sevenIcon/life.png" alt="icon">
             </div>
-            <button class="card-btn">
+            <a class="card-btn" href="https://www.shop1688.com.tw/aom20191031021" target="_blank">
               <img src="./img/search-icon.png" alt="search-data">
               <p>查看商家</p>
-            </button>
+            </a>
           </div>
         </article>
         <article class="card-items">
           <div class="card-title">
             <div class="card-txt">
-              <p>Jc art studio</p>
+              <p>Halo婚紗工作室｜桃園婚紗工作室,桃園婚禮紀錄</p>
             </div>
             <div class="card-button">
               <img src="./img/Group 92.png" alt="card-button">
@@ -1784,30 +1802,30 @@
           </div>
           <div class="card-items-img">
             <div class="card-items-map">
-              <a class="shop-move-map">
+              <a class="shop-move-map" href="https://www.google.com/maps/place/25.0325917,121.5624999" target="_blank">
                 <img src="./img/map-24px.png" alt="look-map">
-                <p>新北市</p>
+                <p>桃園市</p>
               </a>
             </div>
-            <img src="./img/item (1).jpg" alt="item-jpg">
+            <img src="https://www.shop1688.com.tw/aom20191031063/item.jpg" alt="item-jpg">
           </div>
           <div class="card-item-name">
-            <h2>小米粒手作米飯糰</h2>
+            <h2>Halo婚紗工作室｜桃園婚紗工作室,桃園婚禮紀錄</h2>
           </div>
           <div class="card-items-btn">
             <div class="card-items-icon">
-              <img src="./img/sevenIcon/food.png" alt="icon">
+              <img src="./img/sevenIcon/life.png" alt="icon">
             </div>
-            <button class="card-btn">
+            <a class="card-btn" href="https://www.shop1688.com.tw/aom20191031063" target="_blank">
               <img src="./img/search-icon.png" alt="search-data">
               <p>查看商家</p>
-            </button>
+            </a>
           </div>
         </article>
         <article class="card-items">
           <div class="card-title">
             <div class="card-txt">
-              <p>Jc art studio</p>
+              <p>Fabulous Lab｜台北信義區甜點教學推薦,台北信義區造型馬卡龍教學</p>
             </div>
             <div class="card-button">
               <img src="./img/Group 92.png" alt="card-button">
@@ -1815,30 +1833,30 @@
           </div>
           <div class="card-items-img">
             <div class="card-items-map">
-              <a class="shop-move-map">
+              <a class="shop-move-map" href="https://www.google.com/maps/place/25.0325917,121.5624999" target="_blank">
                 <img src="./img/map-24px.png" alt="look-map">
-                <p>新北市</p>
+                <p>臺北市</p>
               </a>
             </div>
-            <img src="./img/item (1).jpg" alt="item-jpg">
+            <img src="https://www.shop1688.com.tw/aom20201127007/item.jpg" alt="item-jpg">
           </div>
           <div class="card-item-name">
-            <h2>小米粒手作米飯糰</h2>
+            <h2>Fabulous Lab｜台北信義區甜點教學推薦,台北信義區造型馬卡龍教學</h2>
           </div>
           <div class="card-items-btn">
             <div class="card-items-icon">
-              <img src="./img/sevenIcon/food.png" alt="icon">
+              <img src="./img/sevenIcon/life.png" alt="icon">
             </div>
-            <button class="card-btn">
+            <a class="card-btn" href="https://www.shop1688.com.tw/aom20201127007" target="_blank">
               <img src="./img/search-icon.png" alt="search-data">
               <p>查看商家</p>
-            </button>
+            </a>
           </div>
         </article>
         <article class="card-items">
           <div class="card-title">
             <div class="card-txt">
-              <p>Jc art studio</p>
+              <p>Top Five Studio｜台北平面拍攝,陽明山動態錄影</p>
             </div>
             <div class="card-button">
               <img src="./img/Group 92.png" alt="card-button">
@@ -1846,30 +1864,30 @@
           </div>
           <div class="card-items-img">
             <div class="card-items-map">
-              <a class="shop-move-map">
+              <a class="shop-move-map" href="https://www.google.com/maps/place/25.0325917,121.5624999" target="_blank">
                 <img src="./img/map-24px.png" alt="look-map">
-                <p>新北市</p>
+                <p>臺北市</p>
               </a>
             </div>
-            <img src="./img/item (1).jpg" alt="item-jpg">
+            <img src="https://www.shop1688.com.tw/aom20201127024/item.jpg" alt="item-jpg">
           </div>
           <div class="card-item-name">
-            <h2>小米粒手作米飯糰</h2>
+            <h2>Top Five Studio｜台北平面拍攝,陽明山動態錄影</h2>
           </div>
           <div class="card-items-btn">
             <div class="card-items-icon">
-              <img src="./img/sevenIcon/food.png" alt="icon">
+              <img src="./img/sevenIcon/furniture.png" alt="icon">
             </div>
-            <button class="card-btn">
+            <a class="card-btn" href="https://www.shop1688.com.tw/aom20201127024" target="_blank">
               <img src="./img/search-icon.png" alt="search-data">
               <p>查看商家</p>
-            </button>
+            </a>
           </div>
         </article>
         <article class="card-items">
           <div class="card-title">
             <div class="card-txt">
-              <p>Jc art studio</p>
+              <p>琳達時尚美學｜新竹眉眼唇紋繡、霧眉、美睫</p>
             </div>
             <div class="card-button">
               <img src="./img/Group 92.png" alt="card-button">
@@ -1877,30 +1895,30 @@
           </div>
           <div class="card-items-img">
             <div class="card-items-map">
-              <a class="shop-move-map">
+              <a class="shop-move-map" href="https://www.google.com/maps/place/25.0325917,121.5624999" target="_blank">
                 <img src="./img/map-24px.png" alt="look-map">
                 <p>新北市</p>
               </a>
             </div>
-            <img src="./img/item (1).jpg" alt="item-jpg">
+            <img src="https://www.shop1688.com.tw/aom20201127029/item.jpg" alt="item-jpg">
           </div>
           <div class="card-item-name">
-            <h2>小米粒手作米飯糰</h2>
+            <h2>琳達時尚美學｜新竹眉眼唇紋繡、霧眉、美睫</h2>
           </div>
           <div class="card-items-btn">
             <div class="card-items-icon">
-              <img src="./img/sevenIcon/food.png" alt="icon">
+              <img src="./img/sevenIcon/furniture.png" alt="icon">
             </div>
-            <button class="card-btn">
+            <a class="card-btn" href="https://www.shop1688.com.tw/aom20201127029" target="_blank">
               <img src="./img/search-icon.png" alt="search-data">
               <p>查看商家</p>
-            </button>
+            </a>
           </div>
         </article>
         <article class="card-items">
           <div class="card-title">
             <div class="card-txt">
-              <p>Jc art studio</p>
+              <p>壹間髮型工作室｜ 師大公館特殊顏色染髮，台北大安美髮沙龍，師大公館高CP髮廊</p>
             </div>
             <div class="card-button">
               <img src="./img/Group 92.png" alt="card-button">
@@ -1908,30 +1926,30 @@
           </div>
           <div class="card-items-img">
             <div class="card-items-map">
-              <a class="shop-move-map">
+              <a class="shop-move-map" href="https://www.google.com/maps/place/25.0325917,121.5624999" target="_blank">
                 <img src="./img/map-24px.png" alt="look-map">
-                <p>新北市</p>
+                <p>臺北市</p>
               </a>
             </div>
-            <img src="./img/item (1).jpg" alt="item-jpg">
+            <img src="https://www.shop1688.com.tw/aom20201127043/item.jpg" alt="item-jpg">
           </div>
           <div class="card-item-name">
-            <h2>小米粒手作米飯糰</h2>
+            <h2>壹間髮型工作室｜ 師大公館特殊顏色染髮，台北大安美髮沙龍，師大公館高CP髮廊</h2>
           </div>
           <div class="card-items-btn">
             <div class="card-items-icon">
-              <img src="./img/sevenIcon/food.png" alt="icon">
+              <img src="./img/sevenIcon/furniture.png" alt="icon">
             </div>
-            <button class="card-btn">
+            <a class="card-btn" href="https://www.shop1688.com.tw/aom20201127043" target="_blank">
               <img src="./img/search-icon.png" alt="search-data">
               <p>查看商家</p>
-            </button>
+            </a>
           </div>
         </article>
         <article class="card-items">
           <div class="card-title">
             <div class="card-txt">
-              <p>Jc art studio</p>
+              <p>小米粒手作米飯糰│彰化手作米飯糰</p>
             </div>
             <div class="card-button">
               <img src="./img/Group 92.png" alt="card-button">
@@ -1939,28 +1957,28 @@
           </div>
           <div class="card-items-img">
             <div class="card-items-map">
-              <a class="shop-move-map">
+              <a class="shop-move-map" href="https://www.google.com/maps/place/24.0784536,120.5381487" target="_blank">
                 <img src="./img/map-24px.png" alt="look-map">
                 <p>新北市</p>
               </a>
             </div>
-            <img src="./img/item (1).jpg" alt="item-jpg">
+            <img src="https://www.shop1688.com.tw/aom20190531004/item.jpg" alt="item-jpg">
           </div>
           <div class="card-item-name">
-            <h2>小米粒手作米飯糰</h2>
+            <h2>小米粒手作米飯糰│彰化手作米飯糰</h2>
           </div>
           <div class="card-items-btn">
             <div class="card-items-icon">
               <img src="./img/sevenIcon/food.png" alt="icon">
             </div>
-            <button class="card-btn">
-              <img src="./img/search-icon.png" alt="search-data">
+            <a class="card-btn" href="https://www.shop1688.com.tw/aom20190531004">
+              <img src="./imgA/search-icon.png" alt="search-data">
               <p>查看商家</p>
-            </button>
+            </a>
           </div>
         </article>
         <article class="card-search-allShop">
-          <button class="search-allShop">
+          <button class="search-allShop" @click.stop="search">
             <img src="./img/组 125.png" alt="search-data">
             <p>查看商家</p>
           </button>
@@ -2118,7 +2136,7 @@
   <script src="https://www.gstatic.com/firebasejs/7.5.2/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/7.5.2/firebase-firestore.js"></script>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2.3.2/dist/email.min.js"></script>
-  <script src="./js/home.js?01"></script>
+  <script src="./js/home.js?02"></script>
   <script src="./js/email.js"></script>
 </body>
 
