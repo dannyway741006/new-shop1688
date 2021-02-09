@@ -386,7 +386,7 @@
     position: fixed;
     bottom: 150px;
     right: 10px;
-    z-index: 999999999;
+    z-index: 9999999999999;
     border-radius: 13px;
     display: none;
     justify-content: center;
@@ -1221,9 +1221,13 @@
             ul {
               height: 100%;
               width: 100%;
-              // border: 2px solid green;
+              border: 2px solid green;
               overflow-y: scroll;
+
               // padding: 20px 0;
+              .gray {
+                background-color: blue;
+              }
 
               li {
                 padding: 12px 5px 12px 20px;
@@ -2094,12 +2098,12 @@
     margin: 0 auto;
     height: 100%;
     padding-top: 150px;
-    padding-bottom: 150px;
+    padding-bottom: 0px;
     @include section-title;
 
     @include media(770px) {
-      padding-top: 100px;
-      padding-bottom: 100px;
+      padding-top: 150px;
+      padding-bottom: 0px;
     }
 
     .shop-title {
@@ -2278,7 +2282,7 @@
             &:after {
               content: '';
               position: absolute;
-              background-image: url(../../img/bg.png);
+              background-image: url(../../imgShop1688/bg.png);
               width: 90%;
               height: 100%;
               max-height: 612px;
@@ -2562,27 +2566,37 @@
   }
 
   .section-two {
-
+    padding-top: 150px;
     @include section-title;
     max-width: 1920px;
     display: flex;
     justify-content: flex-end;
     padding-right: 200px;
+    padding-top: 150px;
 
 
-    .shop-icon {
-      &::after {
-        right: 155px !important;
-      }
+    .shop-title {
+      .shop-icon {
+        .shop-title-icon {
+          max-width: 150px;
+          max-height: 150px;
+          left: 175px;
+          top: -25px;
 
-      &::before {
-        right: 155px !important;
+        }
+
+        &::after {
+          right: 155px;
+        }
+
+        &::before {
+          right: 155px;
+        }
       }
     }
 
-    .shop-title-icon {
-      left: 200px !important;
-    }
+
+
 
     // border: 1px solid palevioletred;
     margin: 0 auto;
@@ -2593,7 +2607,7 @@
     width: 100%;
     max-width: 1920px;
     margin: 0 auto;
-    padding: 75px 142px 150px 142px;
+    padding: 75px 142px 0px 142px;
 
     // height: 100vh;
     // min-height: 1431px;
@@ -2758,7 +2772,7 @@
             left: 20px;
             width: 33px;
             height: 41px;
-            background-image: url(../../img/shop-s.png);
+            background-image: url(../../imgShop1688/shop-s.png);
           }
 
           &::after {
@@ -3050,6 +3064,7 @@
     display: flex;
     justify-content: center;
     padding-bottom: 75px;
+    padding-top: 150px;
 
     .shop-title {
       padding-left: 0;
@@ -3249,7 +3264,7 @@
       justify-content: center;
       align-items: center;
       margin-top: 20px;
-      margin-bottom: 150px;
+      margin-bottom: 0px;
 
       .search-allShop {
         @include shopButton;
