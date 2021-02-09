@@ -239,11 +239,12 @@ new Vue({
 
   methods: {
     selectDown() {
-      // this.now++;
-      console.log(this.now++);
-      // console.log(this.input.type = this.titleMenu[0])
-      // if (this.now == this.titleMenu.length) this.now = -1;
-      // this.input.type = this.titleMenu[this.now];
+      this.now++;
+      // console.log(this.now++);
+      // console.log(this.input.type = this.titleMenu[this.now].title);
+
+      if (this.now == this.titleMenu.length) this.now = -1;
+      this.input.type = this.titleMenu[this.now].title;
     },
 
     changeHref(e) {

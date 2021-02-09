@@ -1795,12 +1795,7 @@
 .header .draggableArea .shop1688-web .web-content .web-search-bar .typeSearch ul {
   height: 100%;
   width: 100%;
-  border: 2px solid green;
   overflow-y: scroll;
-}
-
-.header .draggableArea .shop1688-web .web-content .web-search-bar .typeSearch ul .gray {
-  background-color: blue;
 }
 
 .header .draggableArea .shop1688-web .web-content .web-search-bar .typeSearch ul li {

@@ -249,7 +249,7 @@
                 @click.stop="openSearchItems">
                 <img src="./imgShop1688/type-icon.png" alt="type-icon">
                 <input id="storeType" autocomplete="off" v-model="input.type" type="text" required="required"
-                  @keyup.enter="search">
+                  @keyup.enter="search" @keyup.down="selectDown">
                 <label class="inputTitle">搜尋商家 / 分類</label>
               </article>
               <div class="typeSearch" :class="{'active-typeBtn':openTypeSearch,'active-close-typeBtn':closeTypeSearch}"
