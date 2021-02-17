@@ -360,11 +360,11 @@ new Vue({
 
       let Y;
       Y = Math.floor(window.pageYOffset);
-      console.log(Y);
-
+      // console.log(Y);
+      // console.log(resultPage.getBoundingClientRect().top)
       this.searchWord = "";
       if (this.resultPageSwitch === true || this.resultsMapSwitch === true) {
-        if (mapInputbox.getBoundingClientRect().top <= 0) {
+        if (resultPage.getBoundingClientRect().top <= 0) {
           this.creatScrollBar = false;
           this.scrollInput = true;
           if (this.openCitySearch === true || this.openTypeSearch === true) {
@@ -413,7 +413,7 @@ new Vue({
       let scrollLeft;
 
       slider.addEventListener('mousedown', (e) => {
-        console.log("asdfasdf")
+        // console.log("asdfasdf")
         isDown = true;
         slider.classList.add('active');
         startX = e.pageX - slider.offsetLeft;
@@ -547,7 +547,7 @@ new Vue({
           let i = 1;
           querySnapshot.forEach(doc => {
             // console.log(i++)
-            console.log(i++, doc.data().bid);
+            // console.log(i++, doc.data().bid);
             let temp = {
               title: '',
               cat: ''
@@ -585,7 +585,7 @@ new Vue({
     },
     //需加強！//
     food() {
-      console.log(this.typeData[0].title);
+      // console.log(this.typeData[0].title);
       this.mainSwitch = true;
       this.resultPageSwitch = false;
       this.typeTitle = this.typeData[0].title;
@@ -717,7 +717,7 @@ new Vue({
             return item.分類[0].includes(this.input.type);
           })
           if (this.input.type && this.input.city) {
-            console.log("close");
+            // console.log("close");
             this.scrollInput = true;
             this.resultPageSwitch = true;
             this.mainSwitch = true;
@@ -769,7 +769,7 @@ new Vue({
             this.filterItem = shopload.filter(item => {
               return item.分類[0].includes(this.input.type);
             })
-            console.log(this.filterItem);
+            // console.log(this.filterItem);
             if (this.filterItem.length === 0) {
               this.textword = "很抱歉...查無此商家,請重新搜尋。"
             }
@@ -1093,9 +1093,9 @@ new Vue({
                 });
                 this.lat = res.geometry.location.lat();
                 this.lng = res.geometry.location.lng();
-                console.log(res.geometry.location.lng());
-                console.log(res.geometry.location.lat());
-                console.log(this.lat);
+                // console.log(res.geometry.location.lng());
+                // console.log(res.geometry.location.lat());
+                // console.log(this.lat);
                 this.markers.push(marker);
                 const infowindow = new google.maps.InfoWindow({
                   // 設定想要顯示的內容
