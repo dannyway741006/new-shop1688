@@ -360,8 +360,9 @@ new Vue({
         document.body.scrollTop
       let header = document.querySelector('.header');
       let Y;
-      // console.log()
+
       Y = Math.floor(window.pageYOffset);
+      console.log(Y)
       // console.log(header.getBoundingClientRect().bottom);
       this.searchWord = "";
       if (header.getBoundingClientRect().bottom <= 0) {
@@ -520,7 +521,7 @@ new Vue({
           let i = 1;
           querySnapshot.forEach(doc => {
             // console.log(i++)
-            // console.log(i++, doc.data().bid);
+            console.log(i++, doc.data().名稱);
             let temp = {
               title: '',
               cat: ''
