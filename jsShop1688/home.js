@@ -520,7 +520,7 @@ new Vue({
           let i = 1;
           querySnapshot.forEach(doc => {
             // console.log(i++)
-            console.log(i++, doc.data().bid);
+            // console.log(i++, doc.data().bid);
             let temp = {
               title: '',
               cat: ''
