@@ -5,6 +5,34 @@
 
 }
 
+.goTop {
+  width: 40px;
+  height: 40px;
+  position: fixed;
+  bottom: 30px;
+  right: 15px;
+  border-radius: 50%;
+  z-index: 99;
+  opacity: 0;
+  transform: scale(0);
+  transition: all 0.3s;
+  cursor: pointer;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+
+  }
+}
+
+.active-goTop {
+  opacity: 1;
+  transform: scale(1.1);
+
+
+}
 
 
 .mask-all {
@@ -356,9 +384,9 @@
     background-color: rgba(0, 0, 0, 0.4);
     cursor: pointer;
     position: fixed;
-    bottom: 70px;
-    right: 20px;
-    z-index: 999999999;
+    bottom: 150px;
+    right: 10px;
+    z-index: 9999999999999;
     border-radius: 13px;
     display: none;
     justify-content: center;
@@ -1195,7 +1223,9 @@
               width: 100%;
               // border: 2px solid green;
               overflow-y: scroll;
+
               // padding: 20px 0;
+
 
               li {
                 padding: 12px 5px 12px 20px;
@@ -2066,12 +2096,12 @@
     margin: 0 auto;
     height: 100%;
     padding-top: 150px;
-    padding-bottom: 150px;
+    padding-bottom: 0px;
     @include section-title;
 
     @include media(770px) {
-      padding-top: 100px;
-      padding-bottom: 100px;
+      padding-top: 150px;
+      padding-bottom: 0px;
     }
 
     .shop-title {
@@ -2250,7 +2280,7 @@
             &:after {
               content: '';
               position: absolute;
-              background-image: url(../../img/bg.png);
+              background-image: url(../../imgShop1688/bg.png);
               width: 90%;
               height: 100%;
               max-height: 612px;
@@ -2534,27 +2564,37 @@
   }
 
   .section-two {
-
+    padding-top: 150px;
     @include section-title;
     max-width: 1920px;
     display: flex;
     justify-content: flex-end;
     padding-right: 200px;
+    padding-top: 150px;
 
 
-    .shop-icon {
-      &::after {
-        right: 155px !important;
-      }
+    .shop-title {
+      .shop-icon {
+        .shop-title-icon {
+          max-width: 150px;
+          max-height: 150px;
+          left: 175px;
+          top: -25px;
 
-      &::before {
-        right: 155px !important;
+        }
+
+        &::after {
+          right: 155px;
+        }
+
+        &::before {
+          right: 155px;
+        }
       }
     }
 
-    .shop-title-icon {
-      left: 200px !important;
-    }
+
+
 
     // border: 1px solid palevioletred;
     margin: 0 auto;
@@ -2565,7 +2605,7 @@
     width: 100%;
     max-width: 1920px;
     margin: 0 auto;
-    padding: 75px 142px 150px 142px;
+    padding: 75px 142px 0px 142px;
 
     // height: 100vh;
     // min-height: 1431px;
@@ -2730,7 +2770,7 @@
             left: 20px;
             width: 33px;
             height: 41px;
-            background-image: url(../../img/shop-s.png);
+            background-image: url(../../imgShop1688/shop-s.png);
           }
 
           &::after {
@@ -3022,6 +3062,7 @@
     display: flex;
     justify-content: center;
     padding-bottom: 75px;
+    padding-top: 150px;
 
     .shop-title {
       padding-left: 0;
@@ -3124,9 +3165,11 @@
         width: 100%;
         // border: 1px solid gold;
         display: flex;
-        justify-content: center;
+        justify-content: flex-start;
         align-items: center;
         z-index: 1;
+        padding-left: 22%;
+        padding-right: 5%;
 
         // width: 100%;
         &::after {
@@ -3143,17 +3186,20 @@
         }
 
         h2 {
-          padding-left: 90px;
-          padding-right: 60px;
+
           display: flex;
-          justify-content: flex-end;
+          justify-content: flex-start;
           width: 100%;
           @include font-item-name;
           overflow: hidden;
+
           text-overflow: ellipsis;
-          white-space: nowrap;
+          display: -webkit-box;
+          -webkit-line-clamp: 1;
+          -webkit-box-orient: vertical;
+          white-space: normal;
           // border: 1px solid rebeccapurple;
-          // color: #ffffff;
+
           z-index: 1;
           color: #ffffff;
 
@@ -3216,7 +3262,7 @@
       justify-content: center;
       align-items: center;
       margin-top: 20px;
-      margin-bottom: 150px;
+      margin-bottom: 0px;
 
       .search-allShop {
         @include shopButton;

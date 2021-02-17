@@ -519,8 +519,8 @@
     }
 
     .section-two {
-
       padding: 0;
+      padding-top: 150px;
       display: flex;
       justify-content: center;
 
@@ -1078,7 +1078,7 @@
   }
 
   .header {
-    background-image: url("../../img/258.png");
+    background-image: url("https://www.shop1688.com.tw/imgShop1688/258.png");
     min-height: auto;
 
     .headerBar {
@@ -1709,7 +1709,7 @@
         }
 
         &:hover {
-          z-index: 0;
+          z-index: 99999999999;
         }
 
         .active-dock {
@@ -1815,7 +1815,7 @@
     }
 
     .section-two {
-      padding: 0;
+
       display: flex;
       justify-content: center;
 
@@ -1825,6 +1825,13 @@
 
 
         .shop-icon {
+          .shop-title-icon {
+            max-width: 90px;
+            max-height: 90px;
+            left: -52px;
+            top: -20px;
+          }
+
           h2 {
             @include font-p-level2;
             padding: 14px 38px;
@@ -1856,14 +1863,7 @@
             width: 0px;
           }
 
-          .shop-title-icon {
-            max-width: 70px;
-            max-height: 70px;
-            left: -40px !important;
-            top: -9px;
 
-
-          }
         }
       }
     }

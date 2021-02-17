@@ -6,6 +6,37 @@
           box-sizing: border-box;
 }
 
+.goTop {
+  width: 40px;
+  height: 40px;
+  position: fixed;
+  bottom: 30px;
+  right: 15px;
+  border-radius: 50%;
+  z-index: 99;
+  opacity: 0;
+  -webkit-transform: scale(0);
+          transform: scale(0);
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.goTop img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+
+.active-goTop {
+  opacity: 1;
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
 .mask-all {
   position: fixed;
   width: 100%;
@@ -792,7 +823,7 @@
   min-height: 700px;
   margin: 0 auto;
   background-color: #5F98B4;
-  background-image: url("../img/headerBoxBg.png");
+  background-image: url("https://www.shop1688.com.tw/imgShop1688/headerBoxBg.png");
   background-position: center;
   background-repeat: repeat;
 }
@@ -803,9 +834,9 @@
   background-color: rgba(0, 0, 0, 0.4);
   cursor: pointer;
   position: fixed;
-  bottom: 70px;
-  right: 20px;
-  z-index: 999999999;
+  bottom: 150px;
+  right: 10px;
+  z-index: 9999999999999;
   border-radius: 13px;
   display: none;
   -webkit-box-pack: center;
@@ -2653,7 +2684,7 @@
   margin: 0 auto;
   height: 100%;
   padding-top: 150px;
-  padding-bottom: 150px;
+  padding-bottom: 0px;
 }
 
 .main .all-section .shop-title {
@@ -2667,7 +2698,7 @@
 }
 
 .main .all-section .shop-title .shop-icon {
-  background-image: url("../../img/bg.png");
+  background-image: url("https://www.shop1688.com.tw/imgShop1688/bg.png");
   background-position: center;
   background-size: cover;
   display: inline-block;
@@ -2728,8 +2759,8 @@
 
 @media (max-width: 770px) {
   .main .all-section {
-    padding-top: 100px;
-    padding-bottom: 100px;
+    padding-top: 150px;
+    padding-bottom: 0px;
   }
 }
 
@@ -2804,7 +2835,7 @@
 }
 
 .main .all-section .section-hot-shop .hot-shop-w50 .shop-title-cover .shop-title .shop-icon {
-  background-image: url("../../img/bg.png");
+  background-image: url("https://www.shop1688.com.tw/imgShop1688/bg.png");
   background-position: center;
   background-size: cover;
   display: inline-block;
@@ -3082,7 +3113,7 @@
 .main .all-section .section-hot-shop .hot-shop-w50 .shop-content .shop-color-border:after {
   content: '';
   position: absolute;
-  background-image: url(../../img/bg.png);
+  background-image: url(../../imgShop1688/bg.png);
   width: 90%;
   height: 100%;
   max-height: 612px;
@@ -3543,6 +3574,7 @@
 }
 
 .main .section-two {
+  padding-top: 150px;
   max-width: 1920px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -3551,6 +3583,7 @@
       -ms-flex-pack: end;
           justify-content: flex-end;
   padding-right: 200px;
+  padding-top: 150px;
   margin: 0 auto;
 }
 
@@ -3565,7 +3598,7 @@
 }
 
 .main .section-two .shop-title .shop-icon {
-  background-image: url("../../img/bg.png");
+  background-image: url("https://www.shop1688.com.tw/imgShop1688/bg.png");
   background-position: center;
   background-size: cover;
   display: inline-block;
@@ -3624,23 +3657,26 @@
   top: -17px;
 }
 
-.main .section-two .shop-icon::after {
-  right: 155px !important;
+.main .section-two .shop-title .shop-icon .shop-title-icon {
+  max-width: 150px;
+  max-height: 150px;
+  left: 175px;
+  top: -25px;
 }
 
-.main .section-two .shop-icon::before {
-  right: 155px !important;
+.main .section-two .shop-title .shop-icon::after {
+  right: 155px;
 }
 
-.main .section-two .shop-title-icon {
-  left: 200px !important;
+.main .section-two .shop-title .shop-icon::before {
+  right: 155px;
 }
 
 .main .choice-shop {
   width: 100%;
   max-width: 1920px;
   margin: 0 auto;
-  padding: 75px 142px 150px 142px;
+  padding: 75px 142px 0px 142px;
 }
 
 .main .choice-shop .choice-section {
@@ -3830,7 +3866,7 @@
   left: 20px;
   width: 33px;
   height: 41px;
-  background-image: url(../../img/shop-s.png);
+  background-image: url(../../imgShop1688/shop-s.png);
 }
 
 .main .choice-shop .choice-section .choice-tab .active::after {
@@ -4304,6 +4340,7 @@
       -ms-flex-pack: center;
           justify-content: center;
   padding-bottom: 75px;
+  padding-top: 150px;
 }
 
 .main .section-three .shop-title {
@@ -4317,7 +4354,7 @@
 }
 
 .main .section-three .shop-title .shop-icon {
-  background-image: url("../../img/bg.png");
+  background-image: url("https://www.shop1688.com.tw/imgShop1688/bg.png");
   background-position: center;
   background-size: cover;
   display: inline-block;
@@ -4635,13 +4672,15 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   z-index: 1;
+  padding-left: 22%;
+  padding-right: 5%;
 }
 
 .main .all-card-shop .card-items .card-item-name::after {
@@ -4657,14 +4696,11 @@
 }
 
 .main .all-card-shop .card-items .card-item-name h2 {
-  padding-left: 90px;
-  padding-right: 60px;
-  display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   width: 100%;
   font-size: 20px;
   letter-spacing: 0.6px;
@@ -4672,7 +4708,10 @@
   color: #2D2D2D;
   overflow: hidden;
   text-overflow: ellipsis;
-  white-space: nowrap;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  white-space: normal;
   z-index: 1;
   color: #ffffff;
 }
@@ -4823,7 +4862,7 @@
       -ms-flex-align: center;
           align-items: center;
   margin-top: 20px;
-  margin-bottom: 150px;
+  margin-bottom: 0px;
 }
 
 .main .all-card-shop .card-search-allShop .search-allShop {
@@ -4984,7 +5023,7 @@
 }
 
 .resultPage .shop-title .shop-icon {
-  background-image: url("../../img/bg.png");
+  background-image: url("https://www.shop1688.com.tw/imgShop1688/bg.png");
   background-position: center;
   background-size: cover;
   display: inline-block;
@@ -5558,7 +5597,7 @@
   display: flex;
   height: 100vh;
   min-height: 800px;
-  padding-top: 97px;
+  padding-top: 92px;
   max-width: 1920px;
   margin: 0 auto;
   position: relative;
@@ -7625,6 +7664,7 @@
   }
   .main .section-two {
     padding: 0;
+    padding-top: 150px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -8083,7 +8123,7 @@
             box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.3);
   }
   .header {
-    background-image: url("../../img/258.png");
+    background-image: url("https://www.shop1688.com.tw/imgShop1688/258.png");
     min-height: auto;
   }
   .header .headerBar {
@@ -8649,7 +8689,7 @@
     height: 66px;
   }
   .header .draggableArea .dock-box:hover {
-    z-index: 0;
+    z-index: 99999999999;
   }
   .header .draggableArea .dock-box .active-dock {
     display: -webkit-box;
@@ -8737,7 +8777,6 @@
     top: -9px;
   }
   .main .section-two {
-    padding: 0;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -8748,6 +8787,12 @@
   .main .section-two .shop-title {
     padding: 0;
     padding-left: 30px;
+  }
+  .main .section-two .shop-title .shop-icon .shop-title-icon {
+    max-width: 90px;
+    max-height: 90px;
+    left: -52px;
+    top: -20px;
   }
   .main .section-two .shop-title .shop-icon h2 {
     font-size: 16px;
@@ -8777,12 +8822,6 @@
     left: 81px;
     position: absolute;
     width: 0px;
-  }
-  .main .section-two .shop-title .shop-icon .shop-title-icon {
-    max-width: 70px;
-    max-height: 70px;
-    left: -40px !important;
-    top: -9px;
   }
   .main .section-three {
     padding-bottom: 47.5px;
@@ -9286,6 +9325,7 @@ body.modalOpen {
 
 .email-shop1688 {
   margin-bottom: 96px;
+  padding-top: 150px;
 }
 
 .container {
@@ -9521,7 +9561,7 @@ body.modalOpen {
 
 .view-slogan p::after {
   content: '';
-  background: url(../../img/title_bg.png) no-repeat center;
+  background: url(https://www.shop1688.com.tw/imgShop1688/title_bg.png) no-repeat center;
   display: block;
   position: absolute;
   width: 100%;
@@ -9680,7 +9720,7 @@ body.modalOpen {
 
 .startBtn::before {
   content: '';
-  background: url(https://www.shop1688.com.tw/newShop1688/img/arrow_email.png) no-repeat center;
+  background: url(https://www.shop1688.com.tw/imgShop1688/arrow_email.png) no-repeat center;
   display: block;
   position: absolute;
   width: 46px;
