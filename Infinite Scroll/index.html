@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./cssShop1688/main.css">
+  <title>Document</title>
+</head>
+
+<body>
+  <section id="app">
+    <div class="searchBar">
+      <form>
+        <select name="location" v-model="option">
+          　<option v-for="item in cityData" :value="item">{{item}}</option>
+        </select>
+
+      </form>
+      <button class="button" @click="search">搜尋</button>
+    </div>
+
+    <div class="header">
+
+      <img v-for="item in newData" :src="`https://www.shop1688.com.tw/${item.bid}/item.jpg`" alt="#">
+    </div>
+    <div class="loading_message">
+      <p class="word">load reviews...</p>
+    </div>
+    <div class="load_more">
+      <button class="bottom_btn" @click.stop="fireData" :disabled="isDisabl">load more</button>
+    </div>
+
+  </section>
+</body>
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.9/vue.js'></script>
+<script src="https://www.gstatic.com/firebasejs/7.5.2/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.5.2/firebase-firestore.js"></script>
+<script src="./js/index.js"></script>
+
+</html>
