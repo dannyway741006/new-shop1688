@@ -484,10 +484,10 @@
 
         &:hover {
           .typeItems {
-            animation-duration: 0.8s;
+            animation-duration: 0.7s;
             animation-name: typeFile;
             animation-fill-mode: forwards;
-            animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+            animation-timing-function: cubic-bezier(0.075, 0.32, 0.165, 1);
             z-index: 9999;
           }
 
@@ -497,7 +497,7 @@
             }
 
             to {
-              max-height: 261px;
+              max-height: 270px;
             }
           }
         }
