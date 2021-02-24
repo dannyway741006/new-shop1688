@@ -957,14 +957,14 @@
 }
 
 .header .headerBar .headerBar-w50 .typeBtn:hover .typeItems {
-  -webkit-animation-duration: 0.8s;
-          animation-duration: 0.8s;
+  -webkit-animation-duration: 0.7s;
+          animation-duration: 0.7s;
   -webkit-animation-name: typeFile;
           animation-name: typeFile;
   -webkit-animation-fill-mode: forwards;
           animation-fill-mode: forwards;
-  -webkit-animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
-          animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+  -webkit-animation-timing-function: cubic-bezier(0.075, 0.32, 0.165, 1);
+          animation-timing-function: cubic-bezier(0.075, 0.32, 0.165, 1);
   z-index: 9999;
 }
 
@@ -973,7 +973,7 @@
     max-height: 0px;
   }
   to {
-    max-height: 261px;
+    max-height: 270px;
   }
 }
 
@@ -982,7 +982,7 @@
     max-height: 0px;
   }
   to {
-    max-height: 261px;
+    max-height: 270px;
   }
 }
 
